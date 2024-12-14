@@ -25,7 +25,10 @@ export default function ArticleGrid() {
     );
   } else if (articleStatus === "rejected") {
     content = (
-      <div className="text-red-500" suppressHydrationWarning={true}>
+      <div
+        className="text-red-500 h-screen w-full flex justify-center items-center"
+        suppressHydrationWarning={true}
+      >
         {articleError || "Failed to load articles."}
       </div>
     );
