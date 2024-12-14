@@ -19,11 +19,11 @@ export default function SearchBar() {
 
       if (searchVal.trim() && containsValidCharacters(searchVal.trim())) {
         dispatch(fetchArticles(searchVal.trim()));
-        setSearchReq(false);
       } else if (searchVal.trim() == "") {
         dispatch(fetchArticles(""));
-        setSearchReq(false);
       } else alert("Enter a valid search");
+
+      setSearchReq(false);
     }
   };
 

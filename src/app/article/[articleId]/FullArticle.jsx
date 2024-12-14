@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   getArticleError,
@@ -14,23 +14,32 @@ export default function FullArticle({ params }) {
   const articleStatus = useSelector(getArticleStatus);
   const articleError = useSelector(getArticleError);
 
-  // Default content to prevent SSR/CSR mismatches
-  let content = (
-    <div
-      className="h-screen w-full flex justify-center items-center"
-      suppressHydrationWarning={true}
-    >
-      Loading article...
-    </div>
-  );
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  if (articleStatus === "fulfilled" && article) {
+  useEffect(() => {
+    setIsLoaded(true);
+  });
+
+  if (!isLoaded) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        Loading article...
+      </div>
+    );
+  }
+
+  let content;
+
+  if (articleStatus === "pending") {
     content = (
-      <div
-        className="text-white rounded-lg min-h-screen p-4"
-        suppressHydrationWarning={true}
-      >
-        <div className="flex flex-col gap-2" suppressHydrationWarning={true}>
+      <div className="h-screen flex items-center justify-center">
+        Loading article...
+      </div>
+    );
+  } else if (articleStatus === "fulfilled" && article) {
+    content = (
+      <div className="text-white rounded-lg min-h-screen p-4">
+        <div className="flex flex-col gap-2">
           <h1 className="text-5xl font-semibold basis-auto">
             {article.title || "Unknown Title"}
           </h1>
@@ -56,19 +65,13 @@ export default function FullArticle({ params }) {
     );
   } else if (articleStatus === "rejected") {
     content = (
-      <div className="text-red-500 text-center" suppressHydrationWarning={true}>
+      <div className="text-red-500 h-screen flex justify-center items-center">
         {articleError || "Failed to load article."}
       </div>
     );
   }
 
   return (
-    <div className="my-10">
-      {content || (
-        <div className="text-center" suppressHydrationWarning={true}>
-          No articles available
-        </div>
-      )}
-    </div>
+    <>{content || <div className="text-center">No articles available</div>}</>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Article from "./Article";
 import { useSelector } from "react-redux";
 import {
@@ -14,21 +14,31 @@ export default function ArticleGrid() {
   const articleStatus = useSelector(getArticleStatus);
   const articleError = useSelector(getArticleError);
 
-  let content;
-  const hasArticles = articleStatus === "fulfilled" && articleIds.length > 0;
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  if (articleStatus === "pending") {
-    content = (
-      <div className="h-96 flex items-center" suppressHydrationWarning={true}>
+  useEffect(() => {
+    setIsLoaded(true);
+  });
+
+  if (!isLoaded) {
+    return (
+      <div className="h-screen flex items-center justify-center">
         Loading articles...
       </div>
     );
+  }
+
+  let content;
+  const hasArticles =
+    articleStatus === "fulfilled" && articleIds.length > 0 && isLoaded;
+
+  if (articleStatus === "pending") {
+    content = (
+      <div className="h-screen flex items-center">Loading articles...</div>
+    );
   } else if (articleStatus === "rejected") {
     content = (
-      <div
-        className="text-red-500 h-screen w-full flex justify-center items-center"
-        suppressHydrationWarning={true}
-      >
+      <div className="text-red-500 h-screen w-full flex justify-center items-center">
         {articleError || "Failed to load articles."}
       </div>
     );
@@ -38,19 +48,14 @@ export default function ArticleGrid() {
     ));
   } else {
     content = (
-      <div className="h-96 flex items-center" suppressHydrationWarning={true}>
-        No articles available
-      </div>
+      <div className="h-screen flex items-center">No articles available</div>
     );
   }
 
   // Default to a consistent structure
   return (
     <div className="my-20 mx-4 flex justify-center">
-      <div
-        className={`grid ${hasArticles ? "grid-cols-3 gap-10" : "gap-10"}`}
-        suppressHydrationWarning={true}
-      >
+      <div className={`grid ${hasArticles ? "grid-cols-3 gap-10" : "gap-10"}`}>
         {content}
       </div>
     </div>

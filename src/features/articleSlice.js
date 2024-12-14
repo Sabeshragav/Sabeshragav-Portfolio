@@ -59,8 +59,12 @@ const articleSlice = createSlice({
         state.status = "rejected";
       })
       .addCase(fetchArticles.fulfilled, (state, action) => {
-        articleAdapter.setAll(state, action.payload);
-        state.status = "fulfilled";
+        if (action.payload.message) {
+          state.status = "rejected";
+        } else {
+          articleAdapter.setAll(state, action.payload);
+          state.status = "fulfilled";
+        }
       })
       .addCase(addEnquiry.fulfilled, (state, action) => {
         state.message = action.payload.message;
