@@ -72,6 +72,12 @@ export default function FullArticle({ params }) {
   }
 
   return (
-    <>{content || <div className="text-center">No articles available</div>}</>
+    <>
+      {content || (
+        <div className="text-center h-screen flex justify-center items-center">
+          No articles available
+        </div>
+      )}
+    </>
   );
 }
