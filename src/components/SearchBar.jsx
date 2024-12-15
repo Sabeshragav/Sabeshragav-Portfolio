@@ -47,6 +47,7 @@ export default function SearchBar() {
       </form>
 
       <button
+        title="Search"
         disabled={searchReq}
         onClick={(e) => handleSearch(e)}
         className={`border rounded-full p-2 ${
