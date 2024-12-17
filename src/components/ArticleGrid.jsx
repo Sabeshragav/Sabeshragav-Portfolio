@@ -55,7 +55,11 @@ export default function ArticleGrid() {
   // Default to a consistent structure
   return (
     <div className="my-20 mx-4 flex justify-center">
-      <div className={`grid ${hasArticles ? "grid-cols-3 gap-10" : "gap-10"}`}>
+      <div
+        className={`grid ${
+          hasArticles ? "grid-cols-1 sm:grid-cols-3 gap-10" : "gap-10"
+        }`}
+      >
         {content}
       </div>
     </div>

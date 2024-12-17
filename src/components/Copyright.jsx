@@ -7,8 +7,8 @@ const Copyright = () => {
         &copy;
         <span suppressHydrationWarning>{new Date().getFullYear()}</span>
       </h1>
-      <span className="lg:text-xl font-medium border-r-3 border-r-gray-600 pr-2">
-        Blog
+      <span className="lg:text-xl font-medium border-r-3 border-r-gray-600">
+        Sabeshragav Blog
       </span>
       <span className="lg:text-xl font-medium"> All rights reserved.</span>
     </footer>
