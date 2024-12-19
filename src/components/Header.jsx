@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="bg-black text-white flex items-center justify-between p-4 border-b border-b-gray-600">
       <Link href={"/"} title="NextJs Blogspot">
-        <h1 className="text-3xl font-bold">NextJs Blogspot</h1>
+        <h1 className="text-3xl font-bold ">NextJs Blogspot</h1>
       </Link>
 
       <ul className="flex items-center justify-center gap-5 text-blue-500">
