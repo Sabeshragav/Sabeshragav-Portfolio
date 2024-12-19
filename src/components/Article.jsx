@@ -38,6 +38,7 @@ export default function Article({ articleId }) {
 
   return (
     <Link
+      tabIndex={-1}
       href={`/article/${article.id}`}
       className="text-black relative rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg"
     >
