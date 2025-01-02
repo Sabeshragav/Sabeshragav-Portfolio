@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "@styles/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Copyright from "@/components/Copyright";
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <UnderDevelopment />
+          {/* <UnderDevelopment /> */}
           <Header />
           {children}
           <Copyright />

@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const connectMongo = async () => {
-  mongoose.connect(process.env.MONGO_URL);
+  try {
+    await mongoose.connect(process.env.MONGO_URL);
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 export default connectMongo;

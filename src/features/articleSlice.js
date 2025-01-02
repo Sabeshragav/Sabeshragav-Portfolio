@@ -21,11 +21,8 @@ export const fetchArticles = createAsyncThunk(
     let response;
 
     if (initialState) {
-      response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/articles?search=${initialState}`
-      );
-    } else
-      response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/articles`);
+      response = await axios.get(`/api/articles?search=${initialState}`);
+    } else response = await axios.get(`/api/articles`);
 
     return response.data;
   }
@@ -35,10 +32,7 @@ export const addEnquiry = createAsyncThunk(
   "addEnquiry",
   async (enquiryDataa) => {
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/enquiry`,
-        enquiryDataa
-      );
+      const response = await axios.post(`/api/enquiry`, enquiryDataa);
       return response.data;
     } catch (error) {
       console.log(error.message);

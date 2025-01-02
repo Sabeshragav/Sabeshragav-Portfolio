@@ -24,6 +24,13 @@ export default function Header() {
             Contact
           </Link>
         </li>
+        <li>
+          <Link href="/login">
+            <h1 className="px-4 py-2 bg-neutral-600 text-white rounded-lg shadow-md hover:bg-neutral-700 font-medium transition">
+              Login
+            </h1>
+          </Link>
+        </li>
       </ul>
     </header>
   );
