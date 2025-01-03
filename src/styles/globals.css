@@ -11,3 +11,34 @@ body {
 input[type="password"]::-ms-reveal {
   display: none;
 }
+
+@layer components {
+  .black_gray_gradient {
+    @apply bg-gradient-to-br from-black to-gray-900;
+  }
+
+  .blue_purple_gradient {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .dropdown {
+    @apply absolute right-2 mt-3 top-12 p-2 rounded-lg bg-gray-800 min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .glassmorphism {
+    @apply rounded-xl bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+  }
+}
+
+@keyframes custom-pulse {
+  20% {
+    opacity: 0.2;
+  }
+}
+.custom-animate-pulse {
+  animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

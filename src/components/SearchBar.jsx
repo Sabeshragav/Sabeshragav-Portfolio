@@ -28,7 +28,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 pb-7 border-b border-b-gray-800 md:border-none">
       <form
         onSubmit={(e) => handleSearch(e)}
         className="gap-2 border rounded-full flex items-center justify-center p-2"
@@ -42,7 +42,7 @@ export default function SearchBar() {
           className="outline-none text-lg text-gray-200 rounded-r-full bg-transparent"
           type="text"
           id="datasetInp"
-          placeholder="Search Articles"
+          placeholder="Search Projects"
         />
       </form>
 

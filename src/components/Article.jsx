@@ -40,12 +40,12 @@ export default function Article({ articleId }) {
     <Link
       tabIndex={-1}
       href={`/article/${article.id}`}
-      className="text-black relative rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg"
+      className="text-black relative rounded-lg"
     >
       <img
         className="h-96 w-96 rounded-lg opacity-85"
-        src={article.image || "/default-placeholder.jpg"} // Use a fallback image
-        alt={article.title || "Default title"}
+        src={article.image || "/iconify.png"} // Use a fallback image
+        alt={article.title || "Untitled"}
       />
       <div className="absolute -bottom-1 rounded-t-3xl rounded-b-lg w-full border bg-white p-3">
         <h3 className="text-3xl font-semibold">

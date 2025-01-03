@@ -1,10 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
+import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
 import axios from "axios";
+import { getAllProviders } from "@features/authSlice";
+import { useSelector } from "react-redux";
+import { signIn } from "next-auth/react";
 
 const Signup = () => {
+  const providers = useSelector(getAllProviders);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,14 +24,12 @@ const Signup = () => {
     confirmPassword: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false); // State for showing password
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State for showing confirm password
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // Reset the error message for the field being edited
     setErrors({ ...errors, [name]: "" });
   };
 
@@ -44,7 +47,7 @@ const Signup = () => {
       newErrors.name = "Name is required.";
       valid = false;
     } else if (!containsLetters(formData.name)) {
-      newErrors.name = "Name should be valid alphabets.";
+      newErrors.name = "Name should contain valid alphabets.";
       valid = false;
     }
 
@@ -89,7 +92,7 @@ const Signup = () => {
     if (validateForm()) {
       try {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/login`,
+          `${process.env.NEXT_PUBLIC_API_URL}/signup`,
           formData
         );
         console.log(response.data.token);
@@ -99,26 +102,35 @@ const Signup = () => {
     }
   };
 
+  const handleGoogleSignup = (Id) => {
+    signIn(Id);
+  };
+
+  const handleGithubSignup = () => {
+    // Implement GitHub signup logic here
+    console.log("GitHub signup clicked");
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl shadow-2xl p-8 transition-all duration-300 ease-in-out hover:shadow-3xl">
         <Link
           href="/"
-          className="text-purple-600 hover:text-purple-800 mb-4 inline-block"
+          className="text-white hover:text-gray-300 transition-all duration-200 mb-6 inline-block transform hover:scale-125"
         >
           &larr; Home
         </Link>
-        <h2 className="text-2xl font-bold text-gray-800 text-center">
+        <h2 className="text-4xl font-bold text-white text-center mb-2">
           Sign Up
         </h2>
-        <p className="text-sm text-gray-600 text-center mt-2">
+        <p className="text-sm text-gray-300 text-center mb-8">
           Create an account to get started.
         </p>
-        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300 mb-1"
             >
               Name
             </label>
@@ -130,16 +142,16 @@ const Signup = () => {
               onChange={handleChange}
               placeholder="Enter your name"
               required
-              className="text-sm text-black w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
             />
             {errors.name && (
-              <span className="text-red-600 text-xs">{errors.name}</span>
+              <p className="mt-1 text-red-500 text-xs">{errors.name}</p>
             )}
           </div>
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300 mb-1"
             >
               Email
             </label>
@@ -151,16 +163,16 @@ const Signup = () => {
               onChange={handleChange}
               placeholder="Enter your email"
               required
-              className="text-sm text-black w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
             />
             {errors.email && (
-              <span className="text-red-600 text-xs">{errors.email}</span>
+              <p className="mt-1 text-red-500 text-xs">{errors.email}</p>
             )}
           </div>
           <div className="relative">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300 mb-1"
             >
               Password
             </label>
@@ -172,26 +184,25 @@ const Signup = () => {
               onChange={handleChange}
               placeholder="Create a password"
               required
-              className="text-sm text-black w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 appearance-none"
+              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
             />
-            {/* Show eye icon only if password field is not empty */}
             {formData.password && (
-              <span
+              <button
+                type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-9 cursor-pointer text-gray-500"
+                className="absolute right-3 top-8 text-gray-400 hover:text-gray-200 transition-colors duration-200"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
+              </button>
             )}
             {errors.password && (
-              <span className="text-red-600 text-xs">{errors.password}</span>
+              <p className="mt-1 text-red-500 text-xs">{errors.password}</p>
             )}
           </div>
-
           <div className="relative">
             <label
               htmlFor="confirmPassword"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-300 mb-1"
             >
               Confirm Password
             </label>
@@ -203,34 +214,62 @@ const Signup = () => {
               onChange={handleChange}
               placeholder="Confirm your password"
               required
-              className="text-sm text-black w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 appearance-none"
+              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
             />
-            {/* Show eye icon only if confirmPassword field is not empty */}
             {formData.confirmPassword && (
-              <span
+              <button
+                type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-3 top-9 cursor-pointer text-gray-500"
+                className="absolute right-3 top-8 text-gray-400 hover:text-gray-200 transition-colors duration-200"
               >
                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
+              </button>
             )}
             {errors.confirmPassword && (
-              <span className="text-red-600 text-xs">
+              <p className="mt-1 text-red-500 text-xs">
                 {errors.confirmPassword}
-              </span>
+              </p>
             )}
           </div>
-
           <button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-medium shadow-md transition"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium shadow-md transition-all duration-200 transform hover:scale-105"
           >
             Sign Up
           </button>
         </form>
-        <p className="text-sm text-gray-600 text-center mt-4">
+
+        <div className="mt-8">
+          <p className="text-sm text-gray-400 text-center mb-4">
+            Or sign up with
+          </p>
+          <div className="flex space-x-4">
+            {/* Google */}
+            <button
+              onClick={() => providers && handleGoogleSignup("google")}
+              className="flex-1 flex items-center justify-center bg-white text-gray-800 py-2 rounded-lg font-medium shadow-md transition-all duration-200 hover:bg-gray-100 transform hover:scale-105"
+            >
+              <FaGoogle className="mr-2" />
+              Google
+            </button>
+
+            {/* Github */}
+            <button
+              onClick={handleGithubSignup}
+              className="flex-1 flex items-center justify-center bg-gray-800 text-white py-2 rounded-lg font-medium shadow-md transition-all duration-200 hover:bg-gray-700 transform hover:scale-105"
+            >
+              <FaGithub className="mr-2" />
+              GitHub
+            </button>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-400 text-center mt-8">
           Already have an account?{" "}
-          <Link href="/login" className="text-purple-600 hover:underline">
+          <Link
+            href="/login"
+            className="text-blue-400 hover:text-blue-300 hover:underline font-semibold transition-colors duration-200"
+          >
             Log in here
           </Link>
         </p>

@@ -1,15 +1,16 @@
-import ArticleGrid from "@/components/ArticleGrid";
-import SearchBar from "@/components/SearchBar";
-import Welcome from "@/components/Welcome";
+const logo = "/logo.png";
+
+export const metadata = {
+  icons: logo,
+  title: "Sabeshragav",
+  description:
+    "A professional blogspot to explore and connect with Sabeshragav G K",
+};
 
 export default function Home() {
   return (
-    <>
-      <div className="m-4 flex flex-col sm:flex-row justify-between border-b border-b-gray-600">
-        <Welcome />
-        <SearchBar />
-      </div>
-      <ArticleGrid />
-    </>
+    <div className="min-h-[700px] flex-center ">
+      <h1 className="">Get started</h1>
+    </div>
   );
 }

@@ -11,11 +11,15 @@ const logo = "/logo.png";
 
 export async function generateMetadata({ params }) {
   const { articleId } = await params;
+  // console.log(articleId);
 
   try {
-    const article = await axios.get(`/api/article/${articleId}`);
+    const article = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/article/${articleId}`
+    );
 
     const articleData = article.data;
+    // console.log(articleData);
 
     return {
       title: articleData.title,
@@ -23,7 +27,7 @@ export async function generateMetadata({ params }) {
       description: articleData.description.substring(0, 100),
     };
   } catch (error) {
-    // console.error("Error fetching article metadata:", error.message);
+    console.error("Error fetching article metadata:", error.message);
 
     return {
       title: "Nextjs Blog",

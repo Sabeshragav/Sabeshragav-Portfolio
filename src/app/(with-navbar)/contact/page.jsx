@@ -1,13 +1,14 @@
-import React from "react";
-import Form from "./Form";
+import ContactPage from "./ContactPage";
+
+const logo = "/logo.png";
+
+export const metadata = {
+  icons: logo,
+  title: "Contact Sabeshragav",
+  description:
+    "Get in touch with Sabeshragav for professional collaborations, inquiries, or opportunities. A simple and efficient way to connect.",
+};
 
 export default function Contact() {
-  return (
-    <section className="h-screen">
-      <div className="m-4 text-4xl flex">
-        <h1 className="basis-auto border-b">Contact Us</h1>
-      </div>
-      <Form />
-    </section>
-  );
+  return <ContactPage />;
 }

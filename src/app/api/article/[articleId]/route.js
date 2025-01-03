@@ -10,6 +10,7 @@ export async function GET(req, context) {
     await connectMongo();
 
     const article = await articleModel.findOne({ _id: articleId });
+    console.log(article);
 
     return Response.json(article);
   } catch (error) {

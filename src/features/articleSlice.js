@@ -1,5 +1,3 @@
-"use client";
-
 import {
   createSlice,
   createAsyncThunk,
@@ -13,29 +11,45 @@ const initialState = articleAdapter.getInitialState({
   status: "idle", // "idle" || "pending" || "fulfilled" || "rejected"
   error: null,
   message: null,
+  enquiryStatus: "idle",
+  enquiryError: null,
 });
 
 export const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
-  async (initialState) => {
-    let response;
+  async (initialState, thunkAPI) => {
+    try {
+      let response;
 
-    if (initialState) {
-      response = await axios.get(`/api/articles?search=${initialState}`);
-    } else response = await axios.get(`/api/articles`);
+      if (initialState) {
+        response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/articles?search=${initialState}`
+        );
+      } else
+        response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/articles`
+        );
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      console.error(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
 export const addEnquiry = createAsyncThunk(
   "addEnquiry",
-  async (enquiryDataa) => {
+  async (enquiryDataa, thunkAPI) => {
     try {
-      const response = await axios.post(`/api/enquiry`, enquiryDataa);
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/enquiry`,
+        enquiryDataa
+      );
       return response.data;
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -43,7 +57,11 @@ export const addEnquiry = createAsyncThunk(
 const articleSlice = createSlice({
   name: "articles",
   initialState,
-  reducers: {},
+  reducers: {
+    handleScrollToTop: () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchArticles.pending, (state, action) => {
@@ -60,8 +78,16 @@ const articleSlice = createSlice({
           state.status = "fulfilled";
         }
       })
+      .addCase(addEnquiry.pending, (state, action) => {
+        state.enquiryStatus = "pending";
+      })
+      .addCase(addEnquiry.rejected, (state, action) => {
+        state.enquiryError = action.payload.error;
+        state.enquiryStatus = "rejected";
+      })
       .addCase(addEnquiry.fulfilled, (state, action) => {
         state.message = action.payload.message;
+        state.enquiryStatus = "fulfilled";
       });
   },
 });
@@ -73,6 +99,11 @@ export const {
 } = articleAdapter.getSelectors((state) => state.articles);
 export const getArticleStatus = (state) => state.articles.status;
 export const getArticleError = (state) => state.articles.error;
-export const getEnquiryMessage = (state) => state.articles.message;
 
-export default articleSlice.reducer;
+export const getEnquiryMessage = (state) => state.articles.message;
+export const getEnquiryStatus = (state) => state.articles.enquiryStatus;
+export const getEnquiryError = (state) => state.articles.enquiryError;
+
+export const { handleScrollToTop } = articleSlice.actions;
+
+export const articleReducer = articleSlice.reducer;
