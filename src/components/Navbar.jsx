@@ -6,7 +6,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
+  getToken,
   getUserSession,
+  removeToken,
   removeUserSession,
   storeUserSession,
 } from "@/services/storage";
@@ -15,15 +17,39 @@ import { useDispatch } from "react-redux";
 import { fetchUser } from "@features/sessionSlice";
 import { usePathname } from "next/navigation";
 import Title from "./Title";
+import axios from "axios";
 
 export default function Navbar() {
   const { data: session } = useSession();
   const [localSession, setLocalSession] = useState(
-    () => getUserSession() || {}
+    () => getUserSession() || null
   );
-  // console.log(session);
+
+  // useEffect(() => {
+  //   console.log(localSession);
+  // }, [localSession]);
 
   const pathName = usePathname();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/protected`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        // console.log(response.data);
+        setLocalSession(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    const token = getToken();
+    if (token?.length > 1) fetchData();
+  }, []);
 
   const dispatch = useDispatch();
 
@@ -75,6 +101,10 @@ export default function Navbar() {
     closed: { opacity: 0, height: 0 },
   };
 
+  const emailLogout = async () => {
+    await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`);
+  };
+
   if (!isLoaded) {
     return <div></div>;
   }
@@ -115,7 +145,7 @@ export default function Navbar() {
               <NavItem href="/contact" title="Contact">
                 Contact
               </NavItem>
-              {session ? (
+              {session || localSession?.user ? (
                 <>
                   {/* Profile Avatar */}
                   <li className="border-l border-l-gray-800 pl-8">
@@ -160,16 +190,24 @@ export default function Navbar() {
                             />
                             <div>
                               <p className="text-white">
-                                {session?.user?.name || "Loading"}
+                                {session?.user?.name ||
+                                  localSession?.user?.username ||
+                                  "Loading"}
                               </p>
                               <p className="text-sm text-gray-400">
-                                {session?.user?.email || "Loading"}
+                                {session?.user?.email ||
+                                  localSession?.user?.email ||
+                                  "Loading"}
                               </p>
                             </div>
                           </div>
                           <button
                             className="px-4 py-2 text-left text-red-500 hover:bg-gray-700"
                             onClick={() => {
+                              if (localSession?.user?.handle === "email/pass") {
+                                removeToken();
+                                emailLogout();
+                              }
                               removeUserSession();
                               setToggleDropdown(false);
                               setIsProfileClicked(false); // Reset profile image on logout
@@ -183,7 +221,7 @@ export default function Navbar() {
                     )}
                   </AnimatePresence>
                 </>
-              ) : session === null ? (
+              ) : session === null && localSession?.user !== null ? (
                 <li className="border-l border-l-gray-800 pl-2">
                   <Link href={`/login?path=${pathName}`}>
                     <div
@@ -215,9 +253,13 @@ export default function Navbar() {
                 <X className="h-9 w-9" />
               ) : (
                 <>
-                  {session ? (
+                  {session || localSession?.user ? (
                     <Image
-                      src={session?.user?.image || "/icons/profile.png"}
+                      src={
+                        session?.user?.image ||
+                        localSession?.user?.image ||
+                        "/icons/profile.png"
+                      }
                       alt="profile"
                       width={40}
                       height={40}
@@ -285,26 +327,36 @@ export default function Navbar() {
               >
                 Contact
               </MobileNavItem>
-              {session ? (
+              {session || localSession?.user ? (
                 <div className="border-t border-t-gray-800">
                   <li className="flex items-center px-3 py-4 space-x-2">
                     <Image
-                      src={session?.user?.image || "/default-avatar.png"}
+                      src={
+                        session?.user?.image ||
+                        localSession?.user?.image ||
+                        "/default-avatar.png"
+                      }
                       alt="profile"
                       width={35}
                       height={35}
                       className="rounded-full"
                     />
                     <div>
-                      <p className="text-white">{session?.user?.name}</p>
+                      <p className="text-white">
+                        {session?.user?.name || localSession?.user?.username}
+                      </p>
                       <p className="text-sm text-gray-400">
-                        {session?.user?.email}
+                        {session?.user?.email || localSession?.user?.email}
                       </p>
                     </div>
                   </li>
                   <li>
                     <button
                       onClick={() => {
+                        if (localSession?.user?.handle === "email/pass") {
+                          removeToken();
+                          emailLogout();
+                        }
                         removeUserSession();
                         toggleMenu();
                         signOut();

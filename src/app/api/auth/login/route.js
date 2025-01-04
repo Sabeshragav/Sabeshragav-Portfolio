@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import userModel from "@model/userModel";
 import connectMongo from "@utils/dbConnection";
 import bcryptjs from "bcryptjs";
@@ -13,13 +14,13 @@ export async function POST(req) {
     const existingUser = await userModel.findOne({ email });
 
     if (!existingUser) {
-      return Response.json("No email found", {
+      return NextResponse.json("No email found", {
         status: 404,
       });
     }
 
     if (existingUser.handle !== "email/pass") {
-      return Response.json(
+      return NextResponse.json(
         `The given email is registered using ${
           existingUser.handle === "google" ? "Google" : "Github"
         }`,
@@ -34,7 +35,7 @@ export async function POST(req) {
       );
 
       if (!validPassword) {
-        return Response.json("Incorrect password", {
+        return NextResponse.json("Incorrect password", {
           status: 401,
         });
       }
@@ -48,16 +49,25 @@ export async function POST(req) {
         expiresIn: "1d",
       });
 
-      return new Response(JSON.stringify(token), {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Set-Cookie": `token=${token}; HttpOnly; Path=/; Max-Age=86400;`,
-        },
+      // return new NextResponse(JSON.stringify(token), {
+      //   status: 200,
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Set-Cookie": `token=${token}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax;`,
+      //   },
+      // });
+
+      const response = NextResponse.json(token);
+      response.cookies.set("token", token, {
+        httpOnly: true,
+        maxAge: 86400,
+        path: "/",
       });
+
+      return response;
     }
   } catch (error) {
-    return Response.json(error.message, {
+    return NextResponse.json(error.message, {
       status: 500,
     });
   }

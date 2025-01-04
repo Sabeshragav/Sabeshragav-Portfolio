@@ -70,8 +70,8 @@ const Login = () => {
         );
 
         if (response.status === 200) {
-          console.log(response.data);
-
+          // console.log(response.data);
+          storeToken(response.data);
           toast.success(`Logged in !`);
           if (path) {
             router.push(path);

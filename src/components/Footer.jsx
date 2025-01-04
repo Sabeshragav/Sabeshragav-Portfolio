@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { ArrowUp } from "lucide-react";
@@ -9,6 +9,16 @@ import { handleScrollToTop } from "@features/articleSlice";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const dispatch = useDispatch();
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  });
+
+  if (!isLoaded) {
+    return <div></div>;
+  }
 
   return (
     <footer className="border-t border-t-gray-800 text-gray-300">

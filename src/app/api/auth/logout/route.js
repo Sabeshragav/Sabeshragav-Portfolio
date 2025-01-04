@@ -1,14 +1,13 @@
-export async function GET(req) {
+import { NextResponse } from "next/server";
+
+export async function GET() {
   try {
-    return new Response("Logged Out", {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "Set-Cookie": `token=; HttpOnly; Path=/; Max-Age=0;`,
-      },
-    });
+    const response = NextResponse.json({ message: "Logged out successfully" });
+    response.cookies.set("token", "", { httpOnly: true, maxAge: 0, path: "/" });
+
+    return response;
   } catch (error) {
-    return Response.json(error.message, {
+    return NextResponse.json(error.message, {
       status: 500,
     });
   }

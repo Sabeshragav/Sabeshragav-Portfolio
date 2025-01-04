@@ -47,12 +47,12 @@ input[type="password"]::-ms-reveal {
 /* Custom Loader css */
 .loader {
   display: block;
-  --height-of-loader: 4px;
+  --height-of-loader: 6px;
   --loader-color: #0071e2;
   width: 130px;
   height: var(--height-of-loader);
   border-radius: 30px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: black;
   position: relative;
 }
 
