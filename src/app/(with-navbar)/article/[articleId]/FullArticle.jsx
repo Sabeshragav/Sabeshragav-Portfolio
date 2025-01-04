@@ -7,6 +7,8 @@ import {
   getArticleStatus,
   selectById,
 } from "@/features/articleSlice";
+import Loader from "@components/Loader";
+import Image from "next/image";
 
 export default function FullArticle({ params }) {
   const { articleId } = React.use(params);
@@ -23,7 +25,7 @@ export default function FullArticle({ params }) {
   if (!isLoaded) {
     return (
       <div className="h-screen flex justify-center items-center">
-        Loading article...
+        <Loader />
       </div>
     );
   }
@@ -33,7 +35,7 @@ export default function FullArticle({ params }) {
   if (articleStatus === "pending") {
     content = (
       <div className="h-screen flex items-center justify-center">
-        Loading article...
+        <Loader />
       </div>
     );
   } else if (articleStatus === "fulfilled" && article) {
@@ -48,9 +50,11 @@ export default function FullArticle({ params }) {
           </p>
         </div>
         <div className="flex justify-center items-center">
-          <img
+          <Image
+            height={1000}
+            width={1000}
             className="h-96 w-96 rounded-lg mt-10"
-            src={article.image || "https://via.placeholder.com/300"}
+            src={article.image || "/images/placeholder.png"}
             alt={article.title || "Default Title"}
           />
         </div>

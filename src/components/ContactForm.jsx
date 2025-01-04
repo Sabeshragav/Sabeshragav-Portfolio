@@ -12,6 +12,8 @@ import {
   getEnquiryStatus,
 } from "@features/articleSlice";
 import { toast } from "react-toastify";
+import { usePathname } from "next/navigation";
+import Loader from "./Loader";
 
 export default function ContactForm() {
   const { data: session } = useSession();
@@ -19,9 +21,12 @@ export default function ContactForm() {
     () => getUserSession() || {}
   );
 
+  const pathName = usePathname();
+
   const dispatch = useDispatch();
 
   const user = useSelector(getUser);
+
   const userLoading = useSelector(getUserLoading);
   const enquiryStatus = useSelector(getEnquiryStatus);
   const enquiryError = useSelector(getEnquiryError);
@@ -46,7 +51,7 @@ export default function ContactForm() {
   if (!isLoaded) {
     return (
       <div className="h-screen flex items-center justify-center">
-        Loading article...
+        <Loader />
       </div>
     );
   }
@@ -69,7 +74,7 @@ export default function ContactForm() {
 
   if (!localSession?.user) {
     return (
-      <section className="h-[700px] flex-center">
+      <section className="min-h-[700px] flex-center">
         <div className="max-w-md mx-7 sm:mx-auto p-6 rounded-lg shadow-md bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg">
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-white mb-5">
@@ -78,14 +83,14 @@ export default function ContactForm() {
             <p className="text-white text-base">
               Please{" "}
               <a
-                href="/login"
+                href={`/login?path=${pathName}`}
                 className="text-blue-500 underline hover:text-blue-700"
               >
                 log in
               </a>{" "}
               or{" "}
               <a
-                href="/signup"
+                href={`/signup?path=${pathName}`}
                 className="text-blue-500 underline hover:text-blue-700"
               >
                 sign up
@@ -98,7 +103,7 @@ export default function ContactForm() {
     );
   } else
     return (
-      <section className="h-[700px] max-w-6xl mx-7 sm:mx-auto">
+      <section className="min-h-[700px] max-w-6xl mx-7 sm:mx-auto">
         <div className="m-4 text-4xl flex">
           <h1 className="basis-auto">Contact Me</h1>
         </div>

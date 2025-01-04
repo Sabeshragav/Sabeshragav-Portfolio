@@ -11,7 +11,6 @@ export default function ContactPage() {
       animate={{ opacity: 1, y: 0 }} // Fade in and slide up
       exit={{ opacity: 0, y: 50 }} // Fade out and slide down when exiting
       transition={{ duration: 0.5 }} // Smooth animation duration
-      className="project-page-container"
     >
       <ContactForm />
     </motion.div>

@@ -17,3 +17,23 @@ export const removeUserSession = () => {
     localStorage.removeItem("userSession");
   }
 };
+
+export const storeToken = (token) => {
+  if (typeof window !== "undefined" && window.localStorage) {
+    localStorage.setItem("userToken", JSON.stringify(token));
+  }
+};
+
+export const getToken = () => {
+  if (typeof window !== "undefined" && window.localStorage) {
+    const jsonToken = JSON.parse(localStorage.getItem("userToken"));
+    return jsonToken;
+  }
+  return null;
+};
+
+export const removeToken = () => {
+  if (typeof window !== "undefined" && window.localStorage) {
+    localStorage.removeItem("userToken");
+  }
+};

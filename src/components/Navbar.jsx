@@ -14,6 +14,7 @@ import { X } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { fetchUser } from "@features/sessionSlice";
 import { usePathname } from "next/navigation";
+import Title from "./Title";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -22,11 +23,18 @@ export default function Navbar() {
   );
   // console.log(session);
 
+  const pathName = usePathname();
+
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [isProfileClicked, setIsProfileClicked] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  });
 
   const dropdownRef = useRef(null);
 
@@ -37,7 +45,7 @@ export default function Navbar() {
       storeUserSession(session);
       setLocalSession(session);
     }
-  }, [session, localSession]);
+  }, [dispatch, session, localSession]);
 
   useEffect(() => {
     // Close dropdown when clicking outside
@@ -67,26 +75,28 @@ export default function Navbar() {
     closed: { opacity: 0, height: 0 },
   };
 
+  if (!isLoaded) {
+    return <div></div>;
+  }
+
   return (
     <header className="border-b border-b-gray-800 text-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <Link
-              href="/"
-              title="Sabeshragav's Blogspot"
-              className="flex items-center gap-2"
-            >
+            <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/logo.png"
+                src="/main/logo.png"
                 alt="SR"
                 width={55}
                 height={55}
                 className="object-contain"
               />
-              <h1 className="text-xl md:text-2xl font-bold hidden sm:block">
-                Sabeshragav's Blogspot
-              </h1>
+              {pathName !== "/" && (
+                <h1 className="text-xl md:text-2xl font-bold hidden sm:block">
+                  <Title />
+                </h1>
+              )}
             </Link>
           </div>
 
@@ -175,7 +185,7 @@ export default function Navbar() {
                 </>
               ) : session === null ? (
                 <li className="border-l border-l-gray-800 pl-2">
-                  <Link href="/login">
+                  <Link href={`/login?path=${pathName}`}>
                     <div
                       className="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded"
                       variant="secondary"
@@ -249,9 +259,11 @@ export default function Navbar() {
             variants={menuVariants}
             transition={{ duration: 0.3 }}
           >
-            <div className="flex-center w-3/4 px-4 py-3">
-              <h1 className="text-4xl">Sabeshragav's Blogspot</h1>
-            </div>
+            {pathName !== "/" && (
+              <div className="w-3/4 pl-[18px] py-3">
+                <Title />
+              </div>
+            )}
             <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <MobileNavItem href="/" title="Home" onClick={toggleMenu}>
                 Home
@@ -305,7 +317,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <li className="mt-3 border-t border-t-gray-800 ">
-                  <Link href="/login" onClick={toggleMenu}>
+                  <Link href={`/login?path=${pathName}`} onClick={toggleMenu}>
                     <div className="w-16 mt-4 rounded px-3 py-2 ml-2 text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700">
                       Login
                     </div>
@@ -331,7 +343,9 @@ const NavItem = ({ href, title, children }) => {
       >
         <Link href={href} title={title}>
           <span
-            className={`text-blue-500 ${pathName === href ? "underline" : ""}`}
+            className={`text-blue-500 ${
+              pathName === href ? "border-b-2 border-b-blue-500" : ""
+            }`}
           >
             {children}
           </span>

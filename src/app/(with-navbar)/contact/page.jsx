@@ -1,6 +1,6 @@
 import ContactPage from "./ContactPage";
 
-const logo = "/logo.png";
+const logo = "/main/logo.png";
 
 export const metadata = {
   icons: logo,

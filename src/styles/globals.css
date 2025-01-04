@@ -22,7 +22,7 @@ input[type="password"]::-ms-reveal {
   }
 
   .dropdown {
-    @apply absolute right-2 mt-3 top-12 p-2 rounded-lg bg-gray-800 min-w-[210px] flex flex-col gap-2 justify-end items-end;
+    @apply absolute z-50 right-2 mt-3 top-12 p-2 rounded-lg bg-gray-800 min-w-[210px] flex flex-col gap-2 justify-end items-end;
   }
 
   .flex-center {
@@ -34,6 +34,7 @@ input[type="password"]::-ms-reveal {
   }
 }
 
+/* Pulse for default placeholder for images */
 @keyframes custom-pulse {
   20% {
     opacity: 0.2;
@@ -41,4 +42,40 @@ input[type="password"]::-ms-reveal {
 }
 .custom-animate-pulse {
   animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom Loader css */
+.loader {
+  display: block;
+  --height-of-loader: 4px;
+  --loader-color: #0071e2;
+  width: 130px;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 1s ease-in-out infinite;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
 }

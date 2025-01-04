@@ -26,7 +26,7 @@ const handler = NextAuth({
     },
     async signIn({ profile }) {
       try {
-        console.log(profile);
+        // console.log(profile);
 
         await connectMongo();
 
@@ -36,6 +36,7 @@ const handler = NextAuth({
         // if not, create a new document and save user in MongoDB
         if (!userExists) {
           await userModel.create({
+            handle: "google",
             email: profile.email,
             username: profile.name,
             image: profile.picture,
@@ -45,13 +46,15 @@ const handler = NextAuth({
 
         return true;
       } catch (error) {
-        console.log("Error checking if user exists: ", error.message);
+        console.error("Error checking if user exists: ", error.message);
         return false;
       }
     },
     async redirect({ url, baseUrl }) {
-      // Always redirect to the homepage after login
-      return baseUrl;
+      // console.log("url    ", url);
+      // console.log("baseurl    ", baseUrl);
+      // If `url` is from the same origin, use it; otherwise, fallback to `baseUrl`
+      return url.startsWith(baseUrl) ? url : baseUrl;
     },
   },
 });

@@ -1,5 +1,3 @@
-import { boolean } from "zod";
-
 const { Schema, models, model } = require("mongoose");
 
 const userSchema = new Schema({
@@ -21,6 +19,12 @@ const userSchema = new Schema({
   },
   contactStatus: {
     type: Boolean,
+  },
+  handle: {
+    type: String,
+  },
+  password: {
+    type: String,
   },
 });
 
