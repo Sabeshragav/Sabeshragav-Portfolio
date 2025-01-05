@@ -147,6 +147,7 @@ export default function About() {
             height={200}
             width={400}
             className="rounded-full w-52"
+            priority
           />
         </motion.div>
       </motion.div>

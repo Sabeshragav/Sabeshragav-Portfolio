@@ -4,8 +4,9 @@ const articleSchema = new Schema(
   {
     title: String,
     description: String,
-    image: String,
+    images: [String],
     date: String,
+    technologies: [String],
   },
   { toJSON: { virtuals: true } }
 );

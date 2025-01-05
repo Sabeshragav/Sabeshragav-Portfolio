@@ -121,6 +121,7 @@ export default function Navbar() {
                 width={55}
                 height={55}
                 className="object-contain"
+                priority
               />
               {pathName !== "/" && (
                 <h1 className="text-xl md:text-2xl font-bold hidden sm:block">
@@ -161,6 +162,7 @@ export default function Navbar() {
                         width={40}
                         height={40}
                         className="rounded-full cursor-pointer"
+                        priority
                       />
                     ) : (
                       <X
@@ -187,6 +189,7 @@ export default function Navbar() {
                               width={35}
                               height={35}
                               className="rounded-full"
+                              priority
                             />
                             <div>
                               <p className="text-white">
@@ -266,6 +269,7 @@ export default function Navbar() {
                       className={`rounded-full ${
                         session?.user?.image ? "" : "border p-1"
                       }`}
+                      priority
                     />
                   ) : session === null ? (
                     <Image
@@ -276,6 +280,7 @@ export default function Navbar() {
                       className={`rounded-full ${
                         session?.user?.image ? "" : "border p-1"
                       }`}
+                      priority
                     />
                   ) : (
                     <div className="">
@@ -340,6 +345,7 @@ export default function Navbar() {
                       width={35}
                       height={35}
                       className="rounded-full"
+                      priority
                     />
                     <div>
                       <p className="text-white">

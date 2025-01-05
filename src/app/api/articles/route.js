@@ -14,6 +14,7 @@ export async function GET(req) {
         $or: [
           { title: new RegExp(searchQuery, "i") },
           { description: new RegExp(searchQuery, "i") },
+          { technologies: { $regex: searchQuery, $options: "i" } },
         ],
       });
 

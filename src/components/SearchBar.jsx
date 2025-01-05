@@ -1,14 +1,20 @@
 "use client";
-import { fetchArticles } from "@/features/articleSlice";
+import {
+  fetchArticles,
+  getSearchVal,
+  setSearchVal,
+} from "@/features/articleSlice";
 import React, { useState } from "react";
 import { CgSearch } from "react-icons/cg";
-import { AiOutlineClose } from "react-icons/ai"; // Import close icon
-import { useDispatch } from "react-redux";
+import { AiOutlineClose } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const [searchVal, setSearchVal] = useState("");
+
   const [searchReq, setSearchReq] = useState(false);
+
+  const searchVal = useSelector(getSearchVal);
 
   const containsValidCharacters = (str) => /^[a-zA-Z0-9\s]*$/.test(str);
 
@@ -21,7 +27,7 @@ export default function SearchBar() {
       if (searchVal.trim() && containsValidCharacters(searchVal.trim())) {
         dispatch(fetchArticles(searchVal.trim()));
       } else if (searchVal.trim() === "") {
-        dispatch(fetchArticles());
+        handleXClick();
       } else alert("Enter a valid search");
 
       setSearchReq(false);
@@ -30,7 +36,7 @@ export default function SearchBar() {
 
   const handleXClick = () => {
     dispatch(fetchArticles());
-    setSearchVal("");
+    dispatch(setSearchVal(""));
   };
 
   return (
@@ -45,11 +51,11 @@ export default function SearchBar() {
         <input
           disabled={searchReq}
           value={searchVal}
-          onChange={(e) => setSearchVal(e.target.value.toLowerCase())}
+          onChange={(e) => dispatch(setSearchVal(e.target.value.toLowerCase()))}
           className="outline-none text-lg text-gray-200 rounded-r-full bg-transparent w-44 pr-7"
           type="text"
           id="Inp"
-          placeholder="search projects"
+          placeholder="Search"
         />
         {searchVal.trim() && (
           <button

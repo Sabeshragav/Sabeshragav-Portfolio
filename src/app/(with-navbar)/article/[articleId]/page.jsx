@@ -1,6 +1,5 @@
-import React from "react";
-import FullArticle from "./FullArticle";
 import axios from "axios";
+import FullArticle from "@components/Article/FullArticle";
 const logo = "/main/logo.png";
 
 // export const metadata = {
@@ -18,21 +17,21 @@ export async function generateMetadata({ params }) {
       `${process.env.NEXT_PUBLIC_API_URL}/api/article/${articleId}`
     );
 
-    const articleData = article.data;
+    const articleData = article?.data;
     // console.log(articleData);
 
     return {
-      title: articleData.title,
+      title: articleData?.title,
       icons: logo,
-      description: articleData.description.substring(0, 100),
+      description: articleData?.description,
     };
   } catch (error) {
     console.error("Error fetching article metadata:", error.message);
 
     return {
-      title: "Nextjs Blog",
+      title: "404 - Page not found",
       icons: logo,
-      description: "Article unavailable",
+      description: "Page unavailable",
     };
   }
 }

@@ -50,16 +50,16 @@ export default function ArticleGrid() {
   } else if (articleStatus === "rejected") {
     content = (
       <div className="text-red-500 h-screen w-full flex justify-center items-center">
-        {articleError || "Failed to load articles."}
+        {articleError || "Failed to load projects."}
       </div>
     );
   } else if (hasArticles) {
     content = articleIds.map((articleId, index) => (
       <motion.div
         key={index}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.1 }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 10, y: 0 }}
+        transition={{ delay: index * 0.3 }}
       >
         <div className="transition duration-300 hover:scale-105 hover:shadow-lg">
           <Article key={articleId} articleId={articleId} />
@@ -68,7 +68,7 @@ export default function ArticleGrid() {
     ));
   } else {
     content = (
-      <div className="h-screen flex items-center">No articles available</div>
+      <div className="h-screen flex items-center">No Projects available</div>
     );
   }
 

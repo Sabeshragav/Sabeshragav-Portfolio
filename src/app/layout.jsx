@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased black_gray_gradient`}
       >
         <AllProvider>
-          <UnderDevelopment />
+          {/* <UnderDevelopment /> */}
           {children}
         </AllProvider>
       </body>

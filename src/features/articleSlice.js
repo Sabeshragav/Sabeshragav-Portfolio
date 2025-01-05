@@ -13,6 +13,7 @@ const initialState = articleAdapter.getInitialState({
   message: null,
   enquiryStatus: "idle",
   enquiryError: null,
+  searchVal: "",
 });
 
 export const fetchArticles = createAsyncThunk(
@@ -29,7 +30,7 @@ export const fetchArticles = createAsyncThunk(
         response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/articles`
         );
-
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.error(error.message);
@@ -61,13 +62,16 @@ const articleSlice = createSlice({
     handleScrollToTop: () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
+    setSearchVal: (state, action) => {
+      state.searchVal = action.payload;
+    },
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchArticles.pending, (state, action) => {
+      .addCase(fetchArticles.pending, (state) => {
         state.status = "pending";
       })
-      .addCase(fetchArticles.rejected, (state, action) => {
+      .addCase(fetchArticles.rejected, (state) => {
         state.status = "rejected";
       })
       .addCase(fetchArticles.fulfilled, (state, action) => {
@@ -78,7 +82,7 @@ const articleSlice = createSlice({
           state.status = "fulfilled";
         }
       })
-      .addCase(addEnquiry.pending, (state, action) => {
+      .addCase(addEnquiry.pending, (state) => {
         state.enquiryStatus = "pending";
       })
       .addCase(addEnquiry.rejected, (state, action) => {
@@ -99,11 +103,12 @@ export const {
 } = articleAdapter.getSelectors((state) => state.articles);
 export const getArticleStatus = (state) => state.articles.status;
 export const getArticleError = (state) => state.articles.error;
+export const getSearchVal = (state) => state.articles.searchVal;
 
 export const getEnquiryMessage = (state) => state.articles.message;
 export const getEnquiryStatus = (state) => state.articles.enquiryStatus;
 export const getEnquiryError = (state) => state.articles.enquiryError;
 
-export const { handleScrollToTop } = articleSlice.actions;
+export const { handleScrollToTop, setSearchVal } = articleSlice.actions;
 
 export const articleReducer = articleSlice.reducer;

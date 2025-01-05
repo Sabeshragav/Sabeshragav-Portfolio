@@ -22,7 +22,7 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-t-gray-800 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold blue_purple_gradient">

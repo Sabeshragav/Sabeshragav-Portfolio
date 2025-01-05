@@ -48,7 +48,7 @@ input[type="password"]::-ms-reveal {
 .loader {
   display: block;
   --height-of-loader: 6px;
-  --loader-color: #0071e2;
+  --loader-color: linear-gradient(to right, #3b82f6, #9333ea);
   width: 130px;
   height: var(--height-of-loader);
   border-radius: 30px;
