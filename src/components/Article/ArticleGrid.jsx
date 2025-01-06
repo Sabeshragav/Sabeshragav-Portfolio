@@ -18,7 +18,7 @@ export default function ArticleGrid() {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { scrollYProgress } = useScroll(); // Scroll progress hook
+  const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -54,7 +54,7 @@ export default function ArticleGrid() {
       </div>
     );
   } else if (hasArticles) {
-    content = articleIds.map((articleId, index) => (
+    content = articleIds?.map((articleId, index) => (
       <motion.div
         key={index}
         initial={{ opacity: 0, y: 10 }}
@@ -83,13 +83,12 @@ export default function ArticleGrid() {
         }`}
       >
         {content}
+        {/* Scroll progress bar */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-3 bg-slate-500 origin-left z-50"
+          style={{ scaleX }}
+        />
       </div>
-
-      {/* Scroll progress bar */}
-      <motion.div
-        className="fixed bottom-0 left-0 w-full h-3 bg-gray-100"
-        style={{ scaleX }}
-      />
     </div>
   );
 }

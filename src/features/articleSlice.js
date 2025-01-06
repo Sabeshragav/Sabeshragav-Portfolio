@@ -60,7 +60,7 @@ const articleSlice = createSlice({
   initialState,
   reducers: {
     handleScrollToTop: () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "auto" });
     },
     setSearchVal: (state, action) => {
       state.searchVal = action.payload;

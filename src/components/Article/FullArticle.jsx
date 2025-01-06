@@ -51,6 +51,13 @@ export default function FullArticle({ article }) {
   if (article?.title) {
     content = (
       <>
+        {/* Scroll progress bar */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-3 bg-slate-500 origin-left z-50"
+          style={{ scaleX }}
+        />
+
+        {/* Full Article */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -297,12 +304,6 @@ export default function FullArticle({ article }) {
             ignoreId={article.id}
           />
         </motion.div>
-
-        {/* Scroll progress bar */}
-        <motion.div
-          className="fixed bottom-0 left-0 w-full h-3 bg-gray-100"
-          style={{ scaleX }}
-        />
       </>
     );
   } else {
