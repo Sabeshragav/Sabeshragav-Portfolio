@@ -2,6 +2,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 
 const Loader = () => {
+  // console.log("Loading....");
+
   return (
     <AnimatePresence>
       <motion.div

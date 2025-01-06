@@ -2,7 +2,7 @@
 
 import { fetchArticles } from "@features/articleSlice";
 import { fetchProviders } from "@features/authSlice";
-import { store } from "@lib/store";
+import { store } from "@redux/store";
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
