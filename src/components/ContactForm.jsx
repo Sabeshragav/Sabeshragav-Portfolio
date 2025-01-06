@@ -22,9 +22,9 @@ export default function ContactForm() {
     () => getUserSession() || null
   );
 
-  useEffect(() => {
-    console.log(localSession);
-  }, [localSession]);
+  // useEffect(() => {
+  //   console.log(localSession);
+  // }, [localSession]);
 
   const pathName = usePathname();
 
@@ -42,7 +42,7 @@ export default function ContactForm() {
           }
         );
 
-        console.log(response.data);
+        // console.log(response.data);
         setLocalSession(response.data);
       } catch (error) {
         console.error(error);
@@ -102,7 +102,7 @@ export default function ContactForm() {
       <section className="min-h-[700px] flex-center">
         <div className="max-w-md mx-7 sm:mx-auto p-6 rounded-lg shadow-md bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg">
           <div className="text-center">
-            <h2 className="text-2xl font-semibold text-white mb-5">
+            <h2 className="text-2xl font-bold text-white mb-5">
               To contact you'll need to login
             </h2>
             <p className="text-white text-base">
@@ -131,11 +131,11 @@ export default function ContactForm() {
   return (
     <section className="min-h-[700px] max-w-6xl mx-7 sm:mx-auto">
       <div className="m-4 text-4xl flex">
-        <h1 className="basis-auto">Contact Me</h1>
+        <h1 className="basis-auto font-bold">Contact Me</h1>
       </div>
       <section className="max-w-md mx-auto p-6 rounded-lg shadow-md bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg ">
         <div className="mb-6 text-center">
-          <h1 className="text-xl font-semibold text-white">How can I help?</h1>
+          <h1 className="text-xl font-bold text-white">How can I help?</h1>
           <p className="text-white mt-6 flex-center gap-2">
             <span>Please note: Only one message is allowed per user.</span>
             <button

@@ -8,7 +8,7 @@ const TermsOfService = () => {
         <h1 className="text-4xl font-bold text-white mb-8">Terms of Service</h1>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             1. Acceptance of Terms
           </h2>
           <p className="mb-4">
@@ -19,7 +19,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             2. Services Provided
           </h2>
           <p className="mb-4">
@@ -31,7 +31,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             3. Project Timeline and Deliverables
           </h2>
           <p className="mb-4">
@@ -43,7 +43,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             4. Payment Terms
           </h2>
           <p className="mb-4">
@@ -53,7 +53,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             5. Intellectual Property Rights
           </h2>
           <p className="mb-4">
@@ -63,7 +63,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             6. Client Responsibilities
           </h2>
           <p className="mb-4">
@@ -74,7 +74,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             7. Limitation of Liability
           </h2>
           <p className="mb-4">
@@ -85,7 +85,7 @@ const TermsOfService = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             8. Changes to Terms
           </h2>
           <p className="mb-4">

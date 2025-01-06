@@ -5,7 +5,7 @@ import bcryptjs from "bcryptjs";
 export async function POST(req) {
   try {
     const { name, email, password } = await req.json();
-    console.log({ name, email, password });
+    // console.log({ name, email, password });
 
     await connectMongo();
     const existingUser = await userModel.findOne({ email });
@@ -31,7 +31,7 @@ export async function POST(req) {
       status: 201, //Created or added
     });
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
 
     return Response.json(error.message, {
       status: 500,

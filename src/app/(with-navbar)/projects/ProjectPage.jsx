@@ -33,9 +33,9 @@ export default function ProjectPage() {
     >
       {/* <div className=" w-full backdrop-blur-lg sticky top-0 z-50"> */}
       <div className="mx-auto max-w-7xl px-7 my-4 flex flex-col md:flex-row justify-between md:border-b md:border-b-gray-800">
-        <div className="flex flex-col gap-3 py-5">
-          <h1 className="text-4xl">Project Highlights</h1>
-          <motion.p className="text-gray-400 w-full md:w-11/12">
+        <div className="flex flex-col gap-3 pb-3 md:py-5">
+          <h1 className="text-4xl font-bold">Project Highlights</h1>
+          <motion.p className="text-gray-400 text-sm md:text-base w-full md:w-11/12">
             {text.split("").map((letter, index) => (
               <motion.span
                 key={index}

@@ -12,7 +12,7 @@ const articleSchema = new Schema(
 );
 
 articleSchema.virtual("format_date").get(function () {
-  return changeDateFormat(this.date);
+  return this.date && changeDateFormat(this.date);
 });
 
 const changeDateFormat = (dateString) => {

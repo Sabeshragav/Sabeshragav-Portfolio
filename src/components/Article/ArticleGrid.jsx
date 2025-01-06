@@ -61,7 +61,7 @@ export default function ArticleGrid() {
         animate={{ opacity: 10, y: 0 }}
         transition={{ delay: index * 0.3 }}
       >
-        <div className="transition duration-300 hover:scale-105 hover:shadow-lg">
+        <div className="transition duration-300 sm:hover:scale-105 sm:hover:shadow-lg">
           <Article key={articleId} articleId={articleId} />
         </div>
       </motion.div>

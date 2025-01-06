@@ -15,7 +15,7 @@ export async function GET(req) {
     const token = cookies.value;
 
     const decoded = jwt.verify(token, process.env.JWT_KEY);
-    console.log(decoded);
+    // console.log(decoded);
     await connectMongo();
 
     const existingUser = await userModel

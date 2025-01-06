@@ -1,6 +1,6 @@
 import "@styles/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
-import UnderDevelopment from "@/components/UnderDevelopment";
+// import UnderDevelopment from "@/components/UnderDevelopment";
 import AllProvider from "@providers/AllProvider";
 
 const logo = "/main/logo.png";
@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased black_gray_gradient`}
       >
         <AllProvider>
-          <UnderDevelopment />
-          {/* {children} */}
+          {/* <UnderDevelopment /> */}
+          {children}
         </AllProvider>
       </body>
     </html>

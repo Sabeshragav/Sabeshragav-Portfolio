@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
         <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             1. Introduction
           </h2>
           <p className="mb-4">
@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             2. Information Collection
           </h2>
           <p className="mb-4">
@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             3. Use of Information
           </h2>
           <p className="mb-4">The information collected is used to:</p>
@@ -46,7 +46,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             4. Data Protection
           </h2>
           <p className="mb-4">
@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             5. Third-Party Disclosure
           </h2>
           <p className="mb-4">
@@ -69,9 +69,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
-            6. Your Rights
-          </h2>
+          <h2 className="text-2xl font-bold text-white mb-4">6. Your Rights</h2>
           <p className="mb-4">
             You have the right to access, correct, or delete your personal
             information. If you wish to exercise these rights or have any
@@ -84,7 +82,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             7. Changes to This Policy
           </h2>
           <p className="mb-4">

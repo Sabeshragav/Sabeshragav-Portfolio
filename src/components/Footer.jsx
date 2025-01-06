@@ -33,7 +33,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -70,7 +70,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
+            <h3 className="text-lg font-bold mb-4">Connect</h3>
             <div className="flex space-x-4">
               <a
                 href="https://github.com/Sabeshragav"

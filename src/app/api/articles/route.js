@@ -10,17 +10,37 @@ export async function GET(req) {
     let articleData;
 
     if (searchQuery) {
-      articleData = await articleModel.find({
-        $or: [
-          { title: new RegExp(searchQuery, "i") },
-          { description: new RegExp(searchQuery, "i") },
-          { technologies: { $regex: searchQuery, $options: "i" } },
-        ],
-      });
+      articleData = await articleModel
+        .find(
+          {
+            $or: [
+              { title: new RegExp(searchQuery, "i") },
+              { description: new RegExp(searchQuery, "i") },
+              { technologies: { $regex: searchQuery, $options: "i" } },
+            ],
+          },
+          {
+            title: 1,
+            description: 1,
+            images: 1,
+            technologies: 1,
+          }
+        )
+        .sort({ order: -1 });
 
       return articleData ? Response.json(articleData) : [];
     } else {
-      articleData = await articleModel.find({});
+      articleData = await articleModel
+        .find(
+          {},
+          {
+            title: 1,
+            description: 1,
+            images: 1,
+            technologies: 1,
+          }
+        )
+        .sort({ order: -1 });
       return Response.json(articleData);
     }
   } catch (error) {

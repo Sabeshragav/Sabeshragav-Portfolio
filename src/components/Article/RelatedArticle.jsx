@@ -18,7 +18,7 @@ export default function RelatedArticle({ techData, ignoreId }) {
         );
 
         if (response.status === 200 || response.status === 204) {
-          //   console.log(response.data.filter((data) => data !== ignoreId));
+          // console.log(response.data.filter((data) => data !== ignoreId));
           setArticles(response.data.filter((data) => data !== ignoreId));
           setHasArticles(true);
         }
@@ -31,10 +31,10 @@ export default function RelatedArticle({ techData, ignoreId }) {
 
   return (
     <>
-      {articles?.length ? (
+      {articles?.length > 0 ? (
         <>
-          <h2 className="text-2xl font-semibold mb-5">
-            Other Related Projects
+          <h2 className="text-3xl font-bold mb-5">
+            Related {articles?.length > 1 ? "Projects" : "Project"}
           </h2>
           <div
             className={`grid ${
@@ -51,7 +51,7 @@ export default function RelatedArticle({ techData, ignoreId }) {
                   animate={{ opacity: 10, y: 0 }}
                   transition={{ delay: index * 0.3 }}
                 >
-                  <div className="flex justify-center transition duration-300 hover:scale-105 hover:shadow-lg">
+                  <div className="flex justify-center transition duration-300 sm:hover:scale-105 sm:hover:shadow-lg">
                     <Article
                       key={article}
                       articleId={article}
@@ -67,6 +67,8 @@ export default function RelatedArticle({ techData, ignoreId }) {
             )}
           </div>
         </>
+      ) : articles?.length === 0 ? (
+        <></>
       ) : (
         <>
           <section className="flex-center w-full h-52">

@@ -1,27 +1,19 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import {
-  getArticleError,
-  getArticleStatus,
-  selectById,
-} from "@/features/articleSlice";
+import { useEffect, useState } from "react";
 import Loader from "@components/Loader";
 import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Globe, Calendar, User, Star } from "lucide-react";
+import { ArrowLeft, Globe, Calendar, User, Star, Info } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import RelatedArticle from "./RelatedArticle";
 
-export default function FullArticle({ params }) {
-  const { articleId } = React.use(params);
-  const article = useSelector((state) => selectById(state, articleId));
-  const articleStatus = useSelector(getArticleStatus);
-  const articleError = useSelector(getArticleError);
+export default function FullArticle({ article }) {
+  console.log(article);
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -42,15 +34,21 @@ export default function FullArticle({ params }) {
     );
   }
 
+  //Function to highlight specific words in the description
+  const highlightText = (paragraph, highlightPhrases) => {
+    highlightPhrases.forEach((phrase) => {
+      const regex = new RegExp(`\\b(${phrase})\\b`, "gi");
+      paragraph = paragraph.replace(regex, (match) => {
+        return `<span class="font-bold tracking-tight text-lg text-white">${match}</span>`;
+      });
+    });
+
+    return <span dangerouslySetInnerHTML={{ __html: paragraph }} />;
+  };
+
   let content;
 
-  if (articleStatus === "pending") {
-    content = (
-      <div className="h-screen flex items-center justify-center">
-        <Loader />
-      </div>
-    );
-  } else if (articleStatus === "fulfilled" && article) {
+  if (article?.title) {
     content = (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -88,8 +86,12 @@ export default function FullArticle({ params }) {
           </div>
         </div>
         <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-lg mb-8">
-          <h2 className="text-2xl font-semibold mb-5">Project Overview</h2>
-          <p className="text-gray-300 mb-5">{article?.description}</p>
+          <h2 className="text-3xl font-bold mb-5">Project Overview</h2>
+          {article?.description?.split("\n").map((paragraph, index) => (
+            <p key={index} className="text-gray-300 mb-5">
+              {highlightText(paragraph, article?.specific)}
+            </p>
+          ))}
           <div className="">
             <h1 className="text-sm mb-2 font-bold">Technology Stack</h1>
             <div className="flex flex-wrap gap-2 mb-5">
@@ -121,8 +123,21 @@ export default function FullArticle({ params }) {
             </div>
             <div className="flex items-center">
               <Star className="mr-2" size={16} />
-              <span className="flex items-center">
-                Difficulty Level : {article?.difficultyLevel || "N/A"}
+              <span className="flex items-center gap-1">
+                Difficulty Level :
+                <span
+                  className={`${
+                    article?.difficultyLevel === "Easy"
+                      ? "text-green-500"
+                      : article?.difficultyLevel === "Medium"
+                      ? "text-orange-500"
+                      : article?.difficultyLevel === "Hard"
+                      ? "text-red-500"
+                      : ""
+                  }`}
+                >
+                  {article?.difficultyLevel || "N/A"}
+                </span>
               </span>
             </div>
             <div className="flex items-center">
@@ -140,7 +155,7 @@ export default function FullArticle({ params }) {
             </div>
           </div>
 
-          {/* Github / Website */}
+          {/* Github / Website or No external links*/}
           <div className="flex flex-wrap gap-3 mt-5">
             {article?.links ? (
               <>
@@ -149,13 +164,13 @@ export default function FullArticle({ params }) {
                     href={article.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center bg-gray-700 hover:black_gray_gradient text-white font-bold py-2 px-4 rounded"
+                    className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded"
                   >
                     <FaGithub className="mr-2" size={20} />
                     GitHub
                   </Link>
                 ) : (
-                  <div className="inline-flex items-center bg-gray-700 text-red-500 font-bold py-2 px-4 rounded">
+                  <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded">
                     <FaGithub className="mr-2" size={20} />
                     Unavailable
                   </div>
@@ -165,55 +180,92 @@ export default function FullArticle({ params }) {
                     href={article.links.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center bg-gray-700 hover:black_gray_gradient text-white font-bold py-2 px-4 rounded"
+                    className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded"
                   >
                     <Globe className="mr-2" size={20} />
                     Website
                   </Link>
                 ) : (
-                  <div className="inline-flex items-center bg-gray-700 text-red-500 font-bold py-2 px-4 rounded">
+                  <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded">
                     <Globe className="mr-2" size={20} />
                     Unavailable
                   </div>
                 )}
               </>
             ) : (
-              <>No Links</>
+              <div className="flex flex-col md:flex-row gap-2">
+                <div className="flex item-center gap-2">
+                  <h1>No External Links</h1>
+                  <button
+                    type="button"
+                    onClick={() => setShowInfo(!showInfo)}
+                    className="text-blue-500 hover:text-blue-700 focus:outline-none"
+                    title="More Info"
+                  >
+                    <Info className="w-5 h-5" />
+                  </button>
+                </div>
+                {showInfo && (
+                  <p className="text-sm flex items-center text-blue-700">
+                    This project is subject to confidentiality obligations or
+                    doesn't fulfill the standards for repository upkeep.
+                  </p>
+                )}
+              </div>
             )}
           </div>
         </div>
         <div className="mb-8">
-          {/* Project Details */}
-          <h2 className="text-2xl font-semibold mb-5">Project Details</h2>
+          {/* Project Breakdown */}
+          <h2 className="text-3xl font-bold mb-5">Project Breakdown</h2>
           <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">Challenges</h3>
-            <ul className="list-disc list-inside mb-4">
-              {article?.challenges?.map((challenge, index) => (
-                <li key={index} className="mb-2">
-                  {challenge}
-                </li>
-              ))}
-            </ul>
-            <h3 className="text-xl font-semibold mb-2">Solutions</h3>
-            <ul className="list-disc list-inside mb-4">
-              {article?.solutions?.map((solution, index) => (
-                <li key={index} className="mb-2">
-                  {solution}
-                </li>
-              ))}
-            </ul>
-            <h3 className="text-xl font-semibold mb-2">Key Features</h3>
-            <ul className="list-disc list-inside">
-              {article?.features?.map((feature, index) => (
-                <li key={index} className="mb-2">
-                  {feature}
-                </li>
-              ))}
-            </ul>
+            {/* Challenges */}
+            {article?.challenges && (
+              <>
+                <h3 className="text-xl font-bold mb-2">Challenges :</h3>
+                <ul className="list-disc list-inside mb-4">
+                  {article?.challenges?.map((challenge, index) => (
+                    <li key={index} className="mb-2 text-gray-300">
+                      {challenge}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {/* Solutions */}
+            {article?.solutions && (
+              <>
+                <h3 className="text-xl font-bold mb-2">Solutions :</h3>
+                <ul className="list-disc list-inside mb-4">
+                  {article?.solutions?.map((solution, index) => (
+                    <li key={index} className="mb-2 text-gray-300">
+                      {solution}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {/* Key Features */}
+            {article?.features && (
+              <>
+                <h3 className="text-xl font-bold mb-2">Key Features :</h3>
+                <ul className="list-disc list-inside">
+                  {article?.features?.map((feature, index) => (
+                    <li key={index} className="mb-2 text-gray-300">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         </div>
+
+        {/* Screenshots */}
         <div className="mb-14">
-          <h2 className="text-2xl font-semibold mb-5">Screenshots</h2>
+          <h2 className="text-3xl font-bold mb-5">Screenshots</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7 md:grap-4">
             {article?.images?.slice(1).map((screenshot, index) => (
               <div key={index} className="space-y-2">
@@ -244,10 +296,10 @@ export default function FullArticle({ params }) {
         />
       </motion.div>
     );
-  } else if (articleStatus === "rejected") {
+  } else {
     content = (
       <div className="text-red-500 h-screen flex justify-center items-center">
-        {articleError || "Failed to load page. Try reloading."}
+        Failed to load page. Try reloading.
       </div>
     );
   }

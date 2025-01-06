@@ -49,7 +49,7 @@ export default function Article({ articleId, ignoreId }) {
           <Image
             height={1000}
             width={1000}
-            className="h-60 w-96 rounded-t-lg opacity-90"
+            className="h-52 sm:h-56 md:h-60 w-96 rounded-t-lg opacity-90"
             src={
               article?.images
                 ? `/images/${article?.images?.[0]}`
@@ -58,22 +58,27 @@ export default function Article({ articleId, ignoreId }) {
             alt={article?.title || "Loading..."}
             priority
           />
+          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+            <span className="text-white text-lg tracking-tight font-semibold">
+              Explore More
+            </span>
+          </div>
         </div>
 
         <div
           className={`bg-gray-300 text-black p-3 ${
             ignoreId ? "rounded-lg" : "rounded-t-lg"
-          } border-t border-black -translate-y-2`}
+          } border-t border-gray-400 -translate-y-2`}
         >
-          <h3 className="text-3xl font-semibold tracking-tight">
+          <h3 className="text-3xl font-bold tracking-tight">
             {article?.title || "Loading..."}
           </h3>
           <p className="mt-1">
             {article?.description
-              ? `${article?.description.substring(0, 70)}...`
+              ? `${article?.description.substring(0, 70)}... `
               : "No description available."}
             {article?.description && (
-              <span className="text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="text-gray-600 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                 More
               </span>
             )}

@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import articleModel from "@/model/articleModel";
 import connectMongo from "@/utils/dbConnection";
 
@@ -10,10 +11,10 @@ export async function GET(req, context) {
     await connectMongo();
 
     const article = await articleModel.findOne({ _id: articleId });
-    console.log(article);
+    // console.log(article);
 
-    return Response.json(article);
+    return NextResponse.json(article);
   } catch (error) {
-    return Response.json({ message: error.message });
+    return NextResponse.json({ message: error.message });
   }
 }

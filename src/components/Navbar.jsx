@@ -12,7 +12,7 @@ import {
   removeUserSession,
   storeUserSession,
 } from "@/services/storage";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { fetchUser } from "@features/sessionSlice";
 import { usePathname } from "next/navigation";
@@ -253,41 +253,21 @@ export default function Navbar() {
               className="p-2"
             >
               {isOpen ? (
-                <X className="h-9 w-9" />
+                <X className="h-8 w-8" />
               ) : (
                 <>
-                  {session || localSession?.user ? (
-                    <Image
-                      src={
-                        session?.user?.image ||
-                        localSession?.user?.image ||
-                        "/icons/profile.png"
-                      }
-                      alt="profile"
-                      width={40}
-                      height={40}
-                      className={`rounded-full ${
-                        session?.user?.image ? "" : "border p-1"
-                      }`}
-                      priority
-                    />
-                  ) : session === null ? (
-                    <Image
-                      src={"/icons/profile.png"}
-                      alt="profile"
-                      width={40}
-                      height={40}
-                      className={`rounded-full ${
-                        session?.user?.image ? "" : "border p-1"
-                      }`}
-                      priority
-                    />
-                  ) : (
-                    <div className="">
-                      {/* Waving Profile Loader */}
-                      <div className="w-10 h-10 rounded-full bg-gray-700 custom-animate-pulse"></div>
-                    </div>
-                  )}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className={"h-8 w-8 bg-gray-800 rounded-lg p-2"}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
                 </>
               )}
             </button>

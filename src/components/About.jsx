@@ -104,7 +104,7 @@ export default function About() {
         className="relative z-10 mb-8 text-4xl flex items-center"
         variants={itemVariants}
       >
-        <h1 className="basis-auto text-white mr-4">About Me</h1>
+        <h1 className="basis-auto text-white mr-4 font-bold">About Me</h1>
         <motion.svg width="100" height="2" viewBox="0 0 100 2">
           <motion.path
             d="M0 1 L100 1"
@@ -124,12 +124,13 @@ export default function About() {
         <motion.div className="md:w-1/2" variants={textVariants}>
           <p className="text-gray-300 leading-relaxed text-lg">
             Hello ! My name is{" "}
-            <span className="underline">Sabeshragav G K</span> and I'm a
-            passionate developer with a love for creating beautiful and
+            <span className="font-bold text-white">Sabeshragav G K</span> and
+            I'm a passionate developer with a love for creating beautiful and
             functional web applications. I have experience in a variety of
-            technologies, including <span className="underline">React</span>,{" "}
-            <span className="underline">Next.js</span>, and more. I'm always
-            eager to learn new things and take on new challenges.
+            technologies, including{" "}
+            <span className="font-bold text-white">React</span>,{" "}
+            <span className="font-bold text-white">Next.js</span>, and more. I'm
+            always eager to learn new things and take on new challenges.
             <br />
             <br />
             In my free time, I enjoy exploring new technologies, and spending
@@ -154,7 +155,7 @@ export default function About() {
 
       {/* Skills Section */}
       <motion.div className="relative z-10 mt-12" variants={containerVariants}>
-        <h2 className="text-3xl text-white mb-4">Skills</h2>
+        <h2 className="text-3xl text-white font-bold mb-4">Skills</h2>
         <motion.ul
           className="list-disc list-inside text-gray-300"
           variants={containerVariants}
@@ -173,7 +174,7 @@ export default function About() {
 
       {/* Hobbies Section */}
       <motion.div className="relative z-10 mt-12" variants={containerVariants}>
-        <h2 className="text-3xl text-white mb-4">Hobbies</h2>
+        <h2 className="text-3xl text-white font-bold mb-4">Hobbies</h2>
         <motion.ul
           className="list-disc list-inside text-gray-300"
           variants={containerVariants}
@@ -192,7 +193,9 @@ export default function About() {
 
       {/* Professional Experience Section */}
       <motion.div className="relative z-10 mt-12" variants={containerVariants}>
-        <h2 className="text-3xl text-white mb-4">Professional Experience</h2>
+        <h2 className="text-3xl text-white font-bold mb-4">
+          Professional Experience
+        </h2>
         <motion.div
           className="text-gray-300 leading-relaxed text-lg"
           variants={skillsVariants}
@@ -207,11 +210,11 @@ export default function About() {
             <br />
             My work involves not only developing feature-rich and responsive
             user interfaces but also handling{" "}
-            <span className="underline">backend APIs</span>,{" "}
-            <span className="underline">server-side logic</span>, and{" "}
-            <span className="underline">managing deployments</span>. I am also
-            proficient in configuring hosting platforms and maintaining
-            applications in production.
+            <span className="font-bold text-white">backend APIs</span>,{" "}
+            <span className="font-bold text-white">server-side logic</span>, and{" "}
+            <span className="font-bold text-white">managing deployments</span>.
+            I am also proficient in configuring hosting platforms and
+            maintaining applications in production.
             <br />
             <br />I enjoy taking on different roles, offering flexible support
             to meet the unique needs of each project.
