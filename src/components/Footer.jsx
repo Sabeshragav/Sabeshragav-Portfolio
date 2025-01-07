@@ -4,10 +4,14 @@ import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { ArrowUp } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { handleScrollToTop } from "@features/articleSlice";
+import { handleScrollToTop } from "@features/pageSlice";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const pathName = usePathname();
+
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,7 +42,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/"
-                  className="hover:text-blue-500 transition-colors duration-200"
+                  className={`${pathName === "/" ? "text-blue-500" : ""}`}
                 >
                   Home
                 </Link>
@@ -46,7 +50,9 @@ const Footer = () => {
               <li>
                 <Link
                   href="/projects"
-                  className="hover:text-blue-500 transition-colors duration-200"
+                  className={`${
+                    pathName === "/projects" ? "text-blue-500" : ""
+                  }`}
                 >
                   Projects
                 </Link>
@@ -54,7 +60,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-blue-500 transition-colors duration-200"
+                  className={`${pathName === "/about" ? "text-blue-500" : ""}`}
                 >
                   About
                 </Link>
@@ -62,7 +68,9 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-blue-500 transition-colors duration-200"
+                  className={`${
+                    pathName === "/contact" ? "text-blue-500" : ""
+                  }`}
                 >
                   Contact
                 </Link>

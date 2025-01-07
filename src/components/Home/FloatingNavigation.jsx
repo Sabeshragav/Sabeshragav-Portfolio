@@ -2,6 +2,24 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { getViewPosition } from "@features/pageSlice";
+
+const NavList = ({ elementId, label }) => {
+  const viewPosition = useSelector(getViewPosition);
+  return (
+    <li className="float_nav">
+      <Link
+        href={`#${elementId}`}
+        className={`${
+          viewPosition === elementId ? "underline" : ""
+        } text-white hover:text-slate-300`}
+      >
+        {label}
+      </Link>
+    </li>
+  );
+};
 
 export default function FloatingNavigation() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,38 +40,18 @@ export default function FloatingNavigation() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed top-2 right-1 bg-slate-700 rounded-full px-6 py-3 z-50"
+          className="fixed top-2 z-50 w-full flex-center"
         >
-          <ul className="flex space-x-6">
-            <li>
-              <Link href="#navbar" className="text-white hover:text-slate-300">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#projects"
-                className="text-white hover:text-slate-300"
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="#about" className="text-white hover:text-slate-300">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="#skills" className="text-white hover:text-slate-300">
-                Skills
-              </Link>
-            </li>
-            <li>
-              <Link href="#contact" className="text-white hover:text-slate-300">
-                Contact
-              </Link>
-            </li>
-          </ul>
+          <div className="flex-center bg-slate-700 w-fit rounded-full px-4 sm:px-6 py-3">
+            <ul className="flex space-x-2 sm:space-x-3">
+              <NavList elementId={"welcome"} label={"Top"} />
+              <NavList elementId={"featured_projects"} label={"Projects"} />
+              <NavList elementId={"about"} label={"About"} />
+              <NavList elementId={"skills"} label={"Skills"} />
+              <NavList elementId={"connect"} label={"Connect"} />
+              <NavList elementId={"insights"} label={"Insights"} />
+            </ul>
+          </div>
         </motion.nav>
       )}
     </AnimatePresence>

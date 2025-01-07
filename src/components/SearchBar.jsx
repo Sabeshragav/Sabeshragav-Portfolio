@@ -1,13 +1,10 @@
 "use client";
-import {
-  fetchArticles,
-  getSearchVal,
-  setSearchVal,
-} from "@/features/articleSlice";
+import { fetchArticles } from "@/features/articleSlice";
 import React, { useState } from "react";
 import { CgSearch } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
+import { getSearchVal, setSearchVal } from "@features/pageSlice";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -43,16 +40,16 @@ export default function SearchBar() {
     <div className="flex items-center gap-3 pb-4 md:pb-7 border-b border-b-gray-800 md:border-none">
       <form
         onSubmit={(e) => handleSearch(e)}
-        className="gap-2 border rounded-full flex items-center justify-center p-1 md:p-2 relative"
+        className="gap-2 border rounded-full flex items-center justify-center p-1 md:p-2 relative bg-white"
       >
         <label htmlFor="Inp">
-          <CgSearch className="h-6 w-6 pl-1 text-gray-400" />
+          <CgSearch className="h-6 w-6 pl-1 text-black" />
         </label>
         <input
           disabled={searchReq}
           value={searchVal}
           onChange={(e) => dispatch(setSearchVal(e.target.value.toLowerCase()))}
-          className="outline-none text-sm md:text-base text-gray-200 rounded-r-full bg-transparent w-44 pr-7"
+          className="outline-none text-sm md:text-base text-black rounded-r-full bg-transparent w-44 pr-7"
           type="text"
           id="Inp"
           placeholder="Search"
@@ -61,7 +58,7 @@ export default function SearchBar() {
           <button
             type="button"
             onClick={handleXClick}
-            className="absolute right-2 text-gray-200"
+            className="absolute right-2 text-black"
             aria-label="Clear search"
           >
             <AiOutlineClose className="h-5 w-5" />
@@ -73,9 +70,9 @@ export default function SearchBar() {
         title="Search"
         disabled={searchReq}
         onClick={(e) => handleSearch(e)}
-        className={`border rounded-full p-1 text-sm md:text-lg ${
+        className={`${
           searchReq ? "hover:cursor-not-allowed" : ""
-        }`}
+        } inline-block bg-white text-black font-bold text-sm md:text-lg p-2 rounded-full hover:bg-slate-200 transition duration-300`}
       >
         Search
       </button>

@@ -12,7 +12,7 @@ import {
   removeUserSession,
   storeUserSession,
 } from "@/services/storage";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { fetchUser } from "@features/sessionSlice";
 import { usePathname } from "next/navigation";

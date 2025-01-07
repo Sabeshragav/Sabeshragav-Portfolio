@@ -5,9 +5,9 @@ import {
   getArticleError,
   getArticleStatus,
   selectById,
-  setSearchVal,
 } from "@/features/articleSlice";
 import Loader from "@components/Loader";
+import { setSearchVal } from "@features/pageSlice";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -59,7 +59,7 @@ export default function Article({ articleId, ignoreId }) {
             priority
           />
           <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
-            <span className="text-white text-lg tracking-tight font-semibold">
+            <span className="text-white text-lg tracking-tight font-bold">
               Explore More
             </span>
           </div>
