@@ -4,14 +4,13 @@ const initialState = {
   viewPosition: "",
   searchVal: "",
   words: [
-    "Blogspot",
     "Insights",
+    "Portfolio",
     "Sphere",
     "Perspectives",
     "Moments",
-    "Display",
+    "Displays",
     "Ideas",
-    "Portfolio",
   ],
 };
 

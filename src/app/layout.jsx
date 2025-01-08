@@ -21,7 +21,7 @@ export const metadata = {
   icons: logo,
   title: "Sabeshragav",
   description:
-    "A professional blogspot to explore and connect with Sabeshragav G K",
+    "A professional portfolio to explore and connect with Sabeshragav G K",
 };
 
 export default function RootLayout({ children }) {

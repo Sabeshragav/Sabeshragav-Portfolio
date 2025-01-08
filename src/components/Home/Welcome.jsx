@@ -46,6 +46,7 @@ export default function Welcome({ ParallaxText }) {
   const [showInfo, setShowInfo] = useState(false);
   const [logo1, setLogo1] = useState(false);
   const [logo2, setLogo2] = useState(false);
+  const [logo3, setLogo3] = useState(false);
 
   const text = "“ Where Creativity Meets Technology ”";
 
@@ -55,9 +56,11 @@ export default function Welcome({ ParallaxText }) {
       if (randomValue < 0.5) {
         setLogo1(true);
         setLogo2(false);
+        setLogo3(true);
       } else {
         setLogo1(false);
         setLogo2(true);
+        setLogo3(false);
       }
     }, 3000);
 
@@ -78,7 +81,8 @@ export default function Welcome({ ParallaxText }) {
         <ParallaxText className={"leading-snug"} speed={-0.5}>
           Welc
           <Logo appear={logo1} />
-          me t<Logo appear={logo2} /> My Digital Site
+          me t<Logo appear={logo2} /> My Portfoli
+          <Logo appear={logo3} />
         </ParallaxText>
       </motion.h1>
 

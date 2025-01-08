@@ -34,10 +34,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-blue-500">
-              Sabeshragav's Blogspot
+              Sabeshragav's Portfolio
             </h2>
             <p className="text-sm">
-              Exploring the world of web development, one post at a time.
+              Showcasing innovative web development projects and insights.
             </p>
           </div>
           <div>
@@ -129,7 +129,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm">
-            &copy; {currentYear} Sabeshragav's Blogspot. All rights reserved.
+            &copy; {currentYear} Sabeshragav's Portfolio. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <Link

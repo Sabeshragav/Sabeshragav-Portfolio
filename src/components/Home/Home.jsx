@@ -119,7 +119,7 @@ export default function Home() {
 
       <Welcome ParallaxText={ParallaxText} />
 
-      <Intro />
+      {/* <Intro /> */}
 
       <FeaturedProjects
         articles={articles}

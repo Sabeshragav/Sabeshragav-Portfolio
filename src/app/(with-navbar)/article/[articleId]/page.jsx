@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
     const articleData = article?.data;
 
     return {
-      title: articleData?.title || "Sabeshragav's Blogspot",
-      description: articleData?.description || "Sabeshragav's Blogspot",
+      title: articleData?.title || "Sabeshragav's Portfolio",
+      description: articleData?.description || "Sabeshragav's Portfolio",
       icons: logo,
     };
   } catch (error) {

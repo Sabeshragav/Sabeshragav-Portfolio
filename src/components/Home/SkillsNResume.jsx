@@ -26,6 +26,7 @@ export default function SkillsNResume({ ParallaxText }) {
     "Next.js",
     "Vite",
     "Node.js",
+    "Express",
     "Docker",
     "MySQL",
     "JWT",
