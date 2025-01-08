@@ -44,7 +44,7 @@ export default function SkillsNResume({ ParallaxText }) {
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
         <ParallaxText className={"leading-snug mb-10"}>
-          My Known Skills & Technologies
+          Known Skills & Technologies
         </ParallaxText>
       </h2>
       <motion.div

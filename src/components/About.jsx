@@ -163,7 +163,7 @@ export default function About() {
           <motion.li variants={skillsVariants}>Java</motion.li>
           <motion.li variants={skillsVariants}>JavaScript</motion.li>
           <motion.li variants={skillsVariants}>
-            React - Next.js - Vite - Redux
+            React - Next.js - Vite - Redux-toolkit
           </motion.li>
           <motion.li variants={skillsVariants}>Node.js - Express</motion.li>
           <motion.li variants={skillsVariants}>CSS - Tailwind CSS</motion.li>

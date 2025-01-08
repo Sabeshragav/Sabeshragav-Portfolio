@@ -2,6 +2,7 @@ import "@styles/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 // import UnderDevelopment from "@/components/UnderDevelopment";
 import AllProvider from "@providers/AllProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const logo = "/icons/logo.svg";
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <AllProvider>
           {/* <UnderDevelopment /> */}
           {children}
+          <SpeedInsights />
         </AllProvider>
       </body>
     </html>
