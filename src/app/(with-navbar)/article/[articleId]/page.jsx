@@ -1,7 +1,7 @@
 import axios from "axios";
 import FullArticle from "@components/Article/FullArticle";
 
-const logo = "/main/logo.png";
+const logo = "/icons/logo.svg";
 
 export async function generateMetadata({ params }) {
   const { articleId } = await params;

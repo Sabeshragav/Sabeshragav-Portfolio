@@ -11,7 +11,7 @@ export default function AboutMe({ ParallaxText }) {
       className="home_section py-60 px-4 md:px-8 bg-gradient-to-b from-slate-900 to-black"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-        <ParallaxText>A Glimpse Into Me</ParallaxText>
+        <ParallaxText>A Glimpse of Me</ParallaxText>
       </h2>
       <div className="flex justify-center py-10">
         <div className="h-32 w-32 rounded-full flex-center bg-slate-500">

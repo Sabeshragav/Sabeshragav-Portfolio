@@ -11,7 +11,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function AllProvider({ children, session }) {
   useEffect(() => {
-    // Dispatch the actions on mount
     store.dispatch(fetchArticles());
     store.dispatch(fetchProviders());
   }, []);
@@ -20,6 +19,7 @@ export default function AllProvider({ children, session }) {
     <Provider store={store}>
       <SessionProvider session={session}>
         <ToastContainer
+          theme="dark"
           transition={Zoom}
           autoClose={1500}
           closeOnClick

@@ -1,18 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const words = [
-  "Blogspot",
-  "Insights",
-  "Sphere",
-  "Perspectives",
-  "Moments",
-  "Display",
-  "Ideas",
-  "Portfolio",
-];
-
-export default function Title() {
+export default function Title({ name, words, className, speed, cursor }) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [typing, setTyping] = useState(true);
@@ -27,7 +16,7 @@ export default function Title() {
           setDisplayText(
             (prev) => prev + words[currentWordIndex][displayText.length]
           );
-        }, 100);
+        }, speed);
       } else {
         // Pause before deleting
         timeout = setTimeout(() => {
@@ -39,7 +28,7 @@ export default function Title() {
         // Remove letters one by one
         timeout = setTimeout(() => {
           setDisplayText((prev) => prev.slice(0, -1));
-        }, 100);
+        }, speed);
       } else {
         // Move to the next word
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
@@ -52,10 +41,10 @@ export default function Title() {
 
   return (
     <div
-      title={`Sabeshragav's ${displayText}`}
-      className="flex flex-row gap-2 item-center text-2xl"
+      title={`${name || ""} ${displayText || ""}`}
+      className={`flex item-center ${className || ""}`}
     >
-      <p>Sabeshragav's</p>
+      <span>{name || ""}</span>
       <AnimatePresence mode="wait">
         <motion.span
           key={words[currentWordIndex]}
@@ -63,9 +52,10 @@ export default function Title() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="inline-block"
+          className={`${cursor && "font-bold text-white"} flex-center`}
         >
-          {displayText}
+          {displayText || ""}
+          {cursor && <span className="text-sm animate-ping">|</span>}
         </motion.span>
       </AnimatePresence>
     </div>

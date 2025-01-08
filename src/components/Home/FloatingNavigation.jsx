@@ -12,8 +12,8 @@ const NavList = ({ elementId, label }) => {
       <Link
         href={`#${elementId}`}
         className={`${
-          viewPosition === elementId ? "underline" : ""
-        } text-white hover:text-slate-300`}
+          viewPosition === elementId ? "text-blue-500" : "text-white"
+        } sm:font-bold`}
       >
         {label}
       </Link>
@@ -45,11 +45,11 @@ export default function FloatingNavigation() {
           <div className="flex-center bg-slate-700 w-fit rounded-full px-4 sm:px-6 py-3">
             <ul className="flex space-x-2 sm:space-x-3">
               <NavList elementId={"welcome"} label={"Top"} />
+              <NavList elementId={"intro"} label={"Intro"} />
               <NavList elementId={"featured_projects"} label={"Projects"} />
               <NavList elementId={"about"} label={"About"} />
               <NavList elementId={"skills"} label={"Skills"} />
-              <NavList elementId={"connect"} label={"Connect"} />
-              <NavList elementId={"insights"} label={"Insights"} />
+              <NavList elementId={"services"} label={"Service"} />
             </ul>
           </div>
         </motion.nav>

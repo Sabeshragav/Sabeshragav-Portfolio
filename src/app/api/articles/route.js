@@ -44,7 +44,7 @@ export async function GET(req) {
       return Response.json(articleData);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return Response.json({ message: error.message });
   }
 }

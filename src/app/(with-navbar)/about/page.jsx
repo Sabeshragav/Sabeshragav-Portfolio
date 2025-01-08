@@ -1,5 +1,5 @@
 import About from "@components/About";
-const logo = "/main/logo.png";
+const logo = "/icons/logo.svg";
 
 export const metadata = {
   icons: logo,

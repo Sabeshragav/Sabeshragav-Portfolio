@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
 import Loader from "@components/Loader";
 import FloatingNavigation from "./FloatingNavigation";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,8 +10,9 @@ import Welcome from "./Welcome";
 import FeaturedProjects from "./FeaturedProjects";
 import AboutMe from "./AboutMe";
 import SkillsNResume from "./SkillsNResume";
-import Connect from "./Connect";
+import Services from "./Services";
 import { setViewPosition } from "@features/pageSlice";
+import Intro from "./Intro";
 
 const ParallaxText = ({ children, speed = 1, className }) => {
   const ref = useRef(null);
@@ -110,6 +110,7 @@ export default function Home() {
       <FloatingNavigation />
       {/* <AnimatedBackground /> */}
 
+      {/* Scroll progress bar */}
       {/* <motion.div
         id="home"
         className="fixed top-0 left-0 right-0 h-3 bg-slate-500 origin-left z-50"
@@ -117,6 +118,8 @@ export default function Home() {
       /> */}
 
       <Welcome ParallaxText={ParallaxText} />
+
+      <Intro />
 
       <FeaturedProjects
         articles={articles}
@@ -128,23 +131,18 @@ export default function Home() {
 
       <SkillsNResume ParallaxText={ParallaxText} />
 
-      <Connect ParallaxText={ParallaxText} />
+      <Services ParallaxText={ParallaxText} />
 
-      <section id="insights" className="home_section py-20 px-4 md:px-8">
+      {/* Upcomming Projects */}
+      <section id="upcomming" className="home_section py-44 px-4 md:px-8">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-          <ParallaxText>Latest Insights</ParallaxText>
+          <ParallaxText className={"mb-12"}>Upcomming Projects</ParallaxText>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {[
             {
-              title: "The Future of AI in Web Development",
-              excerpt:
-                "Exploring how artificial intelligence is reshaping the landscape of web development and user experiences.",
-            },
-            {
-              title: "Mastering the Art of Responsive Design",
-              excerpt:
-                "Techniques and strategies for creating seamless, adaptive interfaces across all devices and screen sizes.",
+              title: "No title",
+              excerpt: "No description",
             },
           ].map((post, index) => (
             <motion.div
@@ -156,12 +154,9 @@ export default function Home() {
             >
               <h3 className="text-xl font-bold mb-4">{post.title}</h3>
               <p className="text-slate-300 mb-4">{post.excerpt}</p>
-              <Link
-                href={`/blog/${index + 1}`}
-                className="text-slate-300 hover:text-white underline"
-              >
+              <button className="text-slate-300 hover:text-white underline">
                 Read More
-              </Link>
+              </button>
             </motion.div>
           ))}
         </div>

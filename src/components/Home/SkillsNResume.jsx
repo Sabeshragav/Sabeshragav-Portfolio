@@ -22,12 +22,12 @@ export default function SkillsNResume({ ParallaxText }) {
     "CSS3",
     "TailwindCSS",
     "React",
-    "Redux-Toolit",
+    "Redux-Toolkit",
     "Next.js",
     "Vite",
     "Node.js",
     "Docker",
-    "Websocket",
+    "MySQL",
     "JWT",
     "Git",
     "Supabase",
@@ -43,7 +43,7 @@ export default function SkillsNResume({ ParallaxText }) {
       className="home_section pb-60 px-4 md:px-8 flex flex-col items-center"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-        <ParallaxText className={"leading-snug mb-10 sm:mb-0"}>
+        <ParallaxText className={"leading-snug mb-10"}>
           My Known Skills & Technologies
         </ParallaxText>
       </h2>

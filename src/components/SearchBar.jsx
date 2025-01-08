@@ -72,7 +72,7 @@ export default function SearchBar() {
         onClick={(e) => handleSearch(e)}
         className={`${
           searchReq ? "hover:cursor-not-allowed" : ""
-        } inline-block bg-white text-black font-bold text-sm md:text-lg p-2 rounded-full hover:bg-slate-200 transition duration-300`}
+        } inline-block bg-white text-black text-sm md:text-lg p-2 rounded-full hover:bg-slate-200 transition duration-300`}
       >
         Search
       </button>

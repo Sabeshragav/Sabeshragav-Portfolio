@@ -3,6 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   viewPosition: "",
   searchVal: "",
+  words: [
+    "Blogspot",
+    "Insights",
+    "Sphere",
+    "Perspectives",
+    "Moments",
+    "Display",
+    "Ideas",
+    "Portfolio",
+  ],
 };
 
 const pageSlice = createSlice({
@@ -23,6 +33,7 @@ const pageSlice = createSlice({
 
 export const getSearchVal = (state) => state.pages.searchVal;
 export const getViewPosition = (state) => state.pages.viewPosition;
+export const getWords = (state) => state.pages.words;
 
 export const { handleScrollToTop, setSearchVal, setViewPosition } =
   pageSlice.actions;

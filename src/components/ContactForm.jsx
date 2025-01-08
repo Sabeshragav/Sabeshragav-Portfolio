@@ -140,7 +140,14 @@ export default function ContactForm() {
             <span>Please note: Only one message is allowed per user.</span>
             <button
               type="button"
-              onClick={() => setShowInfo(!showInfo)}
+              onClick={() => {
+                if (!showInfo) {
+                  setShowInfo(true);
+                  setTimeout(() => {
+                    setShowInfo(false);
+                  }, 3000);
+                }
+              }}
               className="text-blue-500 hover:text-blue-700 focus:outline-none"
               title="More Info"
             >

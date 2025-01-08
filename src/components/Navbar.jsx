@@ -13,11 +13,12 @@ import {
   storeUserSession,
 } from "@/services/storage";
 import { X } from "lucide-react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "@features/sessionSlice";
 import { usePathname } from "next/navigation";
 import Title from "./Title";
 import axios from "axios";
+import { getWords } from "@features/pageSlice";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -52,6 +53,7 @@ export default function Navbar() {
   }, []);
 
   const dispatch = useDispatch();
+  const words = useSelector(getWords);
 
   const [isOpen, setIsOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -116,8 +118,8 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/main/logo.png"
-                alt="SR"
+                src="/icons/logo.svg"
+                alt="SR-Logo"
                 width={55}
                 height={55}
                 className="object-contain"
@@ -125,7 +127,12 @@ export default function Navbar() {
               />
               {pathName !== "/" && (
                 <h1 className="text-xl md:text-2xl font-bold hidden sm:block">
-                  <Title />
+                  <Title
+                    className={"text-xl md:text-2xl flex-row gap-2"}
+                    name={"Sabeshragav's"}
+                    words={words}
+                    speed={100}
+                  />
                 </h1>
               )}
             </Link>
@@ -288,7 +295,12 @@ export default function Navbar() {
           >
             {pathName !== "/" && (
               <div className="w-3/4 pl-[18px] py-3">
-                <Title />
+                <Title
+                  className={"text-2xl flex-row gap-2"}
+                  name={"Sabeshragav's"}
+                  words={words}
+                  speed={100}
+                />
               </div>
             )}
             <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -381,9 +393,9 @@ const NavItem = ({ href, title, children }) => {
       >
         <Link href={href} title={title}>
           <span
-            className={`text-blue-500 ${
-              pathName === href ? "border-b-2 border-b-blue-500" : ""
-            }`}
+            className={`${
+              pathName === href ? "text-blue-500" : ""
+            } transition-all duration-300 ease-in-out`}
           >
             {children}
           </span>
@@ -404,8 +416,8 @@ const MobileNavItem = ({ href, title, children, onClick }) => {
         <Link href={href} title={title} onClick={onClick}>
           <span
             className={`block px-3 py-2 rounded-md ${
-              pathName === href ? "underline" : ""
-            } text-base font-medium text-blue-500 hover:text-white hover:bg-gray-700 transition duration-150 ease-in-out`}
+              pathName === href ? "text-blue-500" : "text-white"
+            } text-base font-medium hover:bg-gray-700 transition duration-150 ease-in-out`}
           >
             {children}
           </span>

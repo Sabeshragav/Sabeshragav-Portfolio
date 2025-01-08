@@ -1,38 +1,84 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const Logo = ({ appear }) => (
+  <>
+    <AnimatePresence mode="wait">
+      {appear ? (
+        <motion.span
+          key="logo"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="inline-flex items-center mt-3"
+        >
+          <Image
+            src="/icons/logo.svg"
+            alt="SR-Logo"
+            width={1000}
+            height={1000}
+            className={`object-contain h-8 w-8 md:h-12 md:w-12 translate-y-1 md:translate-y-[6px]`}
+            priority
+          />
+        </motion.span>
+      ) : (
+        <motion.span
+          key="text-o"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className=""
+        >
+          o
+        </motion.span>
+      )}
+    </AnimatePresence>
+  </>
+);
 
 export default function Welcome({ ParallaxText }) {
   const [showInfo, setShowInfo] = useState(false);
+  const [logo1, setLogo1] = useState(false);
+  const [logo2, setLogo2] = useState(false);
 
-  const text = "Where Creativity Meets Technology";
+  const text = "“ Where Creativity Meets Technology ”";
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomValue = Math.random();
+      if (randomValue < 0.5) {
+        setLogo1(true);
+        setLogo2(false);
+      } else {
+        setLogo1(false);
+        setLogo2(true);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="welcome"
-      className="home_section relative h-screen flex flex-col justify-center items-center max-w-7xl md:mx-auto mx-4"
+      className="home_section h-screen flex flex-col justify-center items-center max-w-7xl xl:mx-auto mx-4"
     >
       <motion.h1
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-5xl md:text-8xl font-bold text-center flex flex-col items-start"
+        className="text-5xl md:text-7xl font-bold text-center flex flex-col items-start"
       >
         <ParallaxText className={"leading-snug"} speed={-0.5}>
-          Welcome t
-          <span className="inline-flex items-center mt-3">
-            <Image
-              src="/main/logo.png"
-              alt="SR"
-              width={1000}
-              height={1000}
-              className="animate-pulse object-contain h-[30px] w-[30px] md:h-16 md:w-16 translate-y-1 md:translate-y-2"
-              priority
-            />
-          </span>{" "}
-          My Digital Site
+          Welc
+          <Logo appear={logo1} />
+          me t<Logo appear={logo2} /> My Digital Site
         </ParallaxText>
       </motion.h1>
 
@@ -40,7 +86,7 @@ export default function Welcome({ ParallaxText }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="text-xl md:text-2xl text-slate-300 text-center"
+        className="text-lg md:text-2xl text-slate-300 text-center"
       >
         {text?.split("").map((letter, index) => (
           <motion.span
@@ -55,12 +101,19 @@ export default function Welcome({ ParallaxText }) {
         <div className="translate-y-20 flex justify-center">
           <ArrowDown
             className="animate-bounce h-12 w-12"
-            onClick={() => setShowInfo(!showInfo)}
+            onClick={() => {
+              if (!showInfo) {
+                setShowInfo(true);
+                setTimeout(() => {
+                  setShowInfo(false);
+                }, 3000);
+              }
+            }}
           />
         </div>
       </motion.div>
       {showInfo && (
-        <p className="text-sm text-center text-blue-700 mt-2 translate-y-20">
+        <p className="animate-pulse text-sm text-center text-blue-700 mt-2 translate-y-20">
           Please Scroll down !
         </p>
       )}

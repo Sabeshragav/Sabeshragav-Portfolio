@@ -10,8 +10,6 @@ import { FaGithub } from "react-icons/fa";
 import RelatedArticle from "./RelatedArticle";
 
 export default function FullArticle({ article }) {
-  console.log(article);
-
   const [isLoaded, setIsLoaded] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
@@ -207,7 +205,14 @@ export default function FullArticle({ article }) {
                     <h1>No External Links</h1>
                     <button
                       type="button"
-                      onClick={() => setShowInfo(!showInfo)}
+                      onClick={() => {
+                        if (!showInfo) {
+                          setShowInfo(true);
+                          setTimeout(() => {
+                            setShowInfo(false);
+                          }, 3000);
+                        }
+                      }}
                       className="text-blue-500 hover:text-blue-700 focus:outline-none"
                       title="More Info"
                     >

@@ -44,10 +44,6 @@ const sessionSlice = createSlice({
   },
 });
 
-// export const { setSession, clearSession } = sessionSlice.actions;
-
-// export const getSession = (state) => state.session;
-
 export const getUser = (state) => state.session.user;
 export const getUserLoading = (state) => state.session.loading;
 export const getUserError = (state) => state.session.error;

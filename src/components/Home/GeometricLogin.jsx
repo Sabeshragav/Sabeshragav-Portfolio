@@ -36,8 +36,8 @@ const GeometricLogin = () => {
     <div className="relative max-w-7xl h-[600px] overflow-hidden rounded-xl">
       <ColorTransition className={"absolute inset-0 p-2"}>
         <Image
-          src="/main/logo.png"
-          alt="SR"
+          src="/icons/logo.svg"
+          alt="SR-Logo"
           width={1000}
           height={1000}
           className="object-contain h-10 w-10 md:h-16 md:w-16"

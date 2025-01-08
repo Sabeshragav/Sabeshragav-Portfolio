@@ -11,7 +11,8 @@ export async function POST(req) {
 
     const matchedArticles = await articleModel
       .find({ technologies: { $in: techData } })
-      .select("_id");
+      .select("_id")
+      .sort({ order: -1 });
 
     const ids = matchedArticles.map((article) => article._id);
 

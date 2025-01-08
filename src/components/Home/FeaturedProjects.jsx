@@ -39,13 +39,13 @@ export default function FeaturedProjects({
       className="home_section pt-20 px-4 md:px-8 bg-slate-900"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-        <ParallaxText>Featured Projects</ParallaxText>
+        <ParallaxText className={"mb-12"}>Featured Projects</ParallaxText>
       </h2>
 
       {/* Minimum article - 4*/}
       {articles?.length ? (
         <HorizontalParallaxSection>
-          {articles?.map((article, index) => (
+          {articles?.slice(0, 4).map((article, index) => (
             <ProjectCard
               key={index}
               title={article?.title || "Loading Title"}
@@ -68,7 +68,7 @@ export default function FeaturedProjects({
           href="/projects"
           className="inline-block bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition duration-300"
         >
-          Explore
+          Explore All
         </Link>
       </div>
     </section>

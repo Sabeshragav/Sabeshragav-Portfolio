@@ -21,6 +21,10 @@ input[type="password"]::-ms-reveal {
     @apply bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent;
   }
 
+  .slate_black_slate {
+    @apply bg-gradient-to-br from-[#111827] via-[#000000] to-[#1e293b];
+  }
+
   .dropdown {
     @apply absolute z-50 right-2 mt-3 top-12 p-2 rounded-lg bg-gray-800 min-w-[210px] flex flex-col gap-2 justify-end items-end;
   }
@@ -36,7 +40,7 @@ input[type="password"]::-ms-reveal {
     @apply flex justify-between items-center w-full bg-black rounded-md px-4 p-2;
   }
   /* .float_nav {
-    @apply border-r;
+    @apply ;
   } */
 }
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, MailIcon } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { handleScrollToTop } from "@features/pageSlice";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,10 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const github = "https://github.com/Sabeshragav";
+  const linkedIn = "https://linkedin.com/in/sabeshragavgk";
+  const gmail = "mailto:sabeshragav289@gmail.com";
 
   useEffect(() => {
     setIsLoaded(true);
@@ -80,33 +84,41 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Connect</h3>
             <div className="flex space-x-4">
-              <a
-                href="https://github.com/Sabeshragav"
+              <Link
+                href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <FaGithub size={24} />
-              </a>
-              {/* <a
+              </Link>
+              {/* <Link
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <FaTwitter size={24} />
-              </a> */}
-              <a
-                href="https://linkedin.com/in/sabeshragavgk"
+              </Link> */}
+              <Link
+                href={linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <FaLinkedin size={24} />
-              </a>
+              </Link>
+              <Link
+                href={gmail}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <MailIcon size={24} />
+              </Link>
             </div>
           </div>
-          <div className="flex-center sm:block text-white">
+          <div className="flex-center md:block text-white">
             <button
               title="Scroll to Top"
               onClick={() => dispatch(handleScrollToTop())}

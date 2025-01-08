@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import GeometricLogin from "./GeometricLogin";
 import Link from "next/link";
 
-export default function Connect({ ParallaxText }) {
+export default function Services({ ParallaxText }) {
   return (
     <section
-      id="connect"
+      id="services"
       className="home_section py-44 px-4 md:px-8 bg-slate-900"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-14 text-center">
@@ -20,7 +20,8 @@ export default function Connect({ ParallaxText }) {
         className="max-w-4xl mx-auto text-center"
       >
         <p className="text-lg md:text-xl text-slate-300 mb-16">
-          Excited to connect? Here are the ways you can always reach out.
+          Wanted to stay connected to this site? Here are the ways you can
+          always reach out.
         </p>
       </motion.div>
       <div className="max-w-4xl mx-auto text-center mb-16">
@@ -29,7 +30,7 @@ export default function Connect({ ParallaxText }) {
       <div className="flex justify-center">
         <Link
           href="/login"
-          className="bg-black text-white font-bold py-3 px-6 rounded-full transition duration-300"
+          className="bg-black text-white hover:text-black hover:bg-white font-bold py-3 px-6 rounded-full transition duration-200"
         >
           Go to Login
         </Link>

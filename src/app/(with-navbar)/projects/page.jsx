@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectPage from "./ProjectPage";
-const logo = "/main/logo.png";
+const logo = "/icons/logo.svg";
 
 export const metadata = {
   icons: logo,

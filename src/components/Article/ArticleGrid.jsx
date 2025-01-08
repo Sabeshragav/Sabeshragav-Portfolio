@@ -43,7 +43,7 @@ export default function ArticleGrid() {
 
   if (articleStatus === "pending") {
     content = (
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-[500px] flex items-center justify-center">
         <Loader />
       </div>
     );
@@ -68,11 +68,10 @@ export default function ArticleGrid() {
     ));
   } else {
     content = (
-      <div className="h-screen flex items-center">No Projects available</div>
+      <div className="h-[500px] flex items-center">No Projects available</div>
     );
   }
 
-  // Default to a consistent structure
   return (
     <div className="my-20 mx-7 flex justify-center">
       <div
