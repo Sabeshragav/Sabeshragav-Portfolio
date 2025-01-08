@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 // import UnderDevelopment from "@/components/UnderDevelopment";
 import AllProvider from "@providers/AllProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const logo = "/icons/logo.svg";
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           {/* <UnderDevelopment /> */}
           {children}
           <SpeedInsights />
+          <Analytics />
         </AllProvider>
       </body>
     </html>
