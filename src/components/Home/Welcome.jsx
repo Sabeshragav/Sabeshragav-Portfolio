@@ -44,28 +44,18 @@ const Logo = ({ appear }) => (
 
 export default function Welcome({ ParallaxText }) {
   const [showInfo, setShowInfo] = useState(false);
-  const [logo1, setLogo1] = useState(false);
-  const [logo2, setLogo2] = useState(false);
-  const [logo3, setLogo3] = useState(false);
-
-  const text = "“ Where Creativity Meets Technology ”";
+  const [activeLogo, setActiveLogo] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomValue = Math.random();
-      if (randomValue < 0.5) {
-        setLogo1(true);
-        setLogo2(false);
-        setLogo3(true);
-      } else {
-        setLogo1(false);
-        setLogo2(true);
-        setLogo3(false);
-      }
+      const randomValue = Math.floor(Math.random() * 3) + 1;
+      setActiveLogo(randomValue);
     }, 3000);
 
     return () => clearInterval(interval);
   }, []);
+
+  const text = "“ Where Creativity Meets Technology ”";
 
   return (
     <section
@@ -80,9 +70,9 @@ export default function Welcome({ ParallaxText }) {
       >
         <ParallaxText className={"leading-snug"} speed={-0.5}>
           Welc
-          <Logo appear={logo1} />
-          me t<Logo appear={logo2} /> My Portfoli
-          <Logo appear={logo3} />
+          <Logo appear={activeLogo === 2} />
+          me t<Logo appear={activeLogo === 1} /> My Portfoli
+          <Logo appear={activeLogo === 3} />
         </ParallaxText>
       </motion.h1>
 
