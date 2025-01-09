@@ -45,7 +45,7 @@ export default function FloatingNavigation() {
           <div className="flex-center bg-slate-700 w-fit rounded-full px-4 sm:px-6 py-3">
             <ul className="flex space-x-2 sm:space-x-3">
               <NavList elementId={"welcome"} label={"Top"} />
-              <NavList elementId={"intro"} label={"Intro"} />
+              {/* <NavList elementId={"intro"} label={"Intro"} /> */}
               <NavList elementId={"featured_projects"} label={"Projects"} />
               <NavList elementId={"about"} label={"About"} />
               <NavList elementId={"skills"} label={"Skills"} />
