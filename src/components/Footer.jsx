@@ -33,9 +33,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-blue-500">
+            <Link href="/" className="text-2xl font-bold text-blue-500">
               Sabeshragav's Portfolio
-            </h2>
+            </Link>
             <p className="text-sm">
               Showcasing innovative web development projects and insights.
             </p>
