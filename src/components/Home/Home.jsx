@@ -12,7 +12,7 @@ import AboutMe from "./AboutMe";
 import SkillsNResume from "./SkillsNResume";
 import Services from "./Services";
 import { setViewPosition } from "@features/pageSlice";
-import Intro from "./Intro";
+// import Intro from "./Intro";
 
 const ParallaxText = ({ children, speed = 1, className }) => {
   const ref = useRef(null);
@@ -43,18 +43,18 @@ const HorizontalParallaxSection = ({ children }) => {
   }, []);
 
   const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 1], [0, -width]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, -width * 1.6]);
 
   return (
     <motion.div
       ref={carousel}
-      className="relative cursor-grab overflow-hidden max-w-5xl mx-auto"
+      className="relative cursor-grab overflow-hidden max-w-6xl mx-auto"
     >
       <motion.div
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
         style={{ x }}
-        className="flex gap-3 md:gap-10 max-w-5xl mx-auto"
+        className="flex gap-3 md:gap-10 max-w-6xl mx-auto"
       >
         {children}
       </motion.div>
