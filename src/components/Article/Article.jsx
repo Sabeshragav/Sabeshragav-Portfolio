@@ -88,7 +88,7 @@ export default function Article({ articleId, ignoreId }) {
 
       {!ignoreId && (
         <div className="flex flex-wrap gap-2 bg-gray-300 pb-4 rounded-b-lg p-2 -translate-y-2 max-w-96">
-          {article?.technologies?.slice(0, 3).map((tech) => (
+          {article?.technologies?.slice(0, 4).map((tech) => (
             <button
               onClick={(e) => {
                 e.stopPropagation();

@@ -14,7 +14,7 @@ export async function POST(req) {
       .select("_id")
       .sort({ order: -1 });
 
-    const ids = matchedArticles.map((article) => article._id);
+    const ids = matchedArticles.slice(0, 4).map((article) => article._id);
 
     if (ids.length > 0) {
       return NextResponse.json(ids, { status: 200 });

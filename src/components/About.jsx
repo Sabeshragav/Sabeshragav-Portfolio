@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Loader from "./Loader";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   const controls = useAnimation();
@@ -220,6 +221,23 @@ export default function About() {
             to meet the unique needs of each project.
           </p>
         </motion.div>
+      </motion.div>
+
+      {/* Resume */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 max-w-md mx-auto text-center mt-20"
+      >
+        <Link
+          href={process.env.NEXT_PUBLIC_STORAGE_SUPABASE}
+          target="_blank"
+          className="inline-block bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition duration-300"
+        >
+          <span className="sm:hidden block">Download Resume</span>
+          <span className="sm:block hidden">View Resume</span>
+        </Link>
       </motion.div>
     </motion.section>
   );
