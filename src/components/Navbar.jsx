@@ -191,7 +191,11 @@ export default function Navbar() {
                         <div className="py-2 text-gray-300">
                           <div className="flex items-center px-4 py-2 space-x-2 border-b border-b-gray-700">
                             <Image
-                              src={session?.user?.image || "/icons/profile.png"}
+                              src={
+                                session?.user?.image ||
+                                localSession?.user?.image ||
+                                "/icons/profile.png"
+                              }
                               alt="profile"
                               width={35}
                               height={35}

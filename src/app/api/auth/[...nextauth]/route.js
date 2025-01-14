@@ -31,7 +31,8 @@ const handler = NextAuth({
     },
     async signIn({ profile, account }) {
       try {
-        console.log(profile, account);
+        // console.log(account);
+        console.log(profile);
 
         await connectMongo();
 
@@ -51,7 +52,7 @@ const handler = NextAuth({
           await userModel.create({
             handle: handle,
             email: profile.email,
-            username: profile.name,
+            username: profile.name || profile.login,
             image: profile.picture,
             contactStatus: true,
           });
