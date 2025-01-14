@@ -21,7 +21,7 @@ const Login = () => {
   const router = useRouter();
 
   const providers = useSelector(getAllProviders);
-  console.log(providers);
+  // console.log(providers);
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });

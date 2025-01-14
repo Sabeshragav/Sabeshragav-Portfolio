@@ -32,7 +32,7 @@ const handler = NextAuth({
     async signIn({ profile, account }) {
       try {
         // console.log(account);
-        console.log(profile);
+        // console.log(profile);
 
         await connectMongo();
 
