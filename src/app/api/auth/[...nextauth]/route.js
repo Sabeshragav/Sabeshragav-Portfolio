@@ -2,12 +2,17 @@ import userModel from "@model/userModel";
 import connectMongo from "@utils/dbConnection";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 
 const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
   callbacks: {
@@ -24,19 +29,27 @@ const handler = NextAuth({
       // console.log("after", session);
       return session;
     },
-    async signIn({ profile }) {
+    async signIn({ profile, account }) {
       try {
-        // console.log(profile);
+        console.log(profile, account);
 
         await connectMongo();
 
-        // check if user already exists
+        // Determine the handle based on the provider
+        let handle = "email/pass"; // Default
+        if (account.provider === "google") {
+          handle = "google";
+        } else if (account.provider === "github") {
+          handle = "github";
+        }
+
+        // Check if user already exists
         const userExists = await userModel.findOne({ email: profile.email });
 
-        // if not, create a new document and save user in MongoDB
+        // If not, create a new document and save user in MongoDB
         if (!userExists) {
           await userModel.create({
-            handle: "google",
+            handle: handle,
             email: profile.email,
             username: profile.name,
             image: profile.picture,

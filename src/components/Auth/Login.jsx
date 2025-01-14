@@ -21,6 +21,7 @@ const Login = () => {
   const router = useRouter();
 
   const providers = useSelector(getAllProviders);
+  console.log(providers);
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
@@ -207,7 +208,14 @@ const Login = () => {
               {/* Github */}
               <button
                 onClick={() =>
-                  toast.warn("Github handle is still in development")
+                  providers &&
+                  signIn("github", {
+                    callbackUrl: `${
+                      path
+                        ? process.env.NEXT_PUBLIC_API_URL + path
+                        : process.env.NEXT_PUBLIC_API_URL
+                    }`, // Redirect to the current page after login
+                  })
                 }
                 className="flex-1 flex items-center justify-center bg-gray-800 text-white py-2 rounded-lg font-medium shadow-md transition-all duration-200 hover:bg-gray-700 transform hover:scale-105"
               >

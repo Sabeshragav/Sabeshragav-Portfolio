@@ -8,6 +8,11 @@ const nextConfig = {
         hostname: "lh3.googleusercontent.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com", // Add GitHub's avatar domain
+        pathname: "/**",
+      },
     ],
   },
   webpack(config, { isServer }) {
