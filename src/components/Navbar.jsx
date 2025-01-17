@@ -19,6 +19,7 @@ import { usePathname } from "next/navigation";
 import Title from "./Title";
 import axios from "axios";
 import { getWords } from "@features/pageSlice";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -230,6 +231,7 @@ export default function Navbar() {
                               setToggleDropdown(false);
                               setIsProfileClicked(false); // Reset profile image on logout
                               signOut();
+                              toast.success("Logged Out");
                             }}
                           >
                             Logout
@@ -370,6 +372,7 @@ export default function Navbar() {
                         removeUserSession();
                         toggleMenu();
                         signOut();
+                        toast.success("Logged Out");
                       }}
                       className="w-full px-4 py-2 text-left text-red-500 hover:bg-gray-700"
                     >
