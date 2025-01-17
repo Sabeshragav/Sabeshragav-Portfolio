@@ -66,8 +66,8 @@ export default function Article({ articleId, ignoreId }) {
         </div>
 
         <div
-          className={`bg-gray-300 text-black px-3 pt-3 ${
-            ignoreId ? "rounded-lg" : "rounded-t-lg"
+          className={`bg-gray-300 text-black ${
+            ignoreId ? "rounded-lg p-3" : "rounded-t-lg px-3 pt-3"
           } border-t border-gray-400 -translate-y-2`}
         >
           <h3 className="text-3xl font-bold tracking-tight">
