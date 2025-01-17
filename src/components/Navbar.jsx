@@ -164,7 +164,11 @@ export default function Navbar() {
                           setToggleDropdown((prev) => !prev);
                           setIsProfileClicked(true); // Mark profile as clicked
                         }}
-                        src={session?.user?.image || "/icons/profile.png"}
+                        src={
+                          session?.user?.image ||
+                          localSession?.user?.image ||
+                          "/icons/profile.png"
+                        }
                         alt="profile"
                         width={40}
                         height={40}
@@ -335,7 +339,7 @@ export default function Navbar() {
                       src={
                         session?.user?.image ||
                         localSession?.user?.image ||
-                        "/default-avatar.png"
+                        "/icons/profile.png"
                       }
                       alt="profile"
                       width={35}
