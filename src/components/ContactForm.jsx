@@ -90,7 +90,7 @@ export default function ContactForm() {
         email: user?.email || localSession?.user?.email,
         message: message.trim(),
       };
-      toast.success(enquiry);
+
       dispatch(addEnquiry(enquiry));
     } else {
       toast.error("Enter a valid message");
@@ -228,13 +228,13 @@ export default function ContactForm() {
                     : false) ||
                   enquiryStatus === "pending" ||
                   enquiryStatus === "fulfilled"
-                    ? "You can't message here..."
+                    ? "Your message has already been sent."
                     : "Type your message here..."
                 }
                 required
                 value={
                   enquiryStatus === "fulfilled"
-                    ? "You can't message here..."
+                    ? "Your message has already been sent."
                     : message
                 }
                 disabled={

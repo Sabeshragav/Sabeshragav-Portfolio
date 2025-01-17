@@ -19,18 +19,28 @@ export async function POST(req) {
 
     const existingUser = await userModel.findOne({ email });
 
-    if (existingUser) {
+    if (!existingUser) {
+      return Response.json(
+        { message: "No user found with that particular email" },
+        {
+          status: 404,
+        }
+      );
+    }
+
+    if (existingUser.contactStatus === true) {
       existingUser.contactStatus = false;
       await existingUser.save();
       await enquiryModel.create({ name, email, message });
       return Response.json({ message: "Enquiry sent successfully !!" });
+    } else {
+      return Response.json(
+        { message: "Your message has already been sent." },
+        {
+          status: 403,
+        }
+      );
     }
-    return Response.json(
-      { message: "No user found with that particular email" },
-      {
-        status: 404,
-      }
-    );
   } catch (error) {
     return Response.json(error.message, {
       status: 500,

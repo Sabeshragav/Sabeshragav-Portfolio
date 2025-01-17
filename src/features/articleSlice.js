@@ -48,8 +48,9 @@ export const addEnquiry = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error(error.message);
-      return thunkAPI.rejectWithValue(error.message);
+      // console.error(error);
+
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -78,7 +79,7 @@ const articleSlice = createSlice({
         state.enquiryStatus = "pending";
       })
       .addCase(addEnquiry.rejected, (state, action) => {
-        state.enquiryError = action.payload.error;
+        state.enquiryError = action.payload;
         state.enquiryStatus = "rejected";
       })
       .addCase(addEnquiry.fulfilled, (state, action) => {
