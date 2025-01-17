@@ -5,6 +5,7 @@ import { CgSearch } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchVal, setSearchVal } from "@features/pageSlice";
+import { toast } from "react-toastify";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -24,8 +25,7 @@ export default function SearchBar() {
       if (searchVal.trim() && containsValidCharacters(searchVal.trim())) {
         dispatch(fetchArticles(searchVal.trim()));
       } else if (searchVal.trim() === "") {
-        handleXClick();
-      } else alert("Enter a valid search");
+      } else toast.warning("Enter a valid search");
 
       setSearchReq(false);
     }
