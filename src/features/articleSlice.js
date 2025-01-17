@@ -58,7 +58,11 @@ export const addEnquiry = createAsyncThunk(
 const articleSlice = createSlice({
   name: "articles",
   initialState,
-  reducers: {},
+  reducers: {
+    setEnquiryError: (state, action) => {
+      state.enquiryError = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchArticles.pending, (state) => {
@@ -100,5 +104,7 @@ export const getArticleError = (state) => state.articles.error;
 export const getEnquiryMessage = (state) => state.articles.message;
 export const getEnquiryStatus = (state) => state.articles.enquiryStatus;
 export const getEnquiryError = (state) => state.articles.enquiryError;
+
+export const { setEnquiryError } = articleSlice.actions;
 
 export const articleReducer = articleSlice.reducer;

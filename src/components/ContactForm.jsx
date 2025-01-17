@@ -10,8 +10,8 @@ import {
   addEnquiry,
   getEnquiryError,
   getEnquiryStatus,
+  setEnquiryError,
 } from "@features/articleSlice";
-import { toast } from "react-toastify";
 import { usePathname } from "next/navigation";
 import Loader from "./Loader";
 import axios from "axios";
@@ -84,6 +84,7 @@ export default function ContactForm() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    dispatch(setEnquiryError(null));
     if (message.trim() && containsLetters(message.trim())) {
       const enquiry = {
         name: user?.username || localSession?.user?.username,
@@ -93,7 +94,7 @@ export default function ContactForm() {
 
       dispatch(addEnquiry(enquiry));
     } else {
-      toast.error("Enter a valid message");
+      dispatch(setEnquiryError("Enter a valid message"));
     }
   };
 
