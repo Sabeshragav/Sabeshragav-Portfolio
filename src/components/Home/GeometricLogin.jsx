@@ -47,7 +47,7 @@ const GeometricLogin = () => {
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center p-10">
           <motion.h2
-            className="text-3xl font-bold text-white my-8 basis-3/4"
+            className="text-3xl font-bold text-white my-8 basis-3/4 leading-snug"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

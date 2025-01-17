@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import Title from "@/components/Title";
 import { useSelector } from "react-redux";
 import { getWords } from "@/features/pageSlice";
