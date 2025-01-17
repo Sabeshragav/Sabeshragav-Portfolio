@@ -52,7 +52,7 @@ export default function Title({ name, words, className, speed, cursor }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className={`${cursor && "font-bold text-white"} flex-center`}
+          className={`${cursor ? "font-bold text-white" : ""} flex-center`}
         >
           {displayText || ""}
           {cursor && <span className="text-sm animate-ping">|</span>}
