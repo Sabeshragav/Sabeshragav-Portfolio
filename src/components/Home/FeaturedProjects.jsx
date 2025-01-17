@@ -50,7 +50,7 @@ export default function FeaturedProjects({
               key={index}
               title={article?.title || "Loading Title"}
               description={
-                `${article?.description?.slice(0, 100)}...` ||
+                `${article?.description?.slice(0, 70)}...` ||
                 "Loading Description"
               }
               image={`/images/${article?.images?.[0]}`}

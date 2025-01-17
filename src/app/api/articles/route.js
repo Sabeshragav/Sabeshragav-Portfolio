@@ -21,8 +21,8 @@ export async function GET(req) {
           },
           {
             title: 1,
-            description: 1,
-            images: 1,
+            description: { $substrBytes: ["$description", 0, 70] },
+            images: { $arrayElemAt: ["$images", 0] },
             technologies: 1,
           }
         )
@@ -35,8 +35,8 @@ export async function GET(req) {
           {},
           {
             title: 1,
-            description: 1,
-            images: 1,
+            description: { $substrBytes: ["$description", 0, 70] },
+            images: { $arrayElemAt: ["$images", 0] },
             technologies: 1,
           }
         )
