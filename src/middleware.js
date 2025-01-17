@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const isPublicPath = (path) => ["/login", "/signup"].includes(path);
 
 const getAuthToken = (request) =>
-  request.cookies.get("_Secure-next-auth.session-token")?.value ||
+  request.cookies.get("__Secure-next-auth.session-token")?.value ||
   request.cookies.get("next-auth.session-token")?.value ||
   request.cookies.get("token")?.value ||
   "";
