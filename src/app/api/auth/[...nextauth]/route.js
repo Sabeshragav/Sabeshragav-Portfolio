@@ -56,12 +56,19 @@ const handler = NextAuth({
             image: profile.picture,
             contactStatus: true,
           });
+        } else {
+          if (userExists.handle !== handle) {
+            throw new Error(
+              `This email is already registered with a different provider (${userExists.handle}).`
+            );
+          }
         }
 
         return true;
       } catch (error) {
-        console.error("Error checking if user exists: ", error.message);
-        return false;
+        console.error("Error during sign-in: ", error.message);
+        // Redirect to custom error page with error message
+        return `/error?error=${encodeURIComponent(error.message)}`;
       }
     },
     async redirect({ url, baseUrl }) {
@@ -70,6 +77,9 @@ const handler = NextAuth({
       // If `url` is from the same origin, use it; otherwise, fallback to `baseUrl`
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
+  },
+  pages: {
+    error: "/error", // Custom error page
   },
 });
 

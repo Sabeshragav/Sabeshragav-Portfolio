@@ -14,7 +14,7 @@ export async function POST(req) {
     const existingUser = await userModel.findOne({ email });
 
     if (!existingUser) {
-      return NextResponse.json("No email found", {
+      return NextResponse.json("No email found. Try Signing Up.", {
         status: 404,
       });
     }

@@ -10,7 +10,7 @@ export async function POST(req) {
     await connectMongo();
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
-      return Response.json("Email already exists", {
+      return Response.json("Email already exists. Try Logging In.", {
         status: 404,
       });
     }
