@@ -21,7 +21,7 @@ const SkillSection = ({ skills }) => (
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ duration: 1 }}
-    className="flex flex-wrap justify-center max-w-3xl mt-10"
+    className="flex flex-wrap justify-center max-w-3xl mt-7"
   >
     {skills?.map((skill, index) => (
       <SkillBubble key={index} skill={skill} />
@@ -37,8 +37,8 @@ export default function SkillsNResume({ ParallaxText }) {
       id="skills"
       className="home_section pb-60 px-4 md:px-8 flex flex-col items-center"
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-        <ParallaxText className={"leading-snug mb-10"}>
+      <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">
+        <ParallaxText className={"leading-snug mb-4"}>
           Known Skills & Technologies
         </ParallaxText>
       </h2>
@@ -51,7 +51,7 @@ export default function SkillsNResume({ ParallaxText }) {
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md mx-auto text-center mt-20"
+        className="max-w-md mx-auto text-center mt-14"
       >
         <Link
           href={process.env.NEXT_PUBLIC_STORAGE_SUPABASE || "#"}
