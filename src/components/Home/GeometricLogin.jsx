@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaGoogle, FaGithub, FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 export const ColorTransition = ({ children, className }) => (
   <motion.div
@@ -20,15 +21,16 @@ export const ColorTransition = ({ children, className }) => (
   </motion.div>
 );
 
-const LoginOption = ({ icon: Icon, color, onClick }) => (
-  <motion.div
-    className="flex flex-col items-center justify-center w-24 h-24 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm"
-    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
-    whileTap={{ scale: 0.95 }}
-    onClick={onClick}
-  >
-    <Icon className={`text-3xl ${color}`} />
-  </motion.div>
+const LoginOption = ({ icon: Icon, color }) => (
+  <Link href="/login">
+    <motion.div
+      className="flex flex-col items-center justify-center w-24 h-24 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm"
+      whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Icon className={`text-3xl ${color}`} />
+    </motion.div>
+  </Link>
 );
 
 const GeometricLogin = () => {
