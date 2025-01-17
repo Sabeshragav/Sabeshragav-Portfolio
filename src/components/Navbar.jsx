@@ -349,10 +349,14 @@ export default function Navbar() {
                     />
                     <div>
                       <p className="text-white">
-                        {session?.user?.name || localSession?.user?.username}
+                        {session?.user?.name ||
+                          localSession?.user?.username ||
+                          "Loading"}
                       </p>
                       <p className="text-sm text-gray-400">
-                        {session?.user?.email || localSession?.user?.email}
+                        {session?.user?.email ||
+                          localSession?.user?.email ||
+                          "Loading"}
                       </p>
                     </div>
                   </li>
