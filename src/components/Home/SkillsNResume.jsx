@@ -1,42 +1,36 @@
 "use client";
+import { getAllSkils } from "@features/pageSlice";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const SkillBubble = ({ skill }) => (
-  <motion.div
-    className="bg-slate-800 rounded-full px-4 py-2 m-2 inline-block"
-    whileHover={{ scale: 1.1, backgroundColor: "#1E293B" }}
-    whileTap={{ scale: 0.9 }}
-  >
-    <Link href={`https://www.google.com/search?q=${skill}`} target="_blank">
+  <Link href={`https://www.google.com/search?q=${skill}`} target="_blank">
+    <motion.div
+      className="bg-slate-800 rounded-full px-4 py-2 m-2 inline-block"
+      whileHover={{ scale: 1.1, backgroundColor: "#1E293B" }}
+      whileTap={{ scale: 0.9 }}
+    >
       {skill}
-    </Link>
+    </motion.div>
+  </Link>
+);
+
+const SkillSection = ({ skills }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+    className="flex flex-wrap justify-center max-w-3xl mt-10"
+  >
+    {skills?.map((skill, index) => (
+      <SkillBubble key={index} skill={skill} />
+    ))}
   </motion.div>
 );
 
 export default function SkillsNResume({ ParallaxText }) {
-  const skills = [
-    "Java",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "TailwindCSS",
-    "React",
-    "Redux-Toolkit",
-    "Next.js",
-    "Vite",
-    "Node.js",
-    "Express",
-    "Docker",
-    "MySQL",
-    "JWT",
-    "Git",
-    "Supabase",
-    "Vercel",
-    "Netlify",
-    "Blockchain",
-    "Figma",
-  ];
+  const allSkills = useSelector(getAllSkils);
 
   return (
     <section
@@ -48,16 +42,11 @@ export default function SkillsNResume({ ParallaxText }) {
           Known Skills & Technologies
         </ParallaxText>
       </h2>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="flex flex-wrap justify-center max-w-3xl mt-7"
-      >
-        {skills?.map((skill) => (
-          <SkillBubble key={skill} skill={skill} />
-        ))}
-      </motion.div>
+
+      {allSkills?.map((skills, index) => (
+        <SkillSection key={index} skills={skills} />
+      ))}
+
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -65,7 +54,7 @@ export default function SkillsNResume({ ParallaxText }) {
         className="max-w-md mx-auto text-center mt-20"
       >
         <Link
-          href={process.env.NEXT_PUBLIC_STORAGE_SUPABASE}
+          href={process.env.NEXT_PUBLIC_STORAGE_SUPABASE || "#"}
           target="_blank"
           className="inline-block bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition duration-300"
         >

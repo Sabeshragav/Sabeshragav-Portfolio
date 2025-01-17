@@ -12,6 +12,34 @@ const initialState = {
     "Displays",
     "Ideas",
   ],
+  allSkills: [
+    ["Java", "JavaScript (ES6+)", "HTML5", "CSS3"],
+    [
+      "React",
+      "Next.js",
+      "Vite",
+      "TailwindCSS",
+      "Redux-Toolkit",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "JWT",
+      "WebSockets",
+      "Blockchain",
+    ],
+    [
+      "Git",
+      "Docker",
+      "Supabase",
+      "Vercel",
+      "Netlify",
+      "Figma",
+      "Postman",
+      "CI/CD",
+      "Pair Programming",
+      "Problem Solving",
+    ],
+  ],
 };
 
 const pageSlice = createSlice({
@@ -33,6 +61,7 @@ const pageSlice = createSlice({
 export const getSearchVal = (state) => state.pages.searchVal;
 export const getViewPosition = (state) => state.pages.viewPosition;
 export const getWords = (state) => state.pages.words;
+export const getAllSkils = (state) => state.pages.allSkills;
 
 export const { handleScrollToTop, setSearchVal, setViewPosition } =
   pageSlice.actions;
