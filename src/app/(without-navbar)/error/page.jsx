@@ -16,10 +16,10 @@ export default function AuthError() {
         {error || "An unknown error occurred."}
       </p>
       <button
-        onClick={() => router.push("/signup")}
+        onClick={() => router.push("/login")}
         className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition duration-300"
       >
-        Go Back to Sign In
+        Go Back to Log In
       </button>
     </div>
   );
