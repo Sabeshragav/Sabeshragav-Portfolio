@@ -66,7 +66,7 @@ export default function Article({ articleId, ignoreId }) {
         </div>
 
         <div
-          className={`bg-gray-300 text-black p-3 ${
+          className={`bg-gray-300 text-black px-3 pt-3 ${
             ignoreId ? "rounded-lg" : "rounded-t-lg"
           } border-t border-gray-400 -translate-y-2`}
         >
@@ -87,7 +87,7 @@ export default function Article({ articleId, ignoreId }) {
       </Link>
 
       {!ignoreId && (
-        <div className="flex flex-wrap gap-2 bg-gray-300 pb-4 rounded-b-lg p-2 -translate-y-2 max-w-96">
+        <div className="flex flex-wrap gap-2 bg-gray-300 pb-3 rounded-b-lg p-2 -translate-y-2 max-w-96">
           {article?.technologies?.slice(0, 3).map((tech) => (
             <button
               onClick={(e) => {
