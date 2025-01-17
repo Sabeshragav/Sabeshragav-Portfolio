@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   icons: logo,
-  title: "Sabeshragav",
+  title: "Sabeshragav's Portfolio",
   description:
     "A professional portfolio to explore and connect with Sabeshragav G K",
 };
