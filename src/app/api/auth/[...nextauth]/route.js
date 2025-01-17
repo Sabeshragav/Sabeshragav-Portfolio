@@ -37,7 +37,7 @@ const handler = NextAuth({
         await connectMongo();
 
         // Determine the handle based on the provider
-        let handle = "email/pass"; // Default
+        let handle = "email/pass";
         if (account.provider === "google") {
           handle = "google";
         } else if (account.provider === "github") {
@@ -47,7 +47,6 @@ const handler = NextAuth({
         // Check if user already exists
         const userExists = await userModel.findOne({ email: profile.email });
 
-        // If not, create a new document and save user in MongoDB
         if (!userExists) {
           await userModel.create({
             handle: handle,
@@ -67,19 +66,19 @@ const handler = NextAuth({
         return true;
       } catch (error) {
         console.error("Error during sign-in: ", error.message);
-        // Redirect to custom error page with error message
+
         return `/error?error=${encodeURIComponent(error.message)}`;
       }
     },
     async redirect({ url, baseUrl }) {
       // console.log("url    ", url);
       // console.log("baseurl    ", baseUrl);
-      // If `url` is from the same origin, use it; otherwise, fallback to `baseUrl`
+
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
   },
   pages: {
-    error: "/error", // Custom error page
+    error: "/error",
   },
 });
 
