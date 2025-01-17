@@ -38,6 +38,7 @@ const Signup = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [serverError, setServerError] = useState(null);
+  const [signingUp, setSigningUp] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -106,7 +107,8 @@ const Signup = () => {
     e.preventDefault();
     setServerError(null);
 
-    if (validateForm()) {
+    if (validateForm() && !signingUp) {
+      setSigningUp(true);
       try {
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
@@ -124,6 +126,7 @@ const Signup = () => {
           setServerError(null);
         }, 4000);
       }
+      setSigningUp(false);
     }
   };
 
@@ -266,9 +269,13 @@ const Signup = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium shadow-md transition-all duration-200 transform hover:scale-105"
+              className={`${
+                signingUp
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-blue-700 hover:scale-105"
+              } bg-blue-600 w-full text-white py-2 rounded-lg font-medium shadow-md transition-all duration-200 transform`}
             >
-              Sign Up
+              {signingUp ? "Signing Up" : "Sign Up"}
             </button>
           </form>
 
