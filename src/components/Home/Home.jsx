@@ -117,9 +117,10 @@ export default function Home() {
 
       <Services ParallaxText={ParallaxText} />
 
-      <Upcomming ParallaxText={ParallaxText} />
-
-      <Intro />
+      <div id="more" className="home_section">
+        <Upcomming ParallaxText={ParallaxText} />
+        <Intro />
+      </div>
     </div>
   );
 }

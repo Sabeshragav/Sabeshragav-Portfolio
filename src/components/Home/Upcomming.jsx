@@ -11,10 +11,7 @@ export default function Upcomming({ ParallaxText }) {
   ];
 
   return (
-    <section
-      id="upcomming"
-      className="home_section min-h-screen py-44 px-4 md:px-8"
-    >
+    <section className="min-h-screen py-44 px-4 md:px-8">
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
         <ParallaxText className={"mb-16 leading-snug"}>
           Upcomming {list?.length > 1 ? "Projects" : "Project"}

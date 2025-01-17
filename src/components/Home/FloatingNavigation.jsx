@@ -49,7 +49,7 @@ export default function FloatingNavigation() {
               <NavList elementId={"about"} label={"About"} />
               <NavList elementId={"skills"} label={"Skills"} />
               <NavList elementId={"services"} label={"Service"} />
-              <NavList elementId={"upcomming"} label={"Planned"} />
+              <NavList elementId={"more"} label={"More"} />
             </ul>
           </div>
         </motion.nav>

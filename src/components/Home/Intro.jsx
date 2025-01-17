@@ -10,10 +10,7 @@ export default function Intro() {
   const words = useSelector(getWords);
 
   return (
-    <section
-      id="intro"
-      className="home_section flex min-h-[700px] flex-center max-w-7xl xl:mx-auto mx-6 mb-52"
-    >
+    <section className="flex min-h-[700px] flex-center max-w-7xl xl:mx-auto mx-6 mb-52">
       <div className="slate_black_slate min-h-[700px] w-full rounded-3xl">
         <div className="relative flex flex-col items-center justify-center min-h-[700px] p-8 text-center gap-32">
           <Image
