@@ -32,7 +32,7 @@ export default function Upcomming({ ParallaxText }) {
             className="black_gray_gradient p-6 rounded-lg border border-gray-800"
           >
             <h3 className="text-2xl font-bold mb-4">{post.title}</h3>
-            <p className="text-slate-300 mb-4">{post.excerpt}</p>
+            <p className="text-slate-400 mb-4">{post.excerpt}</p>
             <div className="text-slate-300 hover:text-white underline">
               Stay Tuned
             </div>
