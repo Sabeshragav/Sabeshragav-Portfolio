@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function ProjectPage() {
   const text =
-    "Explore a curated collection of projects that showcase creativity, innovation, and technical skill, offering inspiration and insights behind each creation.";
+    "Discover a curated collection of innovative projects showcasing creativity, technical skill, and inspiration.";
 
   const [isLoaded, setIsLoaded] = useState(false);
 
