@@ -100,7 +100,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen text-white overflow-hidden">
       <FloatingNavigation />
 
       <Welcome ParallaxText={ParallaxText} />

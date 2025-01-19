@@ -30,8 +30,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased black_gray_gradient`}
       >
+        {/* <UnderDevelopment /> */}
+
         <AllProvider>
-          {/* <UnderDevelopment /> */}
           {children}
           <SpeedInsights />
           <Analytics />

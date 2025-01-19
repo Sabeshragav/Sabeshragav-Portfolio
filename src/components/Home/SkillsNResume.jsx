@@ -35,7 +35,7 @@ export default function SkillsNResume({ ParallaxText }) {
   return (
     <section
       id="skills"
-      className="home_section pb-60 px-4 md:px-8 flex flex-col items-center"
+      className="home_section bg-black pb-60 px-4 md:px-8 flex flex-col items-center"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">
         <ParallaxText className={"leading-snug mb-4"}>
