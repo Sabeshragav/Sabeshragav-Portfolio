@@ -11,7 +11,7 @@ export default function Intro() {
 
   return (
     <section className="flex min-h-[700px] flex-center max-w-7xl xl:mx-auto mx-6 pb-52">
-      <div className="slate_black_slate min-h-[700px] w-full rounded-3xl border border-gray-800">
+      <div className="bg-gray-900 min-h-[700px] w-full rounded-3xl border border-gray-800">
         <div className="relative flex flex-col items-center justify-center min-h-[700px] p-8 text-center gap-32">
           <Image
             src="/icons/logo.svg"
