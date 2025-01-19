@@ -46,7 +46,7 @@ export async function POST(req) {
       };
 
       const token = jwt.sign(tokenData, process.env.JWT_KEY, {
-        expiresIn: "1d",
+        expiresIn: "30d",
       });
 
       // return new NextResponse(JSON.stringify(token), {
