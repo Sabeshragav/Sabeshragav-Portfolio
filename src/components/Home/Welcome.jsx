@@ -33,7 +33,6 @@ const Logo = ({ appear, letter }) => (
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="pl-[3px]"
         >
           {letter}
         </motion.span>
