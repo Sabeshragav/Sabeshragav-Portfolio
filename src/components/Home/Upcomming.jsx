@@ -8,6 +8,11 @@ export default function Upcomming({ ParallaxText }) {
       excerpt:
         "This task involves building a product data management and synchronization system using Directus, MedusaJS, and integrating a storefront with Medusa Storefront.",
     },
+    {
+      title: "Socio-Ecommerce Application",
+      excerpt:
+        "This task involves developing a social-driven ecommerce platform that integrates social networking features with online shopping, enabling users to share, discuss, and shop for products seamlessly within the same ecosystem.",
+    },
   ];
 
   return (
