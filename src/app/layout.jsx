@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  manifest: "/manifest.json",
   icons: logo,
   title: "Sabeshragav's Portfolio",
   description:
