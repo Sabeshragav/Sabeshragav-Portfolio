@@ -29,7 +29,7 @@ export default function Upcomming({ ParallaxText }) {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="black_gray_gradient p-6 rounded-lg border border-gray-800"
+            className="bg-slate-900 p-6 rounded-lg"
           >
             <h3 className="text-2xl font-bold mb-4">{post.title}</h3>
             <p className="text-slate-400 mb-4">{post.excerpt}</p>
