@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Logo = ({ appear }) => (
+const Logo = ({ appear, letter }) => (
   <>
     <AnimatePresence mode="wait">
       {appear ? (
@@ -28,14 +28,14 @@ const Logo = ({ appear }) => (
         </motion.span>
       ) : (
         <motion.span
-          key="text-o"
+          key={`text-${letter}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className=""
+          className="pl-[3px]"
         >
-          o
+          {letter}
         </motion.span>
       )}
     </AnimatePresence>
@@ -49,8 +49,8 @@ export default function Welcome({ ParallaxText }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setLogo(!logo);
-    }, 3000);
+      setLogo((prevLogo) => !prevLogo);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -70,7 +70,7 @@ export default function Welcome({ ParallaxText }) {
       >
         <ParallaxText className={"leading-snug"} speed={-0.5}>
           Welcome to My Portfoli
-          <Logo appear={logo} />
+          <Logo appear={logo} letter={"o"} />
         </ParallaxText>
       </motion.h1>
 
