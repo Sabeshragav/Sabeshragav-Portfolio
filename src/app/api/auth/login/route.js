@@ -49,18 +49,10 @@ export async function POST(req) {
         expiresIn: "30d",
       });
 
-      // return new NextResponse(JSON.stringify(token), {
-      //   status: 200,
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Set-Cookie": `token=${token}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax;`,
-      //   },
-      // });
-
       const response = NextResponse.json(token);
       response.cookies.set("token", token, {
         httpOnly: true,
-        maxAge: 86400,
+        maxAge: 30 * 24 * 60 * 60,
         path: "/",
       });
 
