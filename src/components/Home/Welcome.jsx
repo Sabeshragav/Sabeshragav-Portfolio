@@ -45,19 +45,11 @@ const Logo = ({ appear }) => (
 export default function Welcome({ ParallaxText }) {
   const [showInfo, setShowInfo] = useState(false);
 
-  const [logo1, setLogo1] = useState(false);
-  const [logo2, setLogo2] = useState(false);
+  const [logo, setLogo] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomValue = Math.random();
-      if (randomValue < 0.5) {
-        setLogo1(true);
-        setLogo2(false);
-      } else {
-        setLogo1(false);
-        setLogo2(true);
-      }
+      setLogo(!logo);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -77,10 +69,8 @@ export default function Welcome({ ParallaxText }) {
         className="text-5xl md:text-7xl font-bold text-center flex flex-col items-start"
       >
         <ParallaxText className={"leading-snug"} speed={-0.5}>
-          Welc
-          <Logo appear={logo1} />
-          me to My Portfoli
-          <Logo appear={logo2} />
+          Welcome to My Portfoli
+          <Logo appear={logo} />
         </ParallaxText>
       </motion.h1>
 
