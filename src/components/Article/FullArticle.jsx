@@ -100,7 +100,7 @@ export default function FullArticle({ article }) {
               </p>
             ))}
             <div className="">
-              <h1 className="text-sm mb-2 font-bold">Technology Stack</h1>
+              <h1 className="text-sm mb-2 font-bold">Technologies / Tools</h1>
               <div className="flex flex-wrap gap-2 mb-5">
                 {article?.technologies.map((tech) => (
                   <Link
