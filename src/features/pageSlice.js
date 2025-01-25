@@ -13,7 +13,7 @@ const initialState = {
     "Ideas",
   ],
   allSkills: [
-    ["Java", "JavaScript (ES6+)", "HTML5", "CSS3"],
+    ["Java", "JavaScript (ES6+)", "Python", "HTML5", "CSS3"],
     [
       "React",
       "Next.js",
@@ -26,6 +26,7 @@ const initialState = {
       "JWT",
       "WebSockets",
       "Blockchain",
+      "DevOps",
     ],
     [
       "Git",
@@ -38,6 +39,7 @@ const initialState = {
       "CI/CD",
       "Pair Programming",
       "Problem Solving",
+      "Linux (Ubuntu)",
     ],
   ],
 };

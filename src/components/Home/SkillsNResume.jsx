@@ -21,7 +21,7 @@ const SkillSection = ({ skills }) => (
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ duration: 1 }}
-    className="flex flex-wrap justify-center max-w-3xl mt-7"
+    className="flex flex-wrap justify-center max-w-3xl mb-5"
   >
     {skills?.map((skill, index) => (
       <SkillBubble key={index} skill={skill} />
@@ -38,14 +38,15 @@ export default function SkillsNResume({ ParallaxText }) {
       className="home_section bg-black pb-60 px-4 md:px-8 flex flex-col items-center"
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">
-        <ParallaxText className={"leading-snug mb-4"}>
+        <ParallaxText className={"leading-snug mb-16 sm:mb-10"}>
           Known Skills & Technologies
         </ParallaxText>
       </h2>
-
-      {allSkills?.map((skills, index) => (
-        <SkillSection key={index} skills={skills} />
-      ))}
+      <div className="mt-10">
+        {allSkills?.map((skills, index) => (
+          <SkillSection key={index} skills={skills} />
+        ))}
+      </div>
 
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
