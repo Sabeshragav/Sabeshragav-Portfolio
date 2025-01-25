@@ -82,7 +82,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4">Connect</h3>
+            <h3 className="text-lg font-bold mb-4">Social Links</h3>
             <div className="flex space-x-4">
               <Link
                 href={github}
