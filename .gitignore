@@ -42,5 +42,4 @@ next-env.d.ts
 
 # custom files
 query.txt
-/src/components/AnimatedBackground.jsx
 /public/images/portfolio
