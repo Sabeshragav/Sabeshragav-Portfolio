@@ -231,7 +231,7 @@ export default function About() {
         className="relative z-10 max-w-md mx-auto text-center mt-20"
       >
         <Link
-          href={process.env.NEXT_PUBLIC_STORAGE_SUPABASE || "#"}
+          href={"/files/SabeshragavGK.pdf"}
           target="_blank"
           className="inline-block bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition duration-300"
         >
