@@ -9,12 +9,6 @@ export default function Upcomming({ ParallaxText }) {
         "This task involves developing a social-driven ecommerce platform that integrates social networking features with online shopping, enabling users to share, discuss, and shop for products seamlessly within the same ecosystem.",
       message: "Stay Tuned",
     },
-    {
-      title: "Spring MVC",
-      excerpt:
-        "A Scalable Application built on the top of Spring following Model-View-Controller architecture.",
-      message: "Stay Tuned",
-    },
   ];
 
   return (
