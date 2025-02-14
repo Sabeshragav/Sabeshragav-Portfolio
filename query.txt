@@ -1,0 +1,518 @@
+----TOTAL ARTICLES----
+db.articles.insertMany([
+    {
+        "order":1 ,      
+        "title": "Book Showcase",  
+        "description": "A very simple app to showcase books with their details including the book name, author, and a short description. This project is a stepping stone in my web development journey, highlighting the basics of creating interactive and functional web applications.\nSpecial thanks to Error Makes Clever for inspiration and learning resources.",     
+        "specific": [     
+            "book name",
+            "author",
+            "short description",
+            "Error Makes Clever"
+        ],  
+        "technologies": ["HTML5", "CSS3", "JavaScript"],
+        "date": "2023-10-22",  
+        "teamSize" :1 ,
+        "difficultyLevel":"Easy",     
+        "deployStatus":false,
+        "solutions":[
+            "Implemented DOM manipulation with JavaScript to dynamically add books",
+            "Used basic CSS for styling and created a responsive layout"
+        ],
+        "features":[
+            "Allows adding books with title, author, and a short description",
+            "Displays a structured and readable book list",
+            "Provides a delete option to remove books from the list"
+        ],
+        "images": [  
+            "bookShowcase/1.jpg",
+            "bookShowcase/2.jpg",
+            "bookShowcase/3.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Book Showcase",
+            "Add Book",
+            "Book Added"
+        ]  
+    },
+    {
+        "order":2,
+        "title": "Exquisite Checks - The Start",
+        "description": "Exquisite Checks is the first website I built as part of a two-member team named Rogue Analysts, marking a significant milestone in my journey as a web developer. Designed to make learning programming languages fun and engaging for students, it combines education and entertainment through an intuitive, user-friendly interface built entirely with HTML5, CSS3, and JavaScript.\nThe platform includes a Start Page that introduces users to the website, a Home Page for navigation, a Learning Page with structured tutorials on various programming languages, and an Assessment Page featuring multiple-choice questions (MCQs) to test users' knowledge. To keep things exciting, we developed a Fun Game Page with a number-guessing game, where users get three chances to guess a number between 0 and 9. This game serves as a lighthearted break from learning while acting as a prototype for future enhancements.\nAs our first project, Exquisite Checks highlights our foundational skills and passion for creating interactive web solutions, making it a solid starting point for introducing students to programming concepts in an enjoyable way.",
+        "specific": [
+            "Exquisite Checks",
+            "Rogue Analysts",
+            "HTML5","CSS3",
+            "JavaScript",
+            "Start Page",
+            "Home Page",
+            "Learning Page",
+            "Assessment Page",
+            "Fun Game Page",
+            "prototype"
+        ],
+        "technologies": ["HTML5", "CSS3", "JavaScript"],
+        "links":{            
+            "website":"https://rogueanalysts1.neocities.org/exercise/start"
+        },
+        "date": "2023-10-27",
+        "teamSize" : 2,
+        "difficultyLevel":"Easy",
+        "deployStatus":true,
+        "challenges": [
+            "Designing a consistent and user-friendly UI using only HTML and CSS.",
+            "Ensuring the assessment section logic works seamlessly.",
+            "Creating an interactive and bug-free game prototype within JavaScript constraints."
+        ],
+        "solutions":[
+            "Using CSS3 for designs and implying attractive images.",
+            "JavaScript to implement game logic."
+        ],
+        "features":[
+            "Structured learning sections for programming languages.",
+            "Interactive MCQ-based assessment feature.",
+            "Prototype for an engaging number-guessing game."
+        ],
+        "images": [
+            "exquisite/1.png",
+            "exquisite/2.png",
+            "exquisite/3.png",
+            "exquisite/4.png",
+            "exquisite/5.png",
+            "exquisite/6.png"
+        ],
+        "screenshotTitles":[
+            "Start Page",
+            "Home Page",
+            "Learning Page (Python)",
+            "Languages Provided",
+            "Assessment Page (Python)",
+            "Fun game"
+        ]
+    },
+    {
+        "order": 3,
+        "title": "Hypercolor - Clone",
+        "description": "A clone of the https://hypercolor.dev website, showcasing various gradients of color palettes. This project was built using the CSS framework TailwindCSS, enhancing frontend skills in creating attractive and mobile-responsive screens.\nThis clone is an exact replica, demonstrating proficiency in recreating layouts and styles.",
+        "specific": [
+            "https://hypercolor.dev",
+            "TailwindCSS",
+            "clone",
+        ],
+        "technologies": ["HTML5", "TailwindCSS"],
+        "links": {
+            "website": "https://hypercolor.neocities.org/src"
+        },
+        "date": "2024-08-17",
+        "teamSize": 1,
+        "difficultyLevel": "Easy",
+        "deployStatus": true,
+        "challenges": [
+            "Understanding and replicating gradient transitions accurately",
+            "Ensuring pixel-perfect alignment and spacing similar to the original website",
+            "Making the cloned design fully mobile-responsive across various screen sizes",
+            "Setting up and deploying the project to maintain consistent accessibility"
+        ],
+        "solutions": [
+            "Used TailwindCSS utilities to implement precise gradients and transitions",
+            "Compared original layout measurements and used browser developer tools for alignment checks",
+            "Tested responsiveness with TailwindCSS breakpoints and modified styles accordingly",
+            "Deployed to a reliable hosting platform and optimized loading times"
+        ],
+        "features": [
+            "Showcases a variety of gradients replicating the Hypercolor.dev palette",
+            "Fully mobile-responsive design built with TailwindCSS",
+            "Minimalistic and clean UI for a visually appealing user experience"
+        ],
+        "images": [
+            "hypercolor/2.jpg",
+            "hypercolor/1.jpg",
+            "hypercolor/4.jpg",
+            "hypercolor/3.jpg"
+        ],
+        "screenshotTitles": [
+            "Home Page",
+            "Clone(left) / Original(right)",
+            "Mobile Responsive Screen",
+            "Footer"
+        ]
+    },
+    {
+        "order": 4,      
+        "title": "Engaging Enchanteur - Perfume shop",  
+        "description": "This is a prototype site specifically designed for selling perfumes. The home page features a banner showcasing discounts and other exclusive details. It includes grids to display various perfume details.\nA dedicated product page displays complete product details, including images, descriptions, and user reviews with star ratings. Customers can add items to their cart on the Cart page to purchase desired products. The Collections page organizes products into categories, while the About page provides information about the business.\nLastly, a Contact page is available for customer queries or support requests.",     
+        "specific": [   
+            "prototype site",  
+            "perfumes",
+            "home page",
+            "product page",
+            "Cart page",
+            "Collections page",
+            "About page",
+            "Contact page"
+
+        ],  
+        "technologies": ["Vite","React", "TailwindCSS", "Express","Node.js","MongoDB"],
+        "links":{
+            "github":"https://github.com/Sabeshragav/Engaging-Enchanteur"
+        },
+        "date": "2024-12-30",     
+        "teamSize" :3 ,
+        "difficultyLevel":"Easy",     
+        "deployStatus":false,
+        "challenges": [
+            "Designing a visually appealing UI for a luxury product line",
+            "Ensuring seamless navigation between pages for user convenience",
+            "Integrating and managing product reviews with star ratings",
+            "Handling backend operations for cart features"
+        ],
+        "solutions": [
+            "Implemented a modern design using TailwindCSS for responsiveness and aesthetic appeal",
+            "Used React Router for smooth navigation between different sections",
+            "Developed a review management system with MongoDB to store and retrieve star-based reviews",
+            "Set up a Node.js backend with Express to manage cart logic efficiently",
+            "Integrated Vite to optimize the development experience with faster builds and hot module replacement"
+        ],
+        "features": [
+            "Banner showcasing exclusive offers and discounts",
+            "Product details with high-quality images and user reviews",
+            "Category-based Collections page for easy browsing",
+            "Cart page enabling users to purchase selected items",
+            "Contact form for customer queries and support",
+            "Enhanced development workflow and performance improvements with Vite"
+        ],
+        "images": [   
+            "perfume/1.jpg",
+            "perfume/2.jpg",
+            "perfume/3.jpg",
+            "perfume/4.jpg",
+            "perfume/5.jpg",
+            "perfume/6.jpg",
+            "perfume/7.jpg",
+            "perfume/8.jpg",
+            "perfume/9.jpg",
+            "perfume/10.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Home Page",
+            "Perfume Showcase",
+            "Footer",
+            "Product Page",
+            "Adding a Review",
+            "Review Added",
+            "Cart Page",
+            "Collections Page",
+            "About Page",
+            "Contact Page"
+        ]  
+    },
+    {
+        "order": 5,      
+        "title": "Product Synchronization",  
+        "description": "As the demand for modern Content Management System (CMS) solutions grows, Headless CMS platforms are emerging as the backbone of future-ready applications. Directus, a powerful headless CMS, provides unparalleled flexibility in managing structured content, while Medusa, a Headless Commerce Engine, is tailored to create dynamic and scalable e-commerce ecosystems.\nTo enhance functionality and simplify deployment, Directus was containerized using Docker, enabling a lightweight, consistent, and portable environment. This approach not only reduces setup complexities but also ensures that the application can scale efficiently, providing a seamless experience for developers working across different infrastructures.\nThe seamless integration between these platforms in this project showcases how we can harness the power of real-time synchronization for CRUD operations and present a unified, interactive experience through a dynamic storefront. This approach isn't just about efficiency—it's about shaping the future of content and commerce, empowering developers to deliver next-generation digital experiences.\nBy combining the versatility of Directus, the commerce-centric design of MedusaJS, and the deployment power of Docker, this project demonstrates the potential of building smarter, more scalable, and more efficient digital ecosystems.",   
+        "specific": [   
+            "Headless CMS",
+            "Headless Commerce Engine",
+            "e-commerce",
+            "CRUD Operations",
+            "Docker",
+            "storefront",
+            "future-ready",
+            "Medusa",
+            "Directus"
+        ],  
+        "technologies": ["CMS","MedusaJs", "Docker", "Directus","Postman","Node.js","Linux(Ubuntu)"],
+        "links":{
+            "github":"https://github.com/Sabeshragav/product-synchronization"
+        },
+        "date": "2025-01-24",     
+        "teamSize" : 1,
+        "difficultyLevel":"Medium",  
+        "deployStatus":false,
+        "challenges":[
+            "Ensuring real-time synchronization of product data between Directus and Medusa.",
+            "Handling complex data mapping between Directus fields and Medusa's API schema.",
+            "Maintaining data consistency during concurrent operations.",
+            "Integrating and testing the storefront for seamless data display."
+        ],
+        "solutions":[
+            "Implemented a synchronization script using Directus SDK and Medusa Admin APIs.",
+            "Developed efficient data mapping and transformation logic to align Directus data with Medusa's schema.",
+            "Conducted rigorous testing for CRUD operations to ensure real-time updates without discrepancies.",
+            "Set up a Medusa Storefront to dynamically display synced product data."
+        ],
+        "features":[
+            "Real-time synchronization of product data between Directus and Medusa.",
+            "Support for creating, updating, and deleting products with seamless data consistency.",
+            "Integrated storefront that dynamically reflects synchronized product details including images, prices, and descriptions."
+        ],
+        "images": [ 
+            "product-sync/1.png",
+            "product-sync/2.png",
+            "product-sync/3.png",
+            "product-sync/4.png",
+            "product-sync/5.png",
+            "product-sync/6.png",
+            "product-sync/7.png",
+            "product-sync/8.png",
+            "product-sync/9.png",
+            "product-sync/10.png"
+        ], 
+        "screenshotTitles":[   
+            "Medusa Storefront",
+            "Creating a Product",
+            "Setting Price Value",
+            "Product Details (Admin)",
+            "All Products",
+            "Product Page",
+            "Checkout",
+            "Review",
+            "Order Details (Admin)",
+            "Directus Dashboard (Synchronized)"
+        ]  
+    },
+    {
+        "order": 6,      
+        "title": "SLC - A Food Ordering System",  
+        "description": "A comprehensive Food Ordering Platform developed to cater to the needs of an association. The system includes dedicated panels for both administrators and users, providing a seamless experience tailored to their respective roles.\nReal-time updates ensure that order statuses and communications are synchronized instantly across all devices. The platform is built with a responsive design, ensuring compatibility and optimal usability on desktops, tablets, and mobile devices.\nTo prioritize security and user convenience, authentication and role-based access control are implemented using Firebase. This solution streamlines the management of orders while maintaining robust data integrity and user privacy.",     
+        "specific": [     
+            "Food Ordering Platform",
+            "dedicated panels",
+            "Real-time updates",
+            "responsive design",
+            "authentication",
+            "role-based access control",
+            "Firebase",
+            "data integrity",
+            "user privacy"
+        ],  
+        "technologies": ["Vite", "React","PostgreSQL","Ably", "Firebase","TailwindCSS", "Express","Node.js","Vercel"],
+        "date": "2024-10-2", 
+        "teamSize" : 7,
+        "difficultyLevel":"Medium",
+        "deployStatus":true,
+        "challenges": [
+            "Implementing real-time updates for both admin and user panels.",
+            "Ensuring responsive design across various device types.",
+            "Integrating secure authentication using Firebase.",
+            "Coordinating efficiently with a 7-member team for development and testing."
+        ],
+        "solutions": [
+            "Utilized Ably for real-time communication between admin and user panels.",
+            "Designed and tested a responsive interface using TailwindCSS to ensure compatibility across devices.",
+            "Integrated Firebase Authentication for secure user login and role management.",
+            "Adopted agile methodologies and regular team stand-ups to streamline development and testing."
+        ],
+        "features": [
+            "Separate panels for admin and users with distinct functionalities.",
+            "Real-time updates to reflect order statuses dynamically.",
+            "Responsive design ensuring compatibility on all device types.",
+            "Secure authentication using Firebase."
+        ],
+        "images": [  
+            "slc/1.jpg",
+            "slc/2.jpg",
+            "slc/3.jpg",
+            "slc/4.jpg",
+            "slc/5.jpg",
+            "slc/6.jpg",
+            "slc/7.jpg",
+            "slc/8.jpg",
+            "slc/9.jpg",
+            "slc/10.jpg",
+            "slc/11.jpg",
+            "slc/12.jpg",
+            "slc/13.jpg",
+            "slc/14.jpg",
+            "slc/15.jpg",
+            "slc/16.jpg"
+        ], 
+        "screenshotTitles":[   
+            "User's Home",
+            "Login / Signup",
+            "Order History",
+            "Menu grid with Search & Filter functionalities",
+            "Cart and Billing",
+            "Order Confirmation",
+            "Profile Menu",
+            "Mobile Responsive Screen",
+            "Feedback section and Footer",
+            "Admin's Home",
+            "Order Details",
+            "User Details",
+            "Admin Menu grid with Add food functionality",
+            "Edit Food",
+            "Delete Food",
+            "Update Menu Phase duration"
+        ]  
+    },
+    {
+        "order": 7,      
+        "title": "NextJs Social Media",  
+        "description": "A minimalist Social Media web app designed to provide a seamless user experience. Users can create, edit, and delete their posts while exploring and copying content shared by others. The platform emphasizes simplicity and functionality, making it user-friendly and intuitive.\nThe app features integration with Next-Auth's Google provider, ensuring secure and hassle-free authentication for all users. This makes the login process seamless and secure, enhancing user trust.\nBuilt with modern web technologies like Next.js, TailwindCSS, and MongoDB, the app boasts a responsive design that adapts effortlessly to different devices. Its efficient performance ensures accessibility and ease of use for a wide range of users.\nSpecial thanks to JavaScript Mastery for inspiration and learning resources.",     
+        "specific": [     
+            "Social Media",
+            "create",
+            "edit",
+            "delete",
+            "copying content",
+            "Next-Auth's Google provider",
+            "Next.js",
+            "TailwindCSS",
+            "MongoDB",
+            "JavaScript Mastery"
+        ],  
+        "technologies": ["NextJs", "Next-Auth", "TailwindCSS","MongoDB"],
+        "links":{
+            "github":"https://github.com/Sabeshragav/nextjs-social-media"
+        },
+        "date": "2025-01-01",      
+        "teamSize" : 1 ,
+        "difficultyLevel":"Easy",     
+        "deployStatus":false,
+        "features": [
+            "User authentication with Google via Next-Auth.",
+            "Create, edit, and delete personal posts.",
+            "View and copy content from other users' posts.",
+            "Responsive design for a seamless experience on all devices."
+        ],
+        "images": [  
+            "social-media/1.jpg",
+            "social-media/2.jpg",
+            "social-media/3.jpg",
+            "social-media/4.jpg",
+            "social-media/5.jpg",
+            "social-media/6.jpg",
+            "social-media/7.jpg",
+            "social-media/8.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Home Page / Feed",
+            "Create Post",
+            "Post Added",
+            "My profile / Delete functionality",
+            "Post Deleted",
+            "Edit Post",
+            "Post Edited",
+            "Other User's profile"
+        ]  
+    },
+    {
+        "order": 8,      
+        "title": "Real-Time Chat Application",  
+        "description": "This real-time chat application is built using Spring Boot for the backend and Next.js for the frontend, enabling seamless WebSocket communication. It leverages Spring WebSockets with STOMP to facilitate real-time messaging between users.\nOn the frontend, React, TypeScript, and Stomp.js handle WebSocket connections, ensuring smooth data exchange. The UI is designed with Tailwind CSS and shadcn/ui, providing a modern and intuitive user experience. Users can join the chat, send messages, and see when others enter or leave.\nThe backend efficiently manages WebSocket events and broadcasts messages through a Spring message broker, ensuring low-latency communication. The project follows a clean, scalable architecture, making it an excellent choice for real-time applications like team chats, live support, and collaborative messaging.", 
+        "specific": [     
+            "Spring Boot",
+            "Next.js",
+            "STOMP",
+            "Tailwind CSS",
+            "Shadcn/ui",
+            "React",
+            "TypeScript",
+            "Stomp.js",
+            "see when others enter or leave",
+            "real-time applications"
+        ],  
+        "technologies": ["Spring Boot", "NextJs", "WebSocket","STOMP(protocol)","TailwindCSS","Shadcn/ui"],
+        "links":{
+            "github":"https://github.com/Sabeshragav/Spring-Boot-Chat-Application"
+        },
+        "date": "2025-02-12",
+        "teamSize" : 1,
+        "difficultyLevel":"Easy",
+        "deployStatus":false,
+        "challenges": [
+            "Real-time Communication Handling – Ensuring seamless message delivery over WebSockets with multiple users.",
+            "Ensuring Low-Latency Messaging – Avoiding message lag or delays in WebSocket connections.",
+            "Scalability & Performance – Maintaining smooth performance as the number of concurrent users increases.",
+            "UI Responsiveness & User Experience – Designing a modern, intuitive, and responsive chat interface."
+        ],
+        "solutions": [
+            "Spring Boot WebSockets with STOMP – Enables efficient, real-time event-driven communication.",
+            "WebSocket Message Broker – Uses Spring's built-in broker for fast, scalable message broadcasting.",
+            "Optimized Backend & Asynchronous Processing – Ensures efficient message handling with minimal delays.",
+            "shadcn/ui & Tailwind CSS – Provides a modern, visually appealing, and responsive chat UI."
+        ],
+        "features": [
+            "Real-time Chat Messaging – Users can send and receive messages instantly with WebSocket communication.",
+            "User Presence & Status Updates – Displays when users join or leave the chat."
+        ],
+        "images": [   
+            "springboot-chat/1.jpg",
+            "springboot-chat/2.jpg",
+            "springboot-chat/3.jpg",
+            "springboot-chat/4.jpg",
+            "springboot-chat/5.jpg",
+            "springboot-chat/6.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Chat Application - Spring Boot",
+            "3 Users Joining the Chat Sequentially",
+            "Conversion",
+            "User 1 Left",
+            "User 2 Left",
+            "SpringBoot - Backend Log"
+        ]  
+    }
+])
+
+
+----MAIN TEMPLATE----
+db.articles.insertOne(
+    {
+        "order": ,      
+        "title": "",  
+        "description": " ",     // Use "\n" to separate paragraphs
+        "specific": [     
+            " ",
+            " "
+        ],  
+        "technologies": ["", "", ""],
+        "links":{
+            "github":" ",
+            "website":" "
+        },
+        "date": "",      //YYYY-MM-DD
+        "teamSize" : ,
+        "difficultyLevel":"Easy",     //Title Case 
+        "deployStatus":false,
+        "challenges":[
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "solutions":[
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "features":[
+            " ",
+            " ",
+        ],
+        "images": [   //Starts without backslash(/)
+            "/1.jpg",
+            "/2.jpg",
+            "/3.jpg",
+            "/4.jpg"
+        ], 
+        "screenshotTitles":[   
+            " ",
+            " ",
+            " ",
+            " "
+        ]  
+    }
+) 
+
+
+
+----UPDATE COMMAND----
+db.articles.updateOne({_id:ObjectId('')},{$set:{description:" "}})
+
+
+
+
+----INSERT ARTICLE----
