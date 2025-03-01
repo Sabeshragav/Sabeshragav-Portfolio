@@ -23,7 +23,6 @@ const initialState = {
       "Express",
       "Node.js",
       "Spring Boot",
-      "Django",
       "JWT",
       "WebSocket",
     ],
@@ -38,7 +37,6 @@ const initialState = {
       "Pair Programming",
       "Problem Solving",
       "Linux (Ubuntu)",
-      "DevOps",
     ],
   ],
 };
