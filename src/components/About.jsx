@@ -161,15 +161,23 @@ export default function About() {
           className="list-disc list-inside text-gray-300"
           variants={containerVariants}
         >
-          <motion.li variants={skillsVariants}>Java</motion.li>
-          <motion.li variants={skillsVariants}>JavaScript</motion.li>
           <motion.li variants={skillsVariants}>
-            React - Next.js - Vite - Redux-toolkit
+            Java - JavaScript - Python
           </motion.li>
-          <motion.li variants={skillsVariants}>Node.js - Express</motion.li>
-          <motion.li variants={skillsVariants}>CSS - Tailwind CSS</motion.li>
-          <motion.li variants={skillsVariants}>MySQL - MongoDB</motion.li>
-          <motion.li variants={skillsVariants}>Git - GitHub</motion.li>
+          <motion.li variants={skillsVariants}>
+            React - Next.js - Vite - Redux-toolkit - TailwindCSS
+          </motion.li>
+          <motion.li variants={skillsVariants}>
+            Express - Node.js - SpringBoot
+          </motion.li>
+          <motion.li variants={skillsVariants}>
+            MySQL - PostgreSQL - MongoDB
+          </motion.li>
+          <motion.li variants={skillsVariants}>Postman - Docker</motion.li>
+          <motion.li variants={skillsVariants}>
+            AWS S3 - Vercel - Netlify
+          </motion.li>
+          <motion.li variants={skillsVariants}>Git - GitHub - Gitlab</motion.li>
         </motion.ul>
       </motion.div>
 
