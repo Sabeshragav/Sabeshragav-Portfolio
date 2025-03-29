@@ -175,7 +175,7 @@ export default function About() {
           </motion.li>
           <motion.li variants={skillsVariants}>Postman - Docker</motion.li>
           <motion.li variants={skillsVariants}>
-            AWS S3 - Vercel - Netlify
+            AWS (S3, Amplify) - Vercel - Netlify
           </motion.li>
           <motion.li variants={skillsVariants}>Git - GitHub - Gitlab</motion.li>
         </motion.ul>

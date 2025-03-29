@@ -6,7 +6,7 @@ export default function Upcomming({ ParallaxText }) {
     {
       title: "GUSTO 2025",
       excerpt:
-        "A national-level technical symposium organized by our college that brings together students, professionals and experts to showcase innovative projects, participate in technical competitions, and engage in knowledge-sharing through workshops and presentations.",
+        "A national-level technical symposium organized by our college that brings students to showcase innovative projects, participate in technical competitions, and engage in knowledge-sharing presentations.",
       message: "Stay Tuned",
     },
     {

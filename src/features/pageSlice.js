@@ -25,6 +25,7 @@ const initialState = {
       "Spring Boot",
       "JWT",
       "WebSocket",
+      "AWS(S3, Amplify)",
     ],
     [
       "Git",
@@ -34,9 +35,11 @@ const initialState = {
       "Netlify",
       "Postman",
       "CI/CD",
-      "Pair Programming",
+      "Testing",
       "Problem Solving",
       "Linux (Ubuntu)",
+      "Agile",
+      "DevOps",
     ],
   ],
 };
