@@ -453,6 +453,59 @@ db.articles.insertMany([
             "User 2 Left",
             "SpringBoot - Backend Log"
         ]  
+    },
+    {
+        "order": 9,      
+        "title": "Gusto 25",  
+        "description": "Gusto 25 is a comprehensive event management website developed for Government College of Engineering, Erode 2025's annual technical symposium, conducted by Department of Information Technology. Built with modern web technologies including Next.js, AWS Amplify, and TailwindCSS, this platform serves as a one-stop destination for all symposium-related information and resources.\n\nThe website features an intuitive interface that provides detailed event proceedings, schedules, and registration details. A standout feature is the dynamic timeline that breaks down activities day by day, helping participants plan their symposium experience effectively. The platform also includes essential logistics information, such as campus transportation schedules and bus routes, ensuring smooth navigation for attendees from various locations.\n\nWhat sets Gusto 25 apart is its comprehensive coordinator contact system, allowing direct communication between participants and event organizers. The website also showcases committee acknowledgments, recognizing the hard work of individuals behind the symposium's organization. The integration of a countdown timer adds excitement while keeping visitors informed of the approaching event dates.\n\nDeveloped as a collaborative effort by a two-member team, the website demonstrates effective use of modern web development practices. The combination of Next.js for enhanced performance, AWS Amplify for robust backend services, and TailwindCSS for responsive design results in a professional and user-friendly platform that effectively serves the symposium's diverse needs.",
+        "specific": [     
+            "Gusto 25",
+            "Government College of Engineering, Erode",
+            "Department of Information Technology",
+            "dynamic timeline",
+            "transportation schedules",
+            "countdown timer",
+            "two-member team"
+        ],  
+        "technologies": ["NextJs", "AWS Amplify", "TailwindCSS"],
+        "links":{
+            "github":"https://gitlab.com/Devakck/gusto-gcee-2025",
+            "website":"https://gusto-gcee-2025.vercel.app"
+        },
+        "date": "2025-03-23",      
+        "teamSize" : 2,
+        "difficultyLevel":"Easy",     
+        "deployStatus":true,
+        "features":[
+            "Event-specific proceedings and details.",
+            "Direct coordinator contact information.",
+            "Day-specific event timeline.",
+            "Campus transportation schedule.",
+            "Committee recognition and acknowledgments.",
+            "Light and Dark theme preferences."
+        ],
+        "images": [
+            "gusto25/1.jpg",
+            "gusto25/2.jpg",
+            "gusto25/3.jpg",
+            "gusto25/4.jpg",
+            "gusto25/5.jpg",
+            "gusto25/6.jpg",
+            "gusto25/7.jpg",
+            "gusto25/8.jpg",
+            "gusto25/9.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Home",
+            "Timer and Promo",
+            "Events",
+            "Particular Event",
+            "Timeline",
+            "Institute Location",
+            "Footer",
+            "Bus Routes",
+            "Committee"
+        ]  
     }
 ])
 

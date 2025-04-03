@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 export default function Upcomming({ ParallaxText }) {
   const list = [
     {
-      title: "GUSTO 2025",
-      excerpt:
-        "A national-level technical symposium organized by our college that brings students to showcase innovative projects, participate in technical competitions, and engage in knowledge-sharing presentations.",
-      message: "Stay Tuned",
-    },
-    {
       title: "Socio-Ecommerce Application",
       excerpt:
         "This task involves developing a social-driven ecommerce platform that integrates social networking features with online shopping, enabling users to share, discuss, and shop for products seamlessly within the same ecosystem.",
