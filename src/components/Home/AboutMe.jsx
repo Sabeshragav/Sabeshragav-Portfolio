@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaQuestion } from "react-icons/fa";
+import Image from "next/image";
 import { ColorTransition } from "./GeometricLogin";
 
 export default function AboutMe({ ParallaxText }) {
@@ -14,8 +14,13 @@ export default function AboutMe({ ParallaxText }) {
         <ParallaxText>A Glimpse of Me</ParallaxText>
       </h2>
       <div className="flex justify-center py-10">
-        <div className="h-32 w-32 rounded-full flex-center bg-slate-500">
-          <FaQuestion className="animate-bounce text-black text-xl" />
+        <div className="h-32 w-32 rounded-full overflow-hidden flex-center bg-slate-500 relative">
+          <Image
+            src="/main/sabeshragav.png"
+            alt="Profile Picture"
+            fill
+            className="object-cover object-[center_5%]"
+          />
         </div>
       </div>
       <div className="max-w-4xl mx-auto">
@@ -25,8 +30,8 @@ export default function AboutMe({ ParallaxText }) {
           transition={{ duration: 1 }}
           className="text-lg md:text-xl text-slate-300 mb-8 text-center italic"
         >
-          “ I'm a visionary developer turning ideas into captivating realities
-          through design expertise and cutting-edge technologies. ”
+          " I'm a visionary developer turning ideas into captivating realities
+          through design expertise and cutting-edge technologies. "
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
