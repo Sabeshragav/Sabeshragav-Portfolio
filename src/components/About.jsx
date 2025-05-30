@@ -388,7 +388,7 @@ export default function About() {
                 Product Developer Intern
               </p>
               <p className="italic text-xs sm:text-sm text-blue-300 mb-3">
-                January 2025 - July 2025
+                February 2025 - July 2025
               </p>
             </motion.div>
             {/* <motion.div
