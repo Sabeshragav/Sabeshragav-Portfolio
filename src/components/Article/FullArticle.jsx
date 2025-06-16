@@ -190,12 +190,12 @@ export default function FullArticle({ article }) {
                       className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded"
                     >
                       <Globe className="mr-2" size={20} />
-                      Website
+                      Live Demo
                     </Link>
                   ) : (
                     <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded">
                       <Globe className="mr-2" size={20} />
-                      Unavailable
+                      Demo Unavailable
                     </div>
                   )}
                 </>

@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaHackerrank, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { SiLeetcode, SiHackerrank } from "react-icons/si";
 import { ArrowUp, MailIcon } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { handleScrollToTop } from "@features/pageSlice";
@@ -19,6 +21,9 @@ const Footer = () => {
   const github = "https://github.com/Sabeshragav";
   const linkedIn = "https://linkedin.com/in/sabeshragavgk";
   const gmail = "mailto:sabeshragav289@gmail.com";
+  const x = "https://x.com/sabeshragavgk";
+  const leetcode = "https://leetcode.com/u/sabeshragav289";
+  const hackerRank = "https://www.hackerrank.com/profile/sabeshragav289";
 
   useEffect(() => {
     setIsLoaded(true);
@@ -85,36 +90,59 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Social Links</h3>
             <div className="flex space-x-4">
               <Link
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <FaGithub size={24} />
-              </Link>
-              {/* <Link
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-200"
-              >
-                <FaTwitter size={24} />
-              </Link> */}
-              <Link
                 href={linkedIn}
                 target="_blank"
+                title="LinkedIn"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <FaLinkedin size={24} />
               </Link>
               <Link
+                href={github}
+                target="_blank"
+                title="GitHub"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <FaGithub size={24} />
+              </Link>
+              <Link
+                href={x}
+                target="_blank"
+                title="X (Twitter)"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <FaXTwitter size={24} />
+              </Link>
+
+              <Link
                 href={gmail}
                 target="_blank"
+                title="Gmail"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <MailIcon size={24} />
+              </Link>
+              <Link
+                href={leetcode}
+                target="_blank"
+                title="LeetCode"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <SiLeetcode size={24} />
+              </Link>
+              <Link
+                href={hackerRank}
+                target="_blank"
+                title="HackerRank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <FaHackerrank size={24} />
               </Link>
             </div>
           </div>
