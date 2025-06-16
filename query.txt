@@ -102,7 +102,8 @@ db.articles.insertMany([
         ],
         "technologies": ["HTML5", "TailwindCSS"],
         "links": {
-            "website": "https://hypercolor.neocities.org/src"
+            "website": "https://hypercolor.neocities.org/src",
+            "github":"https://github.com/Sabeshragav/hypercolor-clone"
         },
         "date": "2024-08-17",
         "teamSize": 1,
