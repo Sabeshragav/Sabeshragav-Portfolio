@@ -53,7 +53,8 @@ db.articles.insertMany([
         ],
         "technologies": ["HTML5", "CSS3", "JavaScript"],
         "links":{            
-            "website":"https://rogueanalysts1.neocities.org/exercise/start"
+            "website":"https://rogueanalysts1.neocities.org/exercise/start",
+            "github":"https://github.com/Sabeshragav/Exquisite-Checks"
         },
         "date": "2023-10-27",
         "teamSize" : 2,
