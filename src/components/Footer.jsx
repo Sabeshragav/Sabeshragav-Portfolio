@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaGithub, FaHackerrank, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { SiLeetcode, SiHackerrank } from "react-icons/si";
+import { SiLeetcode, SiCodechef } from "react-icons/si";
 import { ArrowUp, MailIcon } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { handleScrollToTop } from "@features/pageSlice";
@@ -17,13 +17,13 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false);
-
   const github = "https://github.com/Sabeshragav";
   const linkedIn = "https://linkedin.com/in/sabeshragavgk";
   const gmail = "mailto:sabeshragav289@gmail.com";
   const x = "https://x.com/sabeshragavgk";
   const leetcode = "https://leetcode.com/u/sabeshragav289";
   const hackerRank = "https://www.hackerrank.com/profile/sabeshragav289";
+  const codechef = "https://www.codechef.com/users/sabeshragav289";
 
   useEffect(() => {
     setIsLoaded(true);
@@ -116,7 +116,6 @@ const Footer = () => {
               >
                 <FaXTwitter size={24} />
               </Link>
-
               <Link
                 href={gmail}
                 target="_blank"
@@ -134,7 +133,7 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <SiLeetcode size={24} />
-              </Link>
+              </Link>{" "}
               <Link
                 href={hackerRank}
                 target="_blank"
@@ -143,6 +142,15 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <FaHackerrank size={24} />
+              </Link>
+              <Link
+                href={codechef}
+                target="_blank"
+                title="CodeChef"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <SiCodechef size={24} />
               </Link>
             </div>
           </div>
