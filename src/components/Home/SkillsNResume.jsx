@@ -1,4 +1,5 @@
 "use client";
+import SkillIcon from "@components/Custom/SkillIcon";
 import { getAllSkils } from "@features/pageSlice";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -7,10 +8,11 @@ import { useSelector } from "react-redux";
 const SkillBubble = ({ skill }) => (
   <Link href={`https://www.google.com/search?q=${skill}`} target="_blank">
     <motion.div
-      className="bg-slate-800 rounded-full px-4 py-2 m-2 inline-block"
+      className="bg-slate-800 rounded-full px-4 py-2 m-2 flex items-center"
       whileHover={{ scale: 1.1, backgroundColor: "#1E293B" }}
       whileTap={{ scale: 0.9 }}
     >
+      <SkillIcon skill={skill} />
       {skill}
     </motion.div>
   </Link>
