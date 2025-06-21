@@ -5,7 +5,15 @@ import Loader from "@components/Loader";
 import Image from "next/image";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Globe, Calendar, User, Star, Info } from "lucide-react";
+import {
+  ArrowLeft,
+  Globe,
+  Calendar,
+  User,
+  Star,
+  Info,
+  ExternalLink,
+} from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import RelatedArticle from "./RelatedArticle";
 
@@ -99,6 +107,8 @@ export default function FullArticle({ article }) {
                 {highlightText(paragraph, article?.specific)}
               </p>
             ))}
+
+            {/* Technologies / Tools */}
             <div className="">
               <h1 className="text-sm mb-2 font-bold">Technologies / Tools</h1>
               <div className="flex flex-wrap gap-2 mb-5">
@@ -107,7 +117,7 @@ export default function FullArticle({ article }) {
                     href={`https://www.google.com/search?q=${tech}`}
                     target="_blank"
                     key={tech}
-                    className="bg-white text-black hover:text-white hover:black_gray_gradient text-sm px-2 py-1 rounded"
+                    className="bg-white text-black hover:text-white hover:black_gray_gradient text-sm px-2 py-1 rounded-md border border-gray-800"
                   >
                     {tech}
                   </Link>
@@ -117,19 +127,19 @@ export default function FullArticle({ article }) {
 
             <div className="grid mt-7 grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
               <div className="flex items-center">
-                <Calendar className="mr-2" size={16} />
+                <Calendar className="mb-1 mr-2" size={16} />
                 <span className="flex items-center">
                   Finished : {article?.format_date || "N/A"}
                 </span>
               </div>
               <div className="flex items-center">
-                <User className="mr-2" size={16} />
+                <User className="mb-1 mr-2" size={16} />
                 <span className="flex items-center">
                   Team Size : {article?.teamSize || "N/A"}
                 </span>
               </div>
               <div className="flex items-center">
-                <Star className="mr-2" size={16} />
+                <Star className="mb-1 mr-2" size={16} />
                 <span className="flex items-center gap-1">
                   Difficulty Level :
                   <span
@@ -148,7 +158,7 @@ export default function FullArticle({ article }) {
                 </span>
               </div>
               <div className="flex items-center">
-                <Globe className="mr-2" size={16} />
+                <Globe className="mb-1 mr-2" size={16} />
                 <span className="flex items-center gap-1">
                   Status :
                   <span
@@ -171,13 +181,13 @@ export default function FullArticle({ article }) {
                       href={article.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded"
+                      className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded border border-gray-800 hover:scale-105 transition-transform duration-200"
                     >
                       <FaGithub className="mr-2" size={20} />
                       GitHub
                     </Link>
                   ) : (
-                    <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded">
+                    <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded border border-gray-800">
                       <FaGithub className="mr-2" size={20} />
                       Unavailable
                     </div>
@@ -187,14 +197,14 @@ export default function FullArticle({ article }) {
                       href={article.links.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded"
+                      className="inline-flex items-center black_gray_gradient text-white font-bold py-2 px-4 rounded  border border-gray-800 hover:scale-105 transition-transform duration-200"
                     >
-                      <Globe className="mr-2" size={20} />
+                      <ExternalLink className="mr-2" size={20} />
                       Live Demo
                     </Link>
                   ) : (
-                    <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded">
-                      <Globe className="mr-2" size={20} />
+                    <div className="inline-flex items-center black_gray_gradient text-red-500 font-bold py-2 px-4 rounded  border border-gray-800">
+                      <ExternalLink className="mr-2" size={20} />
                       Demo Unavailable
                     </div>
                   )}
