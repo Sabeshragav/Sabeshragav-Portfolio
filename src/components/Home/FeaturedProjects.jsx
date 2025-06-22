@@ -3,6 +3,7 @@ import Loader from "@components/Loader";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useScreenSize } from "@/hooks/useScreenSize";
 
 const ProjectCard = ({ title, description, image, id }) => (
   <motion.div
@@ -33,6 +34,9 @@ export default function FeaturedProjects({
   ParallaxText,
   HorizontalParallaxSection,
 }) {
+  const { isMobile } = useScreenSize();
+  const articlesToShow = isMobile ? 4 : 5;
+
   return (
     <section
       id="featured_projects"
@@ -40,12 +44,12 @@ export default function FeaturedProjects({
     >
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
         <ParallaxText className={"mb-12"}>Featured Projects</ParallaxText>
-      </h2>
-
-      {/* Minimum article - 4*/}
+      </h2>{" "}
       {articles?.length ? (
         <HorizontalParallaxSection>
-          {articles?.slice(0, 4).map((article, index) => (
+          {/* Mobile articles - 4*/}
+          {/* PC articles - 5*/}
+          {articles?.slice(0, articlesToShow).map((article, index) => (
             <ProjectCard
               key={index}
               title={article?.title || "Loading Title"}

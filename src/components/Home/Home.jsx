@@ -14,6 +14,7 @@ import Services from "./Services";
 import { setViewPosition } from "@features/pageSlice";
 import Intro from "./Intro";
 import Upcomming from "./Upcomming";
+import { useScreenSize } from "@/hooks/useScreenSize";
 
 const ParallaxText = ({ children, speed = 1, className }) => {
   const ref = useRef(null);
@@ -37,6 +38,7 @@ const ParallaxText = ({ children, speed = 1, className }) => {
 
 const HorizontalParallaxSection = ({ children }) => {
   const [width, setWidth] = useState(0);
+  const { isDesktop } = useScreenSize();
   const carousel = useRef();
 
   useEffect(() => {
@@ -44,7 +46,8 @@ const HorizontalParallaxSection = ({ children }) => {
   }, []);
 
   const { scrollYProgress } = useScroll();
-  const x = useTransform(scrollYProgress, [0, 1], [0, -width * 1.6]);
+  const hSpeed = isDesktop ? 4 : 1;
+  const x = useTransform(scrollYProgress, [0, 1], [0, -width * 1.6 * hSpeed]);
 
   return (
     <motion.div
