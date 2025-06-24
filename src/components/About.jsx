@@ -385,7 +385,7 @@ export default function About() {
                 </h3>
               </div>
               <p className="text-base sm:text-lg text-white mb-1">
-                Product Developer Intern
+                Full-Stack Developer Intern
               </p>
               <p className="italic text-xs sm:text-sm text-blue-300 mb-3">
                 February 2025 - July 2025
