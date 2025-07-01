@@ -509,6 +509,80 @@ db.articles.insertMany([
             "Bus Routes",
             "Committee"
         ]  
+    },
+    {
+        "order": 10,      
+        "title": "Edusite eLearning Platform",  
+        "description": "Dr. R Anurekha Educational Platform is a comprehensive full-stack web application designed for modern online education. This multi-tiered architecture features a robust Node.js backend with Express and Prisma ORM, supporting PostgreSQL for scalable data management. The platform includes two distinct frontends: a React-based student interface built with Next.js and a dedicated admin dashboard for content management.\nThe system offers extensive educational features including course management, interactive learning materials, video content, practice questions, and real-time discussion forums. Authentication is handled through Google OAuth and JWT tokens, while AWS S3 integration provides secure file storage and retrieval. The platform supports multiple content types including PDFs, presentations, programming resources, and question papers.\nKey technical highlights include RESTful API design, role-based access control, responsive design with TailwindCSS, and comprehensive analytics. The admin dashboard enables efficient content management, user administration, and platform monitoring. Built with modern development practices, the application features automated testing, error handling, and performance optimization. The entire system is designed for scalability and maintainability, supporting thousands of concurrent users while maintaining excellent performance and user experience.",
+        "specific": [   
+            "Dr. R Anurekha",  
+            "Node.js",
+            "React-based",
+            "Next.js",
+            "Prisma ORM",
+            "PostgreSQL",
+            "Authentication",
+            "Google OAuth",
+            "AWS S3",
+            "RESTful API",
+            "TailwindCSS"
+        ],  
+        "technologies": [
+            "Next.js", 
+            "Google OAuth", 
+            "AWS S3", 
+            "AWS SES",
+            "Express.js", 
+            "Node.js",
+            "Prisma ORM", 
+            "PostgreSQL", 
+            "TailwindCSS", 
+            "JWT", 
+            "Passport.js",
+            "Vercel"
+        ],
+        "links":{
+            "website":"https://www.drranurekha.com"
+        },
+        "date": "2025-06-01",     
+        "teamSize" : "20+",
+        "difficultyLevel":"Medium",    
+        "deployStatus":true,
+        "challenges": [
+            "Implementing secure multi-provider authentication with Google OAuth and JWT token management across three separate applications.",
+            "Designing a scalable file upload system supporting multiple formats (PDFs, presentations, videos) with AWS S3 integration and automatic processing.",
+            "Creating a complex hierarchical content management system with courses, topics, subtopics, and various content types while maintaining data integrity.",
+            "Building responsive user interfaces that work seamlessly across admin dashboard, student portal, and mobile devices with consistent UX."
+        ],
+        "solutions": [
+            "Developed a centralized authentication system using Passport.js with Google OAuth 2.0, JWT tokens, and refresh token rotation for enhanced security.",
+            "Built a robust file management pipeline with Multer for uploads, automatic virus scanning, metadata extraction, and S3 storage with CDN optimization.",
+            "Implemented Prisma ORM with PostgreSQL for type-safe database operations, complex relationships, and efficient query optimization with proper indexing.",
+            "Created a design system with TailwindCSS, responsive components, and consistent styling across all applications using mobile-first approach."
+        ],
+        "features": [
+            "Comprehensive analytics dashboard with user activity tracking and content performance metrics.",
+            "Advanced search functionality across all content types with filtering and categorization.",
+            "Role-based access control with granular permissions for students, educators, and administrators."
+        ],
+        "images": [  
+            "edusite/1.jpg",
+            "edusite/2.jpg",
+            "edusite/3.jpg",
+            "edusite/4.jpg",
+            "edusite/5.jpg",
+            "edusite/6.jpg",
+            "edusite/7.jpg"
+        ], 
+        "screenshotTitles":[   
+            "User's Landing",
+            "Explore Courses",
+            "Lecture Notes",
+            "Presenatations",
+            "Videos",
+            "Admin's Dashboard",
+            "Admin's Course Access"
+        ]  
     }
 ])
 
@@ -518,7 +592,7 @@ db.articles.insertOne(
     {
         "order": ,      
         "title": "",  
-        "description": " ",     // Use "\n" to separate paragraphs
+        "description": " ",     // Use "\n" to separate paragraphs (200 words)
         "specific": [     
             " ",
             " "
