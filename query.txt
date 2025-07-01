@@ -156,12 +156,13 @@ db.articles.insertMany([
         ],  
         "technologies": ["Vite","React", "TailwindCSS", "Express","Node.js","MongoDB"],
         "links":{
-            "github":"https://github.com/Sabeshragav/Engaging-Enchanteur"
+            "github":"https://github.com/Sabeshragav/Engaging-Enchanteur",
+            "website":"https://engaging-enchanteur.vercel.app"
         },
         "date": "2024-12-30",     
         "teamSize" :3 ,
         "difficultyLevel":"Easy",     
-        "deployStatus":false,
+        "deployStatus":true,
         "challenges": [
             "Designing a visually appealing UI for a luxury product line",
             "Ensuring seamless navigation between pages for user convenience",
