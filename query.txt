@@ -275,7 +275,64 @@ db.articles.insertMany([
         ]  
     },
     {
-        "order": 6,      
+        "order": 8,      
+        "title": "Real-Time Chat Application",  
+        "description": "This real-time chat application is built using Spring Boot for the backend and Next.js for the frontend, enabling seamless WebSocket communication. It leverages Spring WebSockets with STOMP to facilitate real-time messaging between users.\nOn the frontend, React, TypeScript, and Stomp.js handle WebSocket connections, ensuring smooth data exchange. The UI is designed with Tailwind CSS and shadcn/ui, providing a modern and intuitive user experience. Users can join the chat, send messages, and see when others enter or leave.\nThe backend efficiently manages WebSocket events and broadcasts messages through a Spring message broker, ensuring low-latency communication. The project follows a clean, scalable architecture, making it an excellent choice for real-time applications like team chats, live support, and collaborative messaging.", 
+        "specific": [     
+            "Spring Boot",
+            "Next.js",
+            "STOMP",
+            "Tailwind CSS",
+            "Shadcn/ui",
+            "React",
+            "TypeScript",
+            "Stomp.js",
+            "see when others enter or leave",
+            "real-time applications"
+        ],  
+        "technologies": ["Spring Boot", "NextJs", "WebSocket","STOMP(protocol)","TailwindCSS","Shadcn/ui"],
+        "links":{
+            "github":"https://github.com/Sabeshragav/Spring-Boot-Chat-Application"
+        },
+        "date": "2025-02-12",
+        "teamSize" : 1,
+        "difficultyLevel":"Easy",
+        "deployStatus":false,
+        "challenges": [
+            "Real-time Communication Handling – Ensuring seamless message delivery over WebSockets with multiple users.",
+            "Ensuring Low-Latency Messaging – Avoiding message lag or delays in WebSocket connections.",
+            "Scalability & Performance – Maintaining smooth performance as the number of concurrent users increases.",
+            "UI Responsiveness & User Experience – Designing a modern, intuitive, and responsive chat interface."
+        ],
+        "solutions": [
+            "Spring Boot WebSockets with STOMP – Enables efficient, real-time event-driven communication.",
+            "WebSocket Message Broker – Uses Spring's built-in broker for fast, scalable message broadcasting.",
+            "Optimized Backend & Asynchronous Processing – Ensures efficient message handling with minimal delays.",
+            "shadcn/ui & Tailwind CSS – Provides a modern, visually appealing, and responsive chat UI."
+        ],
+        "features": [
+            "Real-time Chat Messaging – Users can send and receive messages instantly with WebSocket communication.",
+            "User Presence & Status Updates – Displays when users join or leave the chat."
+        ],
+        "images": [   
+            "springboot-chat/1.jpg",
+            "springboot-chat/2.jpg",
+            "springboot-chat/3.jpg",
+            "springboot-chat/4.jpg",
+            "springboot-chat/5.jpg",
+            "springboot-chat/6.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Chat Application - Spring Boot",
+            "3 Users Joining the Chat Sequentially",
+            "Conversion",
+            "User 1 Left",
+            "User 2 Left",
+            "SpringBoot - Backend Log"
+        ]  
+    },
+    {
+        "order": 66,      
         "title": "SLC - A Food Ordering System",  
         "description": "A comprehensive Food Ordering Platform developed to cater to the needs of an association. The system includes dedicated panels for both administrators and users, providing a seamless experience tailored to their respective roles.\nReal-time updates ensure that order statuses and communications are synchronized instantly across all devices. The platform is built with a responsive design, ensuring compatibility and optimal usability on desktops, tablets, and mobile devices.\nTo prioritize security and user convenience, authentication and role-based access control are implemented using Firebase. This solution streamlines the management of orders while maintaining robust data integrity and user privacy.",     
         "specific": [     
@@ -350,7 +407,7 @@ db.articles.insertMany([
         ]  
     },
     {
-        "order": 7,      
+        "order": 70,      
         "title": "NextJs Social Media",  
         "description": "A minimalist Social Media web app designed to provide a seamless user experience. Users can create, edit, and delete their posts while exploring and copying content shared by others. The platform emphasizes simplicity and functionality, making it user-friendly and intuitive.\nThe app features integration with Next-Auth's Google provider, ensuring secure and hassle-free authentication for all users. This makes the login process seamless and secure, enhancing user trust.\nBuilt with modern web technologies like Next.js, TailwindCSS, and MongoDB, the app boasts a responsive design that adapts effortlessly to different devices. Its efficient performance ensures accessibility and ease of use for a wide range of users.\nSpecial thanks to JavaScript Mastery for inspiration and learning resources.",     
         "specific": [     
@@ -401,64 +458,64 @@ db.articles.insertMany([
         ]  
     },
     {
-        "order": 8,      
-        "title": "Real-Time Chat Application",  
-        "description": "This real-time chat application is built using Spring Boot for the backend and Next.js for the frontend, enabling seamless WebSocket communication. It leverages Spring WebSockets with STOMP to facilitate real-time messaging between users.\nOn the frontend, React, TypeScript, and Stomp.js handle WebSocket connections, ensuring smooth data exchange. The UI is designed with Tailwind CSS and shadcn/ui, providing a modern and intuitive user experience. Users can join the chat, send messages, and see when others enter or leave.\nThe backend efficiently manages WebSocket events and broadcasts messages through a Spring message broker, ensuring low-latency communication. The project follows a clean, scalable architecture, making it an excellent choice for real-time applications like team chats, live support, and collaborative messaging.", 
+        "order": 76,      
+        "title": "kandro - Decentralized Dataset Marketplace",  
+        "description": "Project Kandro is a decentralized platform for dataset sharing and monetization developed by our team of 4 during a 24-hour hackathon at KSR Engineering College. As Top 15 Finalists among 300+ participants in the Google Developers Group hackathon, we demonstrated rapid full-stack development and effective teamwork under strict deadlines.\nThe platform revolutionizes data commerce by enabling users to upload, evaluate, and purchase datasets through blockchain technology. Our solution features an intelligent data quality assessment system powered by Python and machine learning algorithms that analyze datasets for missing values, duplicates, and outliers. The smart contract built with Solidity manages dataset metadata and ownership on the blockchain, ensuring transparency and security.\nThe React-based frontend provides an intuitive interface for wallet connection, dataset browsing, and community interaction through integrated discussion forums. The Node.js backend handles file uploads via Pinata for IPFS storage, ensuring decentralized data persistence. Users can seamlessly interact with the platform through MetaMask wallet integration.\nThis hackathon project showcases our ability to rapidly prototype complex solutions combining Web3 technologies, data science, and modern web development frameworks while solving real-world problems in data monetization and quality assurance.",
         "specific": [     
-            "Spring Boot",
-            "Next.js",
-            "STOMP",
-            "Tailwind CSS",
-            "Shadcn/ui",
-            "React",
-            "TypeScript",
-            "Stomp.js",
-            "see when others enter or leave",
-            "real-time applications"
-        ],  
-        "technologies": ["Spring Boot", "NextJs", "WebSocket","STOMP(protocol)","TailwindCSS","Shadcn/ui"],
+            "Blockchain",
+            "Decentralized",
+            "Smart Contract",
+            "Data Quality",
+            "IPFS Storage",
+            "Web3 Technologies",
+            "Machine Learning",
+            "React Frontend",
+            "Monetization",
+            "24-hour Hackathon"
+        ],
+        "technologies": ["React", "Node.js", "Solidity", "Python","Vite", "Blockchain", "IPFS", "Web3.js", "Express.js", "Machine Learning", "Tailwind CSS"],
         "links":{
-            "github":"https://github.com/Sabeshragav/Spring-Boot-Chat-Application"
+            "github":"https://github.com/Sabeshragav/project-kandro",
         },
-        "date": "2025-02-12",
-        "teamSize" : 1,
-        "difficultyLevel":"Easy",
+        "date": "2024-11-08", 
+        "teamSize" : 4,
+        "difficultyLevel":"Medium",
         "deployStatus":false,
         "challenges": [
-            "Real-time Communication Handling – Ensuring seamless message delivery over WebSockets with multiple users.",
-            "Ensuring Low-Latency Messaging – Avoiding message lag or delays in WebSocket connections.",
-            "Scalability & Performance – Maintaining smooth performance as the number of concurrent users increases.",
-            "UI Responsiveness & User Experience – Designing a modern, intuitive, and responsive chat interface."
+            "Implementing blockchain integration and smart contract deployment within 24-hour time constraint",
+            "Developing accurate data quality assessment algorithms using machine learning in limited time",
+            "Ensuring seamless wallet connectivity and Web3 interactions across different browsers",
+            "Managing decentralized file storage through IPFS while maintaining data integrity and accessibility"
         ],
         "solutions": [
-            "Spring Boot WebSockets with STOMP – Enables efficient, real-time event-driven communication.",
-            "WebSocket Message Broker – Uses Spring's built-in broker for fast, scalable message broadcasting.",
-            "Optimized Backend & Asynchronous Processing – Ensures efficient message handling with minimal delays.",
-            "shadcn/ui & Tailwind CSS – Provides a modern, visually appealing, and responsive chat UI."
+            "Utilized Solidity smart contracts for secure dataset metadata management",
+            "Implemented Python-based quality metrics using XGBoost and scikit-learn for comprehensive data analysis",
+            "Integrated MetaMask wallet connection with React frontend using Ethers.js and Web3.js libraries",
+            "Leveraged Pinata SDK for reliable IPFS storage integration with automated file upload handling"
         ],
         "features": [
-            "Real-time Chat Messaging – Users can send and receive messages instantly with WebSocket communication.",
-            "User Presence & Status Updates – Displays when users join or leave the chat."
+            "Decentralized dataset marketplace with blockchain-based ownership and smart contract management",
+            "AI-powered data quality assessment system analyzing missing values, duplicates, and outliers",
+            "Secure wallet authentication and Web3 integration for seamless blockchain interactions",
+            "Community discussion forum and responsive UI built with React and Tailwind CSS"
         ],
         "images": [   
-            "springboot-chat/1.jpg",
-            "springboot-chat/2.jpg",
-            "springboot-chat/3.jpg",
-            "springboot-chat/4.jpg",
-            "springboot-chat/5.jpg",
-            "springboot-chat/6.jpg"
+            "kandro/1.jpg",
+            "kandro/2.jpg",
+            "kandro/3.jpg",
+            "kandro/4.jpg",
+            "kandro/5.jpg"
         ], 
         "screenshotTitles":[   
-            "Chat Application - Spring Boot",
-            "3 Users Joining the Chat Sequentially",
-            "Conversion",
-            "User 1 Left",
-            "User 2 Left",
-            "SpringBoot - Backend Log"
+            "Landing Page",
+            "Datasets Showcase",
+            "Dataset Preview",
+            "Checking Sanity",
+            "Upload Dataset",
         ]  
     },
     {
-        "order": 9,      
+        "order": 888,      
         "title": "Gusto 25",  
         "description": "Gusto 25 is a comprehensive event management website developed for Government College of Engineering, Erode 2025's annual technical symposium, conducted by Department of Information Technology. Built with modern web technologies including Next.js, AWS Amplify, and TailwindCSS, this platform serves as a one-stop destination for all symposium-related information and resources.\n\nThe website features an intuitive interface that provides detailed event proceedings, schedules, and registration details. A standout feature is the dynamic timeline that breaks down activities day by day, helping participants plan their symposium experience effectively. The platform also includes essential logistics information, such as campus transportation schedules and bus routes, ensuring smooth navigation for attendees from various locations.\n\nWhat sets Gusto 25 apart is its comprehensive coordinator contact system, allowing direct communication between participants and event organizers. The website also showcases committee acknowledgments, recognizing the hard work of individuals behind the symposium's organization. The integration of a countdown timer adds excitement while keeping visitors informed of the approaching event dates.\n\nDeveloped as a collaborative effort by a two-member team, the website demonstrates effective use of modern web development practices. The combination of Next.js for enhanced performance, AWS Amplify for robust backend services, and TailwindCSS for responsive design results in a professional and user-friendly platform that effectively serves the symposium's diverse needs.",
         "specific": [     
@@ -511,7 +568,7 @@ db.articles.insertMany([
         ]  
     },
     {
-        "order": 10,      
+        "order": 1340,      
         "title": "Edusite eLearning Platform",  
         "description": "Dr. R Anurekha Educational Platform is a comprehensive full-stack web application designed for modern online education. This multi-tiered architecture features a robust Node.js backend with Express and Prisma ORM, supporting PostgreSQL for scalable data management. The platform includes two distinct frontends: a React-based student interface built with Next.js and a dedicated admin dashboard for content management.\nThe system offers extensive educational features including course management, interactive learning materials, video content, practice questions, and real-time discussion forums. Authentication is handled through Google OAuth and JWT tokens, while AWS S3 integration provides secure file storage and retrieval. The platform supports multiple content types including PDFs, presentations, programming resources, and question papers.\nKey technical highlights include RESTful API design, role-based access control, responsive design with TailwindCSS, and comprehensive analytics. The admin dashboard enables efficient content management, user administration, and platform monitoring. Built with modern development practices, the application features automated testing, error handling, and performance optimization. The entire system is designed for scalability and maintainability, supporting thousands of concurrent users while maintaining excellent performance and user experience.",
         "specific": [   
