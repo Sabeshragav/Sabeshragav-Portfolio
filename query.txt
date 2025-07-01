@@ -332,6 +332,74 @@ db.articles.insertMany([
         ]  
     },
     {
+        "order": 50,      
+        "title": "Portfolio - The Site Itself",  
+        "description": "This Next.js Portfolio is a comprehensive full-stack web application that demonstrates modern web development expertise through a sophisticated personal showcase platform. Built with cutting-edge technologies including React, Tailwind CSS, and Redux Toolkit, the project features seamless authentication via NextAuth with Google and GitHub integration.\nThe portfolio showcases a dynamic project gallery with detailed breakdowns, an integrated blogging system for technical articles, and a secure contact form for authenticated users. The application emphasizes responsive design with Framer Motion animations and custom gradients, ensuring an exceptional user experience across all devices.\nKey technical implementations include RESTful API routes, robust state management through Redux Toolkit, and a modular architecture supporting pluggable database solutions. The platform demonstrates proficiency in both frontend and backend development, featuring secure authentication flows, dynamic content management, and optimized performance.\nThe project structure follows industry best practices with organized components, feature-based Redux slices, and comprehensive utility services. This portfolio serves as both a personal showcase and a testament to full-stack development capabilities, highlighting expertise in modern JavaScript frameworks, UI/UX design principles, and scalable web architecture.", 
+        "specific": [     
+            "Next.js",
+            "Tailwind CSS",
+            "Redux Toolkit",
+            "Authentication",
+            "Responsive Design",
+            "Framer Motion",
+            "API Routes",
+            "Full-stack",
+            "Modern"
+        ],  
+        "technologies": ["NextJs", "Redux-Toolkit", "React", "Tailwind CSS", "NextAuth.js", "Framer Motion", "MongoDB", "JavaScript"],
+        "links":{
+            "github":"https://github.com/Sabeshragav/Sabeshragav-Portfolio",
+            "website":"https://sabeshragav.vercel.app"
+        },
+        "date": "2025-01-17",  
+        "teamSize" : 1,
+        "difficultyLevel":"Easy", 
+        "deployStatus":true,
+        "challenges": [
+            "Implementing secure authentication with multiple OAuth providers while maintaining session persistence",
+            "Managing complex state across components for articles, user data, and UI interactions using Redux Toolkit",
+            "Creating responsive animations and smooth transitions that work seamlessly across different devices and screen sizes",
+            "Designing a scalable API architecture with RESTful endpoints for articles, authentication, and contact forms"
+        ],
+        "solutions": [
+            "Integrated NextAuth.js with Google and GitHub providers, implementing secure session management and protected routes",
+            "Architected Redux store with feature-based slices for articles, authentication, and UI state with proper data normalization",
+            "Utilized Framer Motion for performant animations combined with Tailwind CSS responsive utilities for fluid user experience",
+            "Built modular API routes in Next.js with proper error handling, validation, and database abstraction for maintainability"
+        ],
+        "features": [
+            "Dynamic project showcase with detailed breakdowns, technology stacks, and live demonstrations",
+            "Integrated blogging system with rich content management for technical articles and insights",
+            "Secure user authentication with OAuth integration and protected contact form functionality",
+            "Fully responsive design with modern UI elements, custom gradients, and smooth animations",
+            "Social media integration with direct links to GitHub, LinkedIn, LeetCode, and professional profiles"
+        ],
+        "images": [   
+            "portfolio/1.jpg",
+            "portfolio/2.jpg",
+            "portfolio/3.jpg",
+            "portfolio/4.jpg",
+            "portfolio/5.jpg",
+            "portfolio/6.jpg",
+            "portfolio/7.jpg",
+            "portfolio/8.jpg",
+            "portfolio/9.jpg",
+            "portfolio/10.jpg"
+        ], 
+        "screenshotTitles":[   
+            "Welcome Page",
+            "Featured Projects",
+            "Project Highlights",
+            "Specific Project Overview",
+            "Project Breakdown & Screenshots",
+            "Related Projects",
+            "About Me!",
+            "Skillset",
+            "Supported OAuth",
+            "Login"
+        ]  
+    },
+    {
         "order": 66,      
         "title": "SLC - A Food Ordering System",  
         "description": "A comprehensive Food Ordering Platform developed to cater to the needs of an association. The system includes dedicated panels for both administrators and users, providing a seamless experience tailored to their respective roles.\nReal-time updates ensure that order statuses and communications are synchronized instantly across all devices. The platform is built with a responsive design, ensuring compatibility and optimal usability on desktops, tablets, and mobile devices.\nTo prioritize security and user convenience, authentication and role-based access control are implemented using Firebase. This solution streamlines the management of orders while maintaining robust data integrity and user privacy.",     
@@ -478,7 +546,7 @@ db.articles.insertMany([
             "github":"https://github.com/Sabeshragav/project-kandro",
         },
         "date": "2024-11-08", 
-        "teamSize" : 4,
+        "teamSize" : 6,
         "difficultyLevel":"Medium",
         "deployStatus":false,
         "challenges": [
