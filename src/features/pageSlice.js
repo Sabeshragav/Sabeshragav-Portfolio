@@ -61,7 +61,7 @@ const pageSlice = createSlice({
   initialState,
   reducers: {
     handleScrollToTop: () => {
-      window.scrollTo({ top: 0, behavior: "auto" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
     setSearchVal: (state, action) => {
       state.searchVal = action.payload;

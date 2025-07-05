@@ -6,6 +6,9 @@ import { useInView } from "react-intersection-observer";
 import Loader from "./Loader";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCode } from "react-icons/fa";
+import { GoBook } from "react-icons/go";
+import { MdOutlinePeopleOutline, MdOutlineTravelExplore } from "react-icons/md";
 
 export default function About() {
   const controls = useAnimation();
@@ -13,50 +16,19 @@ export default function About() {
   const hobbies = [
     {
       title: "Exploring New Technologies",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
+      icon: <MdOutlineTravelExplore />,
     },
     {
-      title: "Reading Tech Blogs",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
-        </svg>
-      ),
+      title: "Reading Tech Blogs and Articles",
+      icon: <GoBook />,
     },
     {
-      title: "Physical Activities",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
+      title: "Collaborating with Peers",
+      icon: <MdOutlinePeopleOutline />,
+    },
+    {
+      title: "Problem Solving and Coding Challenges",
+      icon: <FaCode />,
     },
   ];
 
@@ -243,18 +215,7 @@ export default function About() {
         >
           <h2 className="text-2xl sm:text-3xl text-white font-bold mb-4 sm:mb-6 flex items-center">
             <span className="mr-2 sm:mr-3 text-blue-400">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 sm:h-7 sm:w-7"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <FaCode className="h-5 w-5 sm:h-7 sm:w-7" />
             </span>
             Skills
           </h2>

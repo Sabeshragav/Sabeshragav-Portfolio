@@ -11,6 +11,13 @@ const NavList = ({ elementId, label }) => {
     <li className="float_nav">
       <Link
         href={`#${elementId}`}
+        onClick={(e) => {
+          e.preventDefault();
+          const targetElement = document.getElementById(elementId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
         className={`${
           viewPosition === elementId ? "text-blue-500" : "text-white"
         } sm:font-bold`}

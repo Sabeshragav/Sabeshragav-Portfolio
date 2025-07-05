@@ -72,7 +72,7 @@ export default function FeaturedProjects({
           href="/projects"
           className="inline-block bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition duration-300"
         >
-          Explore All
+          Explore all Projects
         </Link>
       </div>
     </section>

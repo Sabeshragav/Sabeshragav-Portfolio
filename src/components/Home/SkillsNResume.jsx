@@ -54,6 +54,17 @@ export default function SkillsNResume({ ParallaxText }) {
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
+        className="max-w-md mx-auto text-center"
+      >
+        <p className="text-gray-200 text-md md:text-lg font-medium italic">
+          This is just a glimpse of the skills and technologies I excel in !
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
         className="max-w-md mx-auto text-center mt-14"
       >
         <Link

@@ -8,8 +8,9 @@ import {
   getArticleStatus,
   selectAllArticlesIds,
 } from "@/features/articleSlice";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import Loader from "@components/Loader";
+import ScrollProgressBar from "@components/Custom/ScrollProgressBar";
 
 export default function ArticleGrid() {
   const articleIds = useSelector(selectAllArticlesIds);
@@ -17,13 +18,6 @@ export default function ArticleGrid() {
   const articleError = useSelector(getArticleError);
 
   const [isLoaded, setIsLoaded] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   useEffect(() => {
     setIsLoaded(true);
@@ -83,10 +77,7 @@ export default function ArticleGrid() {
       >
         {content}
         {/* Scroll progress bar */}
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-3 bg-slate-500 origin-left z-50"
-          style={{ scaleX }}
-        />
+        <ScrollProgressBar />
       </div>
     </div>
   );
