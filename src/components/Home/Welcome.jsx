@@ -91,13 +91,22 @@ export default function Welcome({ ParallaxText }) {
         ))}
         <div className="translate-y-20 flex justify-center">
           <ArrowDown
-            className="animate-bounce h-12 w-12"
-            onClick={() => {
-              if (!showInfo) {
-                setShowInfo(true);
-                setTimeout(() => {
-                  setShowInfo(false);
-                }, 3000);
+            className="animate-bounce h-12 w-12 hover:cursor-pointer"
+            // onClick={() => {
+            //   if (!showInfo) {
+            //     setShowInfo(true);
+            //     setTimeout(() => {
+            //       setShowInfo(false);
+            //     }, 3000);
+            //   }
+            // }}
+
+            onClick={(e) => {
+              e.preventDefault();
+              const targetElement =
+                document.getElementById("featured_projects");
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
               }
             }}
           />
