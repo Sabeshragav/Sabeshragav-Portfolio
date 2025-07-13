@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { FaGithub, FaHackerrank, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaGitlab, FaHackerrank, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode, SiCodechef } from "react-icons/si";
 import { ArrowUp, MailIcon } from "lucide-react";
@@ -17,6 +17,8 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // Social media links
   const github = "https://github.com/Sabeshragav";
   const linkedIn = "https://linkedin.com/in/sabeshragavgk";
   const gmail = "mailto:sabeshragav289@gmail.com";
@@ -24,6 +26,7 @@ const Footer = () => {
   const leetcode = "https://leetcode.com/u/sabeshragav289";
   const hackerRank = "https://www.hackerrank.com/profile/sabeshragav289";
   const codechef = "https://www.codechef.com/users/sabeshragav289";
+  const gitlab = "https://gitlab.com/Sabeshragav";
 
   useEffect(() => {
     setIsLoaded(true);
@@ -151,6 +154,15 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white transition-colors duration-200"
               >
                 <SiCodechef size={24} />
+              </Link>
+              <Link
+                href={gitlab}
+                target="_blank"
+                title="GitLab"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <FaGitlab size={24} />
               </Link>
             </div>
           </div>

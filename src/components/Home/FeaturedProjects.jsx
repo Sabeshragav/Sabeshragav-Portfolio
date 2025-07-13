@@ -35,7 +35,7 @@ export default function FeaturedProjects({
   HorizontalParallaxSection,
 }) {
   const { isMobile } = useScreenSize();
-  const articlesToShow = isMobile ? 4 : 5;
+  const articlesToShow = isMobile ? 4 : 4;
 
   return (
     <section
