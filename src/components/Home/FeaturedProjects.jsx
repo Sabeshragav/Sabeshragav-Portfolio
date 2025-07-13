@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useScreenSize } from "@/hooks/useScreenSize";
+import { useRouter } from "next/navigation";
 
-const ProjectCard = ({ title, description, image, id }) => (
+const ProjectCard = ({ title, description, image }) => (
   <motion.div
     className="min-w-[300px] h-[400px] m-4 relative overflow-hidden rounded-xl"
     whileHover={{ scale: 1.05 }}
@@ -20,12 +21,11 @@ const ProjectCard = ({ title, description, image, id }) => (
       priority
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
-    <Link href={`/article/${id}`}>
-      <div className="absolute bottom-0 left-0 p-4 z-20">
-        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-slate-300">{description}</p>
-      </div>
-    </Link>
+
+    <div className="hover:cursor-pointer text-left absolute bottom-0 left-0 p-4 z-20">
+      <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+      <p className="text-slate-300">{description}</p>
+    </div>
   </motion.div>
 );
 
@@ -36,6 +36,7 @@ export default function FeaturedProjects({
 }) {
   const { isMobile } = useScreenSize();
   const articlesToShow = isMobile ? 4 : 4;
+  const router = useRouter();
 
   return (
     <section
@@ -50,16 +51,19 @@ export default function FeaturedProjects({
           {/* Mobile articles - 4*/}
           {/* PC articles - 5*/}
           {articles?.slice(0, articlesToShow).map((article, index) => (
-            <ProjectCard
-              key={index}
-              title={article?.title || "Loading Title"}
-              description={
-                `${article?.description?.slice(0, 70)}...` ||
-                "Loading Description"
-              }
-              image={`/images/${article?.images?.[0]}`}
-              id={article?.id}
-            />
+            <div onClick={() => router.push(`/article/${article?.id}`)}>
+              <ProjectCard
+                key={index}
+                title={article?.title || "Loading Title"}
+                description={
+                  `${article?.description?.slice(0, 70)}...` ||
+                  "Loading Description"
+                }
+                image={`/images/${article?.images?.[0]}`}
+                id={article?.id}
+                router={router}
+              />
+            </div>
           ))}
         </HorizontalParallaxSection>
       ) : (

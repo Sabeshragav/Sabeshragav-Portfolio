@@ -46,7 +46,7 @@ const HorizontalParallaxSection = ({ children }) => {
   }, []);
 
   const { scrollYProgress } = useScroll();
-  const hSpeed = isDesktop ? 2.5 : 1;
+  const hSpeed = isDesktop ? 2.5 : 1.5;
   const x = useTransform(scrollYProgress, [0, 1], [0, -width * 1.6 * hSpeed]);
 
   return (
