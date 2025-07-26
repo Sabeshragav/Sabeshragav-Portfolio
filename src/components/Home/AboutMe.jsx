@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ColorTransition } from "./GeometricLogin";
 
 export default function AboutMe({ ParallaxText }) {
   return (
@@ -34,21 +33,17 @@ export default function AboutMe({ ParallaxText }) {
           through design expertise and cutting-edge technologies. "
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-md mx-auto text-center"
         >
-          <div className="flex justify-center">
-            <Link href="/about">
-              <ColorTransition
-                className={
-                  "text-white font-bold py-3 px-6 rounded-full transition duration-300"
-                }
-                children={"Know More"}
-              />
-            </Link>
-          </div>
+          <Link
+            href={"/about"}
+            className="inline-block bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-slate-200 transition duration-300"
+          >
+            Know More
+          </Link>
         </motion.div>
       </div>
     </section>

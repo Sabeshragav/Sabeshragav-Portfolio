@@ -51,9 +51,11 @@ export default function FeaturedProjects({
           {/* Mobile articles - 4*/}
           {/* PC articles - 5*/}
           {articles?.slice(0, articlesToShow).map((article, index) => (
-            <div onClick={() => router.push(`/article/${article?.id}`)}>
+            <div
+              key={index}
+              onClick={() => router.push(`/article/${article?.id}`)}
+            >
               <ProjectCard
-                key={index}
                 title={article?.title || "Loading Title"}
                 description={
                   `${article?.description?.slice(0, 70)}...` ||
