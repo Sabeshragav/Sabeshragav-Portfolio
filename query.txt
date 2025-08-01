@@ -292,12 +292,13 @@ db.articles.insertMany([
         ],  
         "technologies": ["Spring Boot", "NextJs", "WebSocket","STOMP(protocol)","TailwindCSS","Shadcn/ui"],
         "links":{
-            "github":"https://github.com/Sabeshragav/Spring-Boot-Chat-Application"
+            "github":"https://github.com/Sabeshragav/Spring-Boot-Chat-Application",
+            "website":"https://spring-boot-chat-application.vercel.app"
         },
         "date": "2025-02-12",
         "teamSize" : 1,
         "difficultyLevel":"Easy",
-        "deployStatus":false,
+        "deployStatus":true,
         "challenges": [
             "Real-time Communication Handling – Ensuring seamless message delivery over WebSockets with multiple users.",
             "Ensuring Low-Latency Messaging – Avoiding message lag or delays in WebSocket connections.",
