@@ -168,23 +168,25 @@ export default function About() {
         <motion.div className="md:w-3/5" variants={textVariants}>
           <div className="prose prose-lg">
             <p className="text-gray-200 leading-relaxed text-sm sm:text-md md:text-lg">
-              As a budding Full-Stack Developer, I'm passionate about building
-              user-centric web apps with modern tools like{" "}
-              <span className="font-bold text-white">React</span>,{" "}
-              <span className="font-bold text-white">Next.js</span>, Tailwind
-              CSS, Node.js, and Spring Boot. I enjoy solving complex problems
-              with clean, scalable solutions across both front-end and back-end.
+              I’m a{" "}
+              <span className="font-bold text-white">Full Stack Engineer</span>{" "}
+              who enjoys working across the entire stack, with particular
+              interest in{" "}
+              <span className="font-bold text-white">
+                system design, data flow, performance profiling, cloud
+                infrastructure, DevOps practices, intelligent agents and
+                maintainable architecture.
+              </span>
             </p>
             <p className="text-gray-200 leading-relaxed text-sm sm:text-md md:text-lg mt-4">
-              Currently exploring{" "}
-              <span className="font-bold text-white">RAG</span> and{" "}
-              <span className="font-bold text-white">MCP</span>, I'm driven by a
-              deep interest in intelligent, AI-powered Full-Stack systems.
+              I actively invest time in strengthening my foundations in data
+              structures, algorithms, and system-level thinking, and I enjoy
+              breaking down complex problems into efficient, well-structured
+              solutions that scale in real-world environments.
             </p>
             <p className="text-gray-200 leading-relaxed text-sm sm:text-md md:text-lg mt-4">
-              Always eager to learn, I bring adaptability, clean code, and fresh
-              energy to every team I join. In my free time, I enjoy exploring
-              new technologies, and spending time with friends and family.
+              Always eager to learn, and bring adaptability, fresh energy and
+              clean code to every team I join.
             </p>
           </div>
         </motion.div>
@@ -254,7 +256,7 @@ export default function About() {
             <motion.li variants={skillsVariants} className="flex items-start">
               <span className="text-blue-400 mr-2 text-sm sm:text-base">•</span>
               <span className="text-sm sm:text-base">
-                AWS (S3, Amplify) - Vercel - Netlify
+                AWS (S3, Amplify, SES) - Vercel - Netlify
               </span>
             </motion.li>
             <motion.li variants={skillsVariants} className="flex items-start">
