@@ -9,6 +9,12 @@ export default function Upcomming({ ParallaxText }) {
         "This task involves developing a social-driven ecommerce platform that integrates social networking features with online shopping, enabling users to share, discuss, and shop for products seamlessly within the same ecosystem.",
       message: "Stay Tuned",
     },
+    {
+      title: "StackRoom",
+      excerpt:
+        "StackRoom is my personal project dedicated to building a comprehensive platform that addresses and solves the common problems I encounter frequently.",
+      message: "Stay Tuned",
+    },
   ];
 
   return (
